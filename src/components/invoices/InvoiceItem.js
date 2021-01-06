@@ -10,16 +10,21 @@ import Button from '../layout/button/Button'
 import PropTypes from 'prop-types'
 
 class InvoiceItem extends Component {
-
+    static propTypes = {
+        invoice: PropTypes.object.isRequired,
+        setCurrent: PropTypes.func.isRequired,
+    }
     render() {
-        const {number, saleDate, creationDate, contractor,price, isPaid}=this.props.invoice
+        const { number, saleDate, creationDate, contractor, price, isPaid, id } = this.props.invoice
         return (
             <tr>
                 <td>
                     <input type='checkbox'></input>
                 </td>
                 <td>
+                    <div onClick={()=>this.props.setCurrent(this.props.invoice)}>
                     <Search height={14} width={14} />
+                    </div>
                 </td>
                 <td>{number}</td>
                 <td>{saleDate}</td>
@@ -27,7 +32,7 @@ class InvoiceItem extends Component {
                 <td>{contractor}</td>
                 <td>
                     <div>{price}</div>
-                    <div>{isPaid ? "opłacono": "nieopłacono"}</div>
+                    <div>{isPaid ? "opłacono" : "nieopłacono"}</div>
                 </td>
                 <td>
                     <Button class="btn btn-green btn-small" name='+ platność' />
