@@ -6,7 +6,7 @@
   margin: auto;
   padding: 5px;
   background-color: rgb(41, 162, 71);
-  max-width: 900px;
+  width: 100%;
   border-bottom: 5px solid rgb(252, 252, 252);
 }
 .topbar-green {

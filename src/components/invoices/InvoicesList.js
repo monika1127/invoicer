@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import InvoiceItem from './InvoiceItem'
-import Spinner from '../layout/Spinner/Spinner'
+import Spinner from '../layout/spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
 import InvoiceDetails from './InvoiceDetails/InvoiceDetails'
 import './invoices.css'
@@ -8,7 +8,8 @@ import './invoices.css'
 export class InvoicesList extends Component {
     state = {
         invoices: [],
-        loading: false
+        loading: false,
+        current: null
     }
 
     componentDidMount() {
@@ -20,6 +21,12 @@ export class InvoicesList extends Component {
 
 
     render() {
+
+        const setCurrent =(invoice)=>{
+
+        this.setState({current: invoice})
+        }
+
         const table =  <table className='table__invoices'>
         <thead>
             <tr className='table__header' >
@@ -37,7 +44,8 @@ export class InvoicesList extends Component {
         <tbody>
             {this.state.invoices.map(invoice => <InvoiceItem
                 key={invoice.id}
-                invoice={invoice} />)}
+                invoice={invoice}
+                setCurrent={setCurrent}/>)}
         </tbody>
     </table>
         return (
@@ -49,7 +57,8 @@ export class InvoicesList extends Component {
                     </div>
                 </div>
                 <div className='section'>
-                    <InvoiceDetails />
+                    {this.state.current ? <InvoiceDetails invoice={this.state.current}/> : <div>Select invoice</div> }
+
                 </div>
             </Fragment>
         )

@@ -16,7 +16,7 @@ export default class InvoiceDetails extends Component {
                     <div className='container-flex-main'>
                         <div className='container-flex'>
                             <h4 >Nabywca</h4>
-                            <div>dane firmy</div>
+                            <div>{this.props.invoice.contractor}</div>
                         </div>
                         <div>
                             <div className='container-flex'>
