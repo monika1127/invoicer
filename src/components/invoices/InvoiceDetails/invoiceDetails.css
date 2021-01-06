@@ -1,0 +1,30 @@
+.invoice__details-section {
+  padding: 30px 10px;
+  background-color: white;
+  border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+.container-flex-main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-flex {
+  display: flex;
+  text-align: center;
+  min-height: 30px;
+}
+.container-flex h4,
+.container-flex h3 {
+  margin: 0 10px;
+}
+.summary {
+  margin-left: auto;
+  right: 0;
+  padding: 20px;
+  border: 1px solid rgb(237, 237, 237);
+  width: 300px;
+}
+.text-separate {
+  justify-content: space-between;
+}

@@ -1,59 +1,63 @@
 {
-    "invoices": [
-      { "id": 1,
-        "number": "11/2020",
-        "saleDate": "20/11/2020",
-        "creationDate": "20/11/2020",
-        "price": 12000,
-        "contractor": "Gumisie i spółka",
-        "isPaid": false,
-        "type": "FV sprzedaż towarów i usług"
+  "invoices": [
+    {
+      "id": 1,
+      "number": "11/2020",
+      "saleDate": "20/11/2020",
+      "creationDate": "20/11/2020",
+      "price": 12000,
+      "contractor": "Gumisie i spółka",
+      "isPaid": false,
+      "type": "FV sprzedaż towarów i usług"
     },
-    { "id": 2,
-        "number": "14/2020",
-        "saleDate": "27/11/2020",
-        "creationDate": "27/11/2020",
-        "price": 200,
-        "contractor": "Smerf Ważniak",
-        "isPaid": true,
-        "type": "FV sprzedaż towarów i usług"
+    {
+      "id": 2,
+      "number": "14/2020",
+      "saleDate": "27/11/2020",
+      "creationDate": "27/11/2020",
+      "price": 200,
+      "contractor": "Smerf Ważniak",
+      "isPaid": true,
+      "type": "FV sprzedaż towarów i usług"
     },
-    { "id": 3,
-        "number": "18/2020",
-        "saleDate": "11/11/2020",
-        "creationDate": "15/11/2020",
-        "price": 6000,
-        "contractor": "Prosiaczek i Przyjaciele",
-        "isPaid": true,
-        "type": "FV sprzedaż towarów i usług"
+    {
+      "id": 3,
+      "number": "18/2020",
+      "saleDate": "11/11/2020",
+      "creationDate": "15/11/2020",
+      "price": 6000,
+      "contractor": "Prosiaczek i Przyjaciele",
+      "isPaid": true,
+      "type": "FV sprzedaż towarów i usług"
     }
-
-    ],
-
-
-    "contractors": [
-      { "id": 1,
-        "company-name": "Gumisie i spółka",
-        "NIP": "123-123-123-123",
-        "street": "Bratkowa 23",
-        "post": "22-222",
-        "city": "Warszawa",
-        "tel": "232-23-23" },
-
-        { "id": 2,
-          "company-name": "Smerf Ważniak",
-          "NIP": "678-678-678-678",
-          "street": "Fiołkowa 7",
-          "post": "77-777",
-          "city": "Gargamello",
-          "tel": "789-77-23" },
-
-        { "id": 3,
-          "company-name": "Gumisie i spółka",
-          "NIP": "556-786-553-888",
-          "street": "Liliowa 3",
-          "post": "55-888",
-          "city": "Stumilowy Las",
-          "tel": "999-93-29" }
-    ]
+  ],
+  "contractors": [
+    {
+      "id": 1,
+      "company-name": "Gumisie i spółka",
+      "NIP": "123-123-123-123",
+      "street": "Bratkowa 23",
+      "post": "22-222",
+      "city": "Warszawa",
+      "tel": "232-23-23"
+    },
+    {
+      "id": 2,
+      "company-name": "Smerf Ważniak",
+      "NIP": "678-678-678-678",
+      "street": "Fiołkowa 7",
+      "post": "77-777",
+      "city": "Gargamello",
+      "tel": "789-77-23"
+    },
+    {
+      "id": 3,
+      "company-name": "Gumisie i spółka",
+      "NIP": "556-786-553-888",
+      "street": "Liliowa 3",
+      "post": "55-888",
+      "city": "Stumilowy Las",
+      "tel": "999-93-29"
+    }
+  ]
 }

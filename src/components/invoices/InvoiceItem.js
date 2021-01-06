@@ -5,11 +5,14 @@ import { ReactComponent as Clock } from '../../assets/images/clock2.svg'
 import { ReactComponent as Printer } from '../../assets/images/printer.svg'
 import { ReactComponent as Arrow } from '../../assets/images/redo2.svg'
 
+import Button from '../layout/button/Button'
+
 import PropTypes from 'prop-types'
 
 class InvoiceItem extends Component {
 
     render() {
+        const {number, saleDate, creationDate, contractor,price, isPaid}=this.props.invoice
         return (
             <tr>
                 <td>
@@ -18,31 +21,26 @@ class InvoiceItem extends Component {
                 <td>
                     <Search height={14} width={14} />
                 </td>
-                <td>{this.props.invoice.number}</td>
-                <td>{this.props.invoice.saleDate}</td>
-                <td>{this.props.invoice.creationDate}</td>
-                <td>{this.props.invoice.contractor}</td>
+                <td>{number}</td>
+                <td>{saleDate}</td>
+                <td>{creationDate}</td>
+                <td>{contractor}</td>
                 <td>
-                    <div>
-                        {this.props.invoice.price}
-                    </div>
-                    <div>
-                        {this.props.invoice.isPaid ? "opłacono": "nieopłacono"}
-                    </div>
+                    <div>{price}</div>
+                    <div>{isPaid ? "opłacono": "nieopłacono"}</div>
                 </td>
                 <td>
-                    <button className="btn__primary btn-green">+ platność</button>
-
+                    <Button class="btn btn-green btn-small" name='+ platność' />
                 </td>
                 <td>
                     <div className='container__flex-row'>
-                        <div className='btn-squere btn-grey'>
+                        <div className='container-squere container-grey'>
                             <Clock height={14} width={14} />
                         </div>
-                        <div className='btn-squere btn-grey'>
+                        <div className='container-squere container-grey'>
                             <Arrow height={14} width={14} />
                         </div>
-                        <div className='btn-squere btn-grey'>
+                        <div className='container-squere container-grey'>
                             <Printer height={14} width={14} />
                         </div>
                     </div>
