@@ -9,7 +9,9 @@ export class InvoicesList extends Component {
     state = {
         invoices: [],
         loading: false,
-        current: null
+        current: null,
+        contractorInfo: null
+
     }
 
     componentDidMount() {
@@ -22,32 +24,37 @@ export class InvoicesList extends Component {
 
     render() {
 
-        const setCurrent =(invoice)=>{
-
-        this.setState({current: invoice})
+        const setCurrent = (invoice) => {
+            fetch(`http://localhost:5000/contractors/`)
+                .then(res => res.json())
+                .then(json => {
+                    const contractorInfo = json.find(i => i.companyName === invoice.contractor)
+                    this.setState({ current: invoice, contractorInfo })
+                })
         }
 
-        const table =  <table className='table__invoices'>
-        <thead>
-            <tr className='table__header' >
-                <th></th>
-                <th></th>
-                <th>Numer</th>
-                <th>Data Sprzedaży</th>
-                <th>Data Wystawienia</th>
-                <th>Kontrahent</th>
-                <th>Brutto</th>
-                <th>Pozostałe</th>
-                <th>Operacje</th>
-            </tr>
-        </thead>
-        <tbody>
-            {this.state.invoices.map(invoice => <InvoiceItem
-                key={invoice.id}
-                invoice={invoice}
-                setCurrent={setCurrent}/>)}
-        </tbody>
-    </table>
+
+        const table = <table className='table__invoices'>
+            <thead>
+                <tr className='table__header' >
+                    <th></th>
+                    <th></th>
+                    <th>Numer</th>
+                    <th>Data Sprzedaży</th>
+                    <th>Data Wystawienia</th>
+                    <th>Kontrahent</th>
+                    <th>Brutto</th>
+                    <th>Pozostałe</th>
+                    <th>Operacje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {this.state.invoices.map(invoice => <InvoiceItem
+                    key={invoice.id}
+                    invoice={invoice}
+                    setCurrent={setCurrent} />)}
+            </tbody>
+        </table>
         return (
             <Fragment>
                 <div className='section'>
@@ -57,7 +64,7 @@ export class InvoicesList extends Component {
                     </div>
                 </div>
                 <div className='section'>
-                    {this.state.current ? <InvoiceDetails invoice={this.state.current}/> : <div>Select invoice</div> }
+                    {this.state.current ? <InvoiceDetails invoice={this.state.current} contractorInfo={this.state.contractorInfo}/> : <div>Select invoice</div>}
 
                 </div>
             </Fragment>

@@ -34,7 +34,7 @@
   "contractors": [
     {
       "id": 1,
-      "company-name": "Gumisie i spółka",
+      "companyName": "Gumisie i spółka",
       "NIP": "123-123-123-123",
       "street": "Bratkowa 23",
       "post": "22-222",
@@ -43,7 +43,7 @@
     },
     {
       "id": 2,
-      "company-name": "Smerf Ważniak",
+      "companyName": "Smerf Ważniak",
       "NIP": "678-678-678-678",
       "street": "Fiołkowa 7",
       "post": "77-777",
@@ -52,7 +52,7 @@
     },
     {
       "id": 3,
-      "company-name": "Gumisie i spółka",
+      "companyName": "Prosiaczek i Przyjaciele",
       "NIP": "556-786-553-888",
       "street": "Liliowa 3",
       "post": "55-888",
