@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import InvoiceItem from './InvoiceItem'
 import Spinner from '../layout/spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
+import Table from '../layout/table/Table'
 import InvoiceDetails from './InvoiceDetails/InvoiceDetails'
 import './invoices.css'
 
@@ -11,7 +12,6 @@ export class InvoicesList extends Component {
         loading: false,
         current: null,
         contractorInfo: null
-
     }
 
     componentDidMount() {
@@ -20,7 +20,6 @@ export class InvoicesList extends Component {
             .then(res => res.json())
             .then(json => this.setState({ invoices: json, loading: false }))
     }
-
 
     render() {
 
@@ -34,38 +33,35 @@ export class InvoicesList extends Component {
         }
 
 
-        const table = <table className='table__invoices'>
-            <thead>
-                <tr className='table__header' >
-                    <th></th>
-                    <th></th>
-                    <th>Numer</th>
-                    <th>Data Sprzedaży</th>
-                    <th>Data Wystawienia</th>
-                    <th>Kontrahent</th>
-                    <th>Brutto</th>
-                    <th>Pozostałe</th>
-                    <th>Operacje</th>
-                </tr>
-            </thead>
-            <tbody>
-                {this.state.invoices.map(invoice => <InvoiceItem
-                    key={invoice.id}
-                    invoice={invoice}
-                    setCurrent={setCurrent} />)}
-            </tbody>
-        </table>
+        //close invoice details function //
+        const closeInvoiceDetails = ()=>{
+            this.setState({ current: null, contractorInfo: null })
+        }
+
+        //dane do tablicy//
+        const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia','Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']
+        const tableData = this.state.invoices.map(invoice => <InvoiceItem
+            key={invoice.id}
+            invoice={invoice}
+            setCurrent={setCurrent} />)
+
+        console.log(tableData)
+
         return (
             <Fragment>
                 <div className='section'>
                     <TopBar topbarClass='topbar-green' title='Faktury' />
                     <div className='table__container'>
-                        {this.state.loading ? <Spinner /> : table}
+                        {this.state.loading ? <Spinner /> : <Table
+                        columns={columns}
+                        data={tableData} />}
                     </div>
                 </div>
                 <div className='section'>
-                    {this.state.current ? <InvoiceDetails invoice={this.state.current} contractorInfo={this.state.contractorInfo}/> : <div>Select invoice</div>}
-
+                    {this.state.current && <InvoiceDetails
+                        invoice={this.state.current}
+                        contractorInfo={this.state.contractorInfo}
+                        closeInvoiceDetails={closeInvoiceDetails}/> }
                 </div>
             </Fragment>
         )
