@@ -1,0 +1,55 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(62, 72, 92);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__name {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.navbar__name h1 {
+  padding-left: 10px;
+}
+.navbar__items {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  font-size: 18px;
+}
+
+.navbar__item {
+  margin-left: 20px;
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.navbar__item:hover {
+  cursor: pointer;
+  background-color: rgb(120, 127, 143);
+}
+.navbar__item:hover > .add_btn {
+  background-color: rgb(39, 130, 39);
+}
+
+.-add {
+  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.add_btn {
+  margin-right: 5px;
+  width: 22px;
+  height: 22px;
+  background-color: rgb(158, 209, 158);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
