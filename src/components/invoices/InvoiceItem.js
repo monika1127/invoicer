@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-//imported SVG files
+import PropTypes from 'prop-types'
+
+import Button from '../layout/button/Button'
+
 import { ReactComponent as Search } from '../../assets/images/search.svg'
 import { ReactComponent as Clock } from '../../assets/images/clock2.svg'
 import { ReactComponent as Printer } from '../../assets/images/printer-black.svg'
 import { ReactComponent as Arrow } from '../../assets/images/redo2.svg'
-
-import Button from '../layout/button/Button'
-
-import PropTypes from 'prop-types'
-
 class InvoiceItem extends Component {
     static propTypes = {
         invoice: PropTypes.object.isRequired,
@@ -44,9 +42,6 @@ class InvoiceItem extends Component {
                         <Button class='btn btn-square' name={<Arrow height={14} width={14} />} />
                         <Button class='btn btn-square' name={<Printer height={14} width={14} />} />
                     </div>
-
-
-
                 </td>
             </tr>
         )

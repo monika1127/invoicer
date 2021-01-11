@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import './invoiceDetails.css'
+
 import TopBar from '../../layout/topBar/TopBar'
 import Button from '../../layout/button/Button'
 import Table from '../../layout/table/Table'
-
-import './invoiceDetails.css'
 
 import { ReactComponent as Mail } from '../../../assets/images/mail.svg'
 import { ReactComponent as Print } from '../../../assets/images/printer.svg'
@@ -16,20 +16,16 @@ export default class InvoiceDetails extends Component {
         invoice: PropTypes.object.isRequired,
         closeInvoiceDetails: PropTypes.func.isRequired,
     }
-
-
-
     render() {
 
         //destrukturyzacja propsów //
         const { companyName, street, post, tel, NIP, city } = this.props.contractorInfo
         const { number, saleDate, creationDate, contractor, price, isPaid, id } = this.props.invoice
 
-
         //dane pomocnicze -które powinny się zaciągać z jakiś baz danych których nie mam //
         const VAT = 0.23
         const showVAT = (VAT * 100) + '%'
-        const netto = Number.parseFloat(price / (1 + VAT)).toFixed(2)
+        const netto = Number.parseFloat(price * (1 + VAT)).toFixed(2)
 
         const rabat = 0
         const poRabacie = Number.parseFloat(netto - rabat).toFixed(2)
@@ -50,7 +46,6 @@ export default class InvoiceDetails extends Component {
                 <td className='txt-right'>{poRabacie} PLN</td>
                 <td className='txt-right'>{showVAT}</td>
             </tr>
-
 
         //button layout //
         const buttonSaveValue =
@@ -73,8 +68,6 @@ export default class InvoiceDetails extends Component {
                 <div>Szczegóły</div>
                 <Button class='btn btn-close' name='x' onClick={this.props.closeInvoiceDetails}/>
             </div>
-
-
 
         return (
             <Fragment>
@@ -122,7 +115,7 @@ export default class InvoiceDetails extends Component {
                         </div>
                         <div className='container-flex text-separate'>
                             <h3>VAT</h3>
-                            <div>{Number.parseFloat(price - poRabacie).toFixed(2)}</div>
+                            <div>{Number.parseFloat(poRabacie-price).toFixed(2)}</div>
                         </div>
                         <div className='container-flex text-separate'>
                             <h3>Razem Brutto</h3>
@@ -131,7 +124,6 @@ export default class InvoiceDetails extends Component {
                         <Button class='btn btn-green btn-full invoideDetails-btn ' name={buttonSaveValue} />
                         <Button class='btn btn-grey btn-full invoideDetails-btn' name={buttonMailValue} />
                     </div>
-
                 </div>
             </Fragment>
         )

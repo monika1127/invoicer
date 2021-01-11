@@ -9,13 +9,12 @@ import './invoices.css'
 export class InvoicesList extends Component {
     state = {
         invoices: [],
-        loading: false,
+        loading: true,
         current: null,
         contractorInfo: null
     }
 
     componentDidMount() {
-        this.setState({ loading: true })
         fetch('http://localhost:5000/invoices')
             .then(res => res.json())
             .then(json => this.setState({ invoices: json, loading: false }))
