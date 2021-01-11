@@ -5,9 +5,9 @@ import './button.css'
 export class Button extends Component {
     static propTypes = {
         class: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        onClick: PropTypes.func.isRequired,
-        type: PropTypes.string.isRequired,
+        // name: PropTypes.string.isRequired,
+        // onClick: PropTypes.func.isRequired,
+        // type: PropTypes.string.isRequired,
     }
     render() {
         return (
