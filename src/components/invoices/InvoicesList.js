@@ -21,7 +21,6 @@ export class InvoicesList extends Component {
     }
 
     render() {
-
         const setCurrent = (invoice) => {
             fetch(`http://localhost:5000/contractors/`)
                 .then(res => res.json())

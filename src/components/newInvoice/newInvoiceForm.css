@@ -1,5 +1,5 @@
 .form__container {
-  width: 500px;
+  width: 400px;
   background-color: white;
   margin: auto;
   margin: 30px auto;
@@ -9,26 +9,98 @@
   padding: 20px;
 }
 
+.field-container {
+  padding: 8px 0px;
+}
+
 .error {
-  padding-left: 5px;
-  color: rgb(163, 22, 22);
+  color: rgb(216, 0, 0);
   font-size: 10px;
+  padding-left: 120px;
+  height: 16px;
+}
+
+.error-radio {
+  color: rgb(216, 0, 0);
+  font-size: 10px;
+  height: 16px;
+  padding-bottom: 40px;
 }
 .form-field {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
-.form__container-body label {
-  width: 100px;
+.form__container-body label,
+.invoice-type-label {
+  width: 120px;
   text-align: right;
-  padding: 10px;
+  padding-right: 10px;
 }
-.form__container-body input {
+.form__container-body input,
+.form__container-body select {
   height: 25px;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 2px;
   text-align: right;
   padding-right: 10px;
+}
+
+.-type {
+  align-items: stretch;
+}
+
+.invoice-type-label {
+  border-right: 1px solid rgb(179, 179, 179);
+}
+.invoice-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.invoice-type label {
+  width: auto;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.invoice-type input {
+  margin: 0px 3px;
+}
+
+.form-field-paid {
+  margin-top: 20px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  border-top: 3px solid rgb(41, 162, 71);
+}
+
+.paid-label {
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+.form-field-paid label {
+  display: flex;
+  align-items: center;
+  width: 50px;
+}
+.form-field-paid input {
+  margin: 0 3px;
+}
+
+.new-contractor {
+  margin-left: 5px;
+  padding: 2px 5px;
+  height: 20px;
+  background-color: rgb(41, 162, 71);
+  color: white;
+  font-size: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.new-contractor:hover {
+  opacity: 0.9;
 }
