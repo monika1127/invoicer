@@ -1,0 +1,34 @@
+.form__container {
+  width: 500px;
+  background-color: white;
+  margin: auto;
+  margin: 30px auto;
+  box-shadow: 0px 2px 5px 1px rgb(177, 177, 177);
+}
+.form__container-body {
+  padding: 20px;
+}
+
+.error {
+  padding-left: 5px;
+  color: rgb(163, 22, 22);
+  font-size: 10px;
+}
+.form-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form__container-body label {
+  width: 100px;
+  text-align: right;
+  padding: 10px;
+}
+.form__container-body input {
+  height: 25px;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 2px;
+  text-align: right;
+  padding-right: 10px;
+}

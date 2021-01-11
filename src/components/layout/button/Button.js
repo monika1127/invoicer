@@ -7,10 +7,11 @@ export class Button extends Component {
         class: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         onClick: PropTypes.func.isRequired,
+        type: PropTypes.string.isRequired,
     }
     render() {
         return (
-        <button className={`${this.props.class}`} onClick={this.props.onClick}>
+        <button type={this.props.type} className={`${this.props.class}`} onClick={this.props.onClick}>
             {this.props.name}
         </button>
         )
