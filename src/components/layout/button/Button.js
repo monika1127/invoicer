@@ -2,20 +2,26 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './button.css'
 
-export class Button extends Component {
+export default class Button extends Component {
     static propTypes = {
-        class: PropTypes.string.isRequired,
-        // name: PropTypes.string.isRequired,
-        // onClick: PropTypes.func.isRequired,
-        // type: PropTypes.string.isRequired,
+        size: PropTypes.oneOf(["small", "large", "full"]),
+        color: PropTypes.oneOf(["green", "grey", "dark-grey"]),
+        specialClass: PropTypes.string,
+        label: PropTypes,
+        onClick: PropTypes.func,
+        type: PropTypes.string
     }
     render() {
-        return (
-        <button type={this.props.type} className={`${this.props.class}`} onClick={this.props.onClick}>
-            {this.props.name}
-        </button>
-        )
-        }
-}
 
-export default Button
+        const {type, onClick, size, color, specialClass}=this.props
+        return (
+            <button
+                type={type}
+                onClick={onClick}
+                className={`btn btn-${size} btn-${color} ${specialClass}`}
+            >
+                {this.props.children}
+            </button>
+        )
+    }
+}

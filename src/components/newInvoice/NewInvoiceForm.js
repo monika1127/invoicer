@@ -106,7 +106,7 @@ const NewInvoiceForm = () => {
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
-                    <Button type='button' name="Dodaj" class='btn btn-small btn-grey contractor' />
+                    <Button type='button'  size='small' color="grey" specialClass="contractor" >Dodaj</Button>
 
                     <Radio
                         radioLabel='Typ faktury'
@@ -147,9 +147,9 @@ const NewInvoiceForm = () => {
                     />
                     <Devider color='grey' />
 
-                    <Button type="submit" name="Dodaj fakturę" class='btn btn-full btn-green' />
+                    <Button type="submit" size='full' color='green' >Dodaj fakturę</Button>
                 </form>
-                <Button name="Anuluj" class='btn btn-full btn-grey' />
+                <Button  size='full' color='grey' >Anuluj</Button>
             </div>
         </div>
     )
