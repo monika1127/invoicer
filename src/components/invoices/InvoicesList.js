@@ -48,7 +48,7 @@ export class InvoicesList extends Component {
         return (
             <Fragment>
                 <div className='section'>
-                    <TopBar topbarClass='topbar-green' title='Faktury' />
+                    <TopBar color='green' title='Faktury' />
                     <div className='table__container'>
                         {this.state.loading ? <Spinner /> : <Table
                         columns={columns}

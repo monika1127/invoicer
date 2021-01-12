@@ -48,19 +48,15 @@ export default class InvoiceDetails extends Component {
                 <td className='txt-right'>{showVAT}</td>
             </tr>
 
-
-        // topbar layout //
-        const topBarValue =
-            <div>
-                <div>Szczegóły</div>
-                <Button color='dark-grey' size='square' onClick={this.props.closeInvoiceDetails}>
-                    <Close height={12} width={12} />
-                </Button>
-            </div>
-
         return (
             <Fragment>
-                <TopBar topbarClass='topbar topbar-grey topbar-invoiceDetails' title={topBarValue} />
+                <TopBar color='grey' title="Szczegóły" cl=' topbar-invoiceDetails'>
+                    <div>
+                        <Button color='dark-grey' size='square' onClick={this.props.closeInvoiceDetails}>
+                            <Close height={12} width={12} />
+                        </Button>
+                    </div>
+                </TopBar>
                 <div className='invoice__details-section'>
                     <div className='container-flex-main'>
                         <div className='container-flex'>

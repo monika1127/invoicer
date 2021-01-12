@@ -61,7 +61,7 @@ const NewInvoiceForm = () => {
 
     return (
         <div className='form__container'>
-            <TopBar title='Zarejestruj nową fakturę:' topbarClass='topbar topbar-green' />
+            <TopBar title='Zarejestruj nową fakturę:' color='green' />
             <div className='form__container-body'>
                 <form onSubmit={formik.handleSubmit}>
 
