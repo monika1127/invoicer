@@ -2,8 +2,13 @@ import React, { Component, Fragment, useState, useEffect } from 'react'
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
 import './newInvoiceForm.css'
+
 import TopBar from '../layout/topBar/TopBar'
 import Button from '../layout/button/Button'
+import Input from '../layout/form/Input'
+import Select from '../layout/form/Select'
+import Radio from '../layout/form/Radio'
+import Devider from '../layout/devider/Devider'
 
 const NewInvoiceForm = () => {
 
@@ -37,12 +42,12 @@ const NewInvoiceForm = () => {
                 .required('wybierz firmę'),
         }),
         onSubmit: values => {
-            const invoice = { ...values, creationDate: values.saleDate}
-            fetch(`http://localhost:5000/invoices/`, {method: 'POST', headers:{"Content-type": "application/json"},body: JSON.stringify(invoice)})
-            .then(res => res.json())
-            .then(res=> console.log(res))
-
-
+            const isPaid = values.isPaid === "true"
+            const invoice = { ...values, creationDate: values.saleDate, isPaid }
+            fetch(`http://localhost:5000/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
+                .then(res => res.json())
+                .then(res => console.log(res))
+                .catch(err => console.error(err + 'faktura nie została zapisana'))
             formik.resetForm();
         }
     });
@@ -60,73 +65,87 @@ const NewInvoiceForm = () => {
             <div className='form__container-body'>
                 <form onSubmit={formik.handleSubmit}>
 
-                    <div className='field-container'>
-                        <div className='form-field'>
-                            <label htmlFor='number'>Numer faktury</label>
-                            <input pattern="\d{1,2}/\d{4}" placeholder='ex. 11/2020' id='number' type='text' {...formik.getFieldProps('number')} >
-                            </input>
-                        </div>
-                        <div className='error'>{formik.touched.number && formik.errors.number ? formik.errors.number : null}</div>
-                    </div>
+                    <Input
+                        connectiedWith='number'
+                        inputLabel='Numer faktury'
+                        inputId='number'
+                        inputType='text'
+                        inputPattern="\d{1,2}/\d{4}"
+                        inputPlaceholder='ex. 11/2020'
+                        inputFormik={formik.getFieldProps('number')}
+                        errorMsg={formik.touched.number && formik.errors.number ? formik.errors.number : null}
+                    />
 
-                    <div className='field-container'>
-                        <div className='form-field'>
-                            <label htmlFor='price'>Kwota</label>
-                            <input min='0.00'step="0.01"id='price' type='number' {...formik.getFieldProps('price')} ></input>
-                                                    </div>
-                        <div className='error'>{formik.touched.price && formik.errors.price ? formik.errors.price : null}</div>
-                    </div>
+                    <Input
+                        connectiedWith='price'
+                        inputLabel='Kwota'
+                        inputId='price'
+                        inputType='number'
+                        inputPattern=''
+                        inputPlaceholder=''
+                        inputFormik={formik.getFieldProps('price')}
+                        errorMsg={formik.touched.price && formik.errors.price ? formik.errors.price : null}
+                    />
 
-                    <div className='field-container'>
-                        <div className='form-field'>
-                            <label htmlFor='saleDate'>Data sprzedaży</label>
-                            <input id='saleDate' type='text' pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder='dd/mm/yyyy'{...formik.getFieldProps('saleDate')} >
-                            </input>
-                        </div>
-                        <div className='error'>{formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}</div>
-                    </div>
+                    <Input
+                        connectiedWith='saleDate'
+                        inputLabel='Data'
+                        inputId='saleDate'
+                        inputType='text'
+                        inputPattern='\d{1,2}/\d{1,2}/\d{4}'
+                        inputPlaceholder='dd/mm/yyyy'
+                        inputFormik={formik.getFieldProps('saleDate')}
+                        errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
+                    />
 
-                    <div className='field-container'>
-                        <div className='form-field'>
-                            <label htmlFor='contractor'>Kontrahent</label>
-                            <select {...formik.getFieldProps('contractor')} >
-                                <option value='' disabled >Wybierz firmę</option>
-                                {contractors.map(contractor => <option
-                                    key={contractor.id}
-                                    value={contractor.companyName}>{contractor.companyName}</option>)}
-                            </select>
-                            <div className='new-contractor'> +add</div>
-                        </div>
-                        <div className='error'>{formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}</div>
-                    </div>
+                    <Select
+                        connectiedWith='contractor'
+                        selectLabel='Kontrahent'
+                        defaultOption='Wybierz firmę'
+                        selectFormik={formik.getFieldProps('contractor')}
+                        options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
+                        errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
+                    />
+                    <Button type='button' name="Dodaj" class='btn btn-small btn-grey contractor' />
 
-                    <div className='form-field -type' role="group" aria-labelledby="my-radio-group">
-                        <div className='invoice-type-label'>Typ faktury
-                        <div className='error-radio'>{formik.touched.type && formik.errors.type ? formik.errors.type : null}</div>
-                        </div>
-                        <div className='invoice-type'>
-                            <label>
-                                <input type="radio" {...formik.getFieldProps('type')} value={'FV sprzedaż towarów i usług'} />FV sprzedaż towarów i usług
-                            </label>
-                            <label>
-                                <input type="radio" {...formik.getFieldProps('type')} value={'XX wykonanie usługi'} />XX wykonanie usługi
-                             </label>
-                            <label>
-                                <input type="radio" {...formik.getFieldProps('type')} value={'RR sprzedaż towaru'} />RR sprzedaż towaru
-                             </label>
-                        </div>
-                    </div>
+                    <Radio
+                        radioLabel='Typ faktury'
+                        options={[
+                            {
+                                value: "FV sprzedaż towarów i usług",
+                                text: "FV sprzedaż towarów i usług"
+                            },
+                            {
+                                value: "XX wykonanie usługi",
+                                text: "XX wykonanie usługi"
+                            },
+                            {
+                                value: "RR sprzedaż towaru",
+                                text: "RR sprzedaż towaru"
+                            },
+                        ]}
+                        radioFormik={formik.getFieldProps('type')}
+                        orientation='list'
+                        errorMsg={formik.touched.type && formik.errors.type ? formik.errors.type : null}
+                    />
 
-                    <div className='form-field-paid' role="group" aria-labelledby="my-radio-group">
-                        <div className='paid-label' >Czy faktura zastła już opłacona?</div>
-                        <label>
-                            <input type="radio" {...formik.getFieldProps('isPaid')} value={true} />TAK
-                        </label>
-                        <label>
-                            <input type="radio" {...formik.getFieldProps('isPaid')} value={false} />NIE
-                        </label>
-                    </div>
-                    <div className='error-radio'>{formik.touched.isPaid && formik.errors.isPaid ? formik.errors.isPaid : null}</div>
+                    <Devider color='grey' />
+
+                    <Radio
+                        radioLabel='Czy faktura zastła już opłacona?'
+                        options={[{
+                            value: false,
+                            text: "NIE"
+                        },
+                        {
+                            value: true,
+                            text: "TAK"
+                        },]}
+                        radioFormik={formik.getFieldProps('isPaid')}
+                        orientation='inline'
+                        errorMsg={formik.touched.isPaid && formik.errors.isPaid ? formik.errors.isPaid : null}
+                    />
+                    <Devider color='grey' />
 
                     <Button type="submit" name="Dodaj fakturę" class='btn btn-full btn-green' />
                 </form>

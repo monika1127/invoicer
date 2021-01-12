@@ -55,3 +55,11 @@
 .btn-close {
   color: rgb(99, 99, 99);
 }
+
+/* kontrahent */
+
+.contractor {
+  position: relative;
+  left: 238px;
+  top: -25px;
+}
