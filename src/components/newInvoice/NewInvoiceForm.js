@@ -1,5 +1,6 @@
-import React, { Component, Fragment, useState, useEffect } from 'react'
-import { Formik, useFormik } from 'formik'
+import React, { useState, useEffect, useContext } from 'react'
+import { useFormik } from 'formik'
+import AlertContext from '../../context/alert/alertContext'
 import * as Yup from 'yup'
 import './newInvoiceForm.css'
 
@@ -9,11 +10,22 @@ import Input from '../layout/form/Input'
 import Select from '../layout/form/Select'
 import Radio from '../layout/form/Radio'
 import Devider from '../layout/devider/Devider'
-import Alert from '../layout/alert/Alert'
+
 import DateInput from '../layout/form/DateInput'
 const NewInvoiceForm = () => {
 
+    // variables for Alert display - AlertContext
+    const alertCtx = useContext(AlertContext)
+    const { setAlertMessage } = alertCtx
+
+    // list of possibles contractors, data get from db.json file
     const [contractors, setContractors] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/contractors/`)
+            .then(res => res.json())
+            .then(json => { setContractors(json) })
+    }, [])
 
     const formik = useFormik({
         initialValues: {
@@ -41,24 +53,18 @@ const NewInvoiceForm = () => {
             contractor: Yup.string()
                 .required('wybierz firmę'),
         }),
+
         onSubmit: values => {
             const isPaid = values.isPaid === "true"
             const saleDate = values.saleDate.toLocaleDateString('en-GB')
             const invoice = { ...values, creationDate: saleDate, isPaid, saleDate }
-            fetch(`http://localhost:5000/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
+            fetch(`http://localhost:50d00/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
                 .then(res => res.json())
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
+                .then(res => { setAlertMessage('Faktura została dodana', 'pass') })
+                .catch(err => setAlertMessage('Wystąpił błąd! Faktura nie została dodana', 'fail'))
             formik.resetForm();
         }
     });
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/contractors/`)
-            .then(res => res.json())
-            .then(json => { setContractors(json) })
-    }, [])
-
 
     return (
         <div className='form__container'>
@@ -90,13 +96,14 @@ const NewInvoiceForm = () => {
 
 
                     <DateInput
-                    connectiedWith='saleDate'
-                    inputLabel='Data'
-                    errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
-                    onChange={formik.setFieldValue}
-                    name='saleDate'
-                    value={formik.values.saleDate}
+                        connectiedWith='saleDate'
+                        inputLabel='Data'
+                        errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
+                        onChange={formik.setFieldValue}
+                        name='saleDate'
+                        value={formik.values.saleDate}
                     />
+                    {/* saleDate input - option without using additionall library */}
                     {/* <Input
                         connectiedWith='saleDate'
                         inputLabel='Data'
@@ -115,7 +122,7 @@ const NewInvoiceForm = () => {
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
-                    <Button type='button'  size='small' color="grey" specialClass="contractor" >Dodaj</Button>
+                    <Button type='button' size='small' color="grey" specialClass="contractor" >Dodaj</Button>
 
                     <Radio
                         radioLabel='Typ faktury'
@@ -154,11 +161,12 @@ const NewInvoiceForm = () => {
                         orientation='inline'
                         errorMsg={formik.touched.isPaid && formik.errors.isPaid ? formik.errors.isPaid : null}
                     />
+
                     <Devider color='grey' />
 
                     <Button type="submit" size='full' color='green' >Dodaj fakturę</Button>
                 </form>
-                <Button  size='full' color='grey' >Anuluj</Button>
+                <Button size='full' color='grey' >Anuluj</Button>
             </div>
         </div>
     )

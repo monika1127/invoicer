@@ -31,84 +31,64 @@
       "type": "FV sprzedaż towarów i usług"
     },
     {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "20/10/2020",
-      "isPaid": "false",
-      "contractor": "Gumisie i spółka",
-      "type": "true",
-      "creationDate": "20/10/2020",
-      "id": 4
-    },
-    {
-      "number": "46/2020",
-      "price": 3000,
-      "saleDate": "20/10/2020",
-      "isPaid": "false",
-      "contractor": "Gumisie i spółka",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "20/10/2020",
-      "id": 5
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "20/10/2020",
-      "isPaid": "false",
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "20/10/2020",
-      "id": 6
-    },
-    {
-      "number": "66/6666",
-      "price": 666,
-      "saleDate": "11/11/1111",
-      "isPaid": false,
+      "number": "56/5677",
+      "price": 56,
+      "saleDate": "07/01/2021",
+      "isPaid": true,
       "contractor": "Prosiaczek i Przyjaciele",
       "type": "XX wykonanie usługi",
-      "creationDate": "11/11/1111",
-      "id": 7
-    },
-    {
-      "number": "11/1111",
-      "price": 1111,
-      "saleDate": "11/11/1111",
-      "isPaid": true,
-      "contractor": "Smerf Ważniak",
-      "type": "RR sprzedaż towaru",
-      "creationDate": "11/11/1111",
-      "id": 8
-    },
-    {
-      "number": "11/4068",
-      "price": 56,
-      "saleDate": "2020-12-08",
-      "isPaid": true,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "2020-12-08",
-      "id": 9
-    },
-    {
-      "number": "44/8900",
-      "price": 4567,
-      "saleDate": "2021-01-20T23:00:00.000Z",
-      "isPaid": false,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "2021-01-20T23:00:00.000Z",
+      "creationDate": "07/01/2021",
       "id": 10
     },
     {
-      "number": "22/2222",
-      "price": 22222,
-      "saleDate": "22/01/2021",
+      "number": "11/1111",
+      "price": 11,
+      "saleDate": "12/01/2021",
       "isPaid": false,
       "contractor": "Smerf Ważniak",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "12/01/2021",
+      "id": 13
+    },
+    {
+      "number": "66/6666",
+      "price": 66,
+      "saleDate": "15/01/2021",
+      "isPaid": true,
+      "contractor": "Gumisie i spółka",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "15/01/2021",
+      "id": 14
+    },
+    {
+      "number": "44/4444",
+      "price": 444,
+      "saleDate": "06/01/2021",
+      "isPaid": false,
+      "contractor": "Gumisie i spółka",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "06/01/2021",
+      "id": 15
+    },
+    {
+      "number": "22/2222",
+      "price": 2222,
+      "saleDate": "02/01/2021",
+      "isPaid": true,
+      "contractor": "Prosiaczek i Przyjaciele",
       "type": "XX wykonanie usługi",
-      "creationDate": "2021-01-21T23:00:00.000Z",
-      "id": 11
+      "creationDate": "02/01/2021",
+      "id": 16
+    },
+    {
+      "number": "11/3333",
+      "price": 33,
+      "saleDate": "06/01/2021",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "RR sprzedaż towaru",
+      "creationDate": "06/01/2021",
+      "id": 17
     }
   ],
   "contractors": [

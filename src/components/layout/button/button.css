@@ -28,8 +28,6 @@
 .btn-square {
   height: 24px;
   width: 24px;
-  background-color: rgb(230, 230, 230);
-  color: white;
   padding: 2px;
 }
 /* color */
@@ -44,6 +42,10 @@
 
 .btn-dark-grey {
   color: rgb(99, 99, 99);
+  color: white;
+}
+.btn-red {
+  background-color: rgb(141, 28, 28);
 }
 
 /* speciall styling */
