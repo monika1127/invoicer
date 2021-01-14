@@ -9,7 +9,8 @@ import Input from '../layout/form/Input'
 import Select from '../layout/form/Select'
 import Radio from '../layout/form/Radio'
 import Devider from '../layout/devider/Devider'
-
+import Alert from '../layout/alert/Alert'
+import DateInput from '../layout/form/DateInput'
 const NewInvoiceForm = () => {
 
     const [contractors, setContractors] = useState([])
@@ -32,7 +33,6 @@ const NewInvoiceForm = () => {
                 .min(0.00, '! Improper form number')
                 .required('! This field is required'),
             saleDate: Yup.string()
-                .max(16, 'Improper  format')
                 .required('! This field is required'),
             isPaid: Yup.boolean()
                 .required('zaznacz poprawne'),
@@ -43,11 +43,12 @@ const NewInvoiceForm = () => {
         }),
         onSubmit: values => {
             const isPaid = values.isPaid === "true"
-            const invoice = { ...values, creationDate: values.saleDate, isPaid }
+            const saleDate = values.saleDate.toLocaleDateString('en-GB')
+            const invoice = { ...values, creationDate: saleDate, isPaid, saleDate }
             fetch(`http://localhost:5000/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
                 .then(res => res.json())
                 .then(res => console.log(res))
-                .catch(err => console.error(err + 'faktura nie została zapisana'))
+                .catch(err => console.log(err))
             formik.resetForm();
         }
     });
@@ -87,16 +88,24 @@ const NewInvoiceForm = () => {
                         errorMsg={formik.touched.price && formik.errors.price ? formik.errors.price : null}
                     />
 
-                    <Input
+
+                    <DateInput
+                    connectiedWith='saleDate'
+                    inputLabel='Data'
+                    errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
+                    onChange={formik.setFieldValue}
+                    name='saleDate'
+                    value={formik.values.saleDate}
+                    />
+                    {/* <Input
                         connectiedWith='saleDate'
                         inputLabel='Data'
                         inputId='saleDate'
-                        inputType='text'
-                        inputPattern='\d{1,2}/\d{1,2}/\d{4}'
+                        inputType='date'
                         inputPlaceholder='dd/mm/yyyy'
                         inputFormik={formik.getFieldProps('saleDate')}
                         errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
-                    />
+                    /> */}
 
                     <Select
                         connectiedWith='contractor'

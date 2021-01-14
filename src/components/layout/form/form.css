@@ -4,25 +4,31 @@
 }
 
 .container,
-.container-list {
+.container-list,
+.container-date {
   display: flex;
   align-items: stretch;
 }
 
 .container label,
-.radio__label-list {
+.radio__label-list,
+.container-date label {
   width: 120px;
   text-align: right;
   padding-right: 10px;
 }
 .container input,
-.container select {
+.container select,
+.container-date > div {
   height: 25px;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 2px;
   text-align: right;
   padding-right: 10px;
   width: 50%;
+}
+.react-date-picker__wrapper {
+  border: none;
 }
 
 ::-webkit-input-placeholder {

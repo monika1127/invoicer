@@ -79,6 +79,36 @@
       "type": "RR sprzedaż towaru",
       "creationDate": "11/11/1111",
       "id": 8
+    },
+    {
+      "number": "11/4068",
+      "price": 56,
+      "saleDate": "2020-12-08",
+      "isPaid": true,
+      "contractor": "Smerf Ważniak",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "2020-12-08",
+      "id": 9
+    },
+    {
+      "number": "44/8900",
+      "price": 4567,
+      "saleDate": "2021-01-20T23:00:00.000Z",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "2021-01-20T23:00:00.000Z",
+      "id": 10
+    },
+    {
+      "number": "22/2222",
+      "price": 22222,
+      "saleDate": "22/01/2021",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "XX wykonanie usługi",
+      "creationDate": "2021-01-21T23:00:00.000Z",
+      "id": 11
     }
   ],
   "contractors": [

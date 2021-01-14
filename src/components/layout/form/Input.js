@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import DatePicker from 'react-date-picker'
 import './form.css'
-
 export class Input extends Component {
     static propTypes = {
         connectiedWith: PropTypes.string,
@@ -28,8 +28,14 @@ export class Input extends Component {
             <div className='container-body'>
             <div className='container'>
                 <label htmlFor={inputConnection}>{inputLabel}</label>
-                <input id={inputId} type={inputType} pattern={inputPattern} placeholder={inputPlaceholder} {...inputFormik}>
+                <input
+                    id={inputId}
+                    type={inputType}
+                    pattern={inputPattern}
+                    placeholder={inputPlaceholder}
+                    {...inputFormik}>
                 </input>
+
             </div>
             <div className='error'>{errorMsg}</div>
         </div>
