@@ -1,0 +1,95 @@
+/* general */
+.container-body {
+  padding: 8px 0px;
+}
+
+.container,
+.container-list,
+.container-date {
+  display: flex;
+  align-items: stretch;
+}
+
+.container label,
+.radio__label-list,
+.container-date label {
+  width: 120px;
+  text-align: right;
+  padding-right: 10px;
+}
+.container input,
+.container select,
+.container-date > div {
+  height: 25px;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 2px;
+  text-align: right;
+  padding-right: 10px;
+  width: 50%;
+}
+.react-date-picker__wrapper {
+  border: none;
+}
+
+::-webkit-input-placeholder {
+  font-size: 10px;
+}
+
+/* select */
+
+/* errors styling */
+
+.error {
+  color: rgb(216, 0, 0);
+  font-size: 10px;
+  padding-left: 120px;
+  height: 16px;
+}
+
+.error-radio {
+  color: rgb(216, 0, 0);
+  font-size: 10px;
+  height: 16px;
+}
+
+/* radio */
+.radio label {
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.radio input {
+  margin: 0px 3px;
+}
+
+/* radio - list */
+.radio__label-list {
+  border-right: 1px solid rgb(179, 179, 179);
+}
+.radio-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-inline {
+  display: flex;
+}
+
+/* radio - inline */
+.radio__label-inline {
+  font-weight: bold;
+  padding-right: 20px;
+}
+.radio-inline {
+  display: flex;
+}
+
+.radio-inline input {
+  margin-left: 16px;
+}
+
+.container-inline {
+  display: flex;
+  align-items: flex-start;
+}

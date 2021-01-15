@@ -1,0 +1,10 @@
+.form__container {
+  width: 400px;
+  background-color: white;
+  margin: auto;
+  margin: 30px auto;
+  box-shadow: 0px 2px 5px 1px rgb(177, 177, 177);
+}
+.form__container-body {
+  padding: 20px;
+}

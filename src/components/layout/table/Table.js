@@ -11,7 +11,7 @@ class Table extends Component {
             <table className='table__invoices'>
                 <thead>
                     <tr className='table__header' >
-                        {this.props.columns.map(column => <th>{column}</th>)}
+                        {this.props.columns.map((column, index) => <th key={index}>{column}</th>)}
                     </tr>
                 </thead>
                 <tbody>

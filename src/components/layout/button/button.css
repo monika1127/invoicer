@@ -4,7 +4,11 @@
   margin: 5px 2px;
   cursor: pointer;
 }
+.btn:hover {
+  opacity: 0.8;
+}
 
+/* size */
 .btn-full {
   width: 100%;
   height: 30px;
@@ -15,43 +19,39 @@
   width: 60px;
   font-size: 10px;
 }
+.btn-large {
+  height: 26px;
+  width: 120px;
+  font-size: 12px;
+}
 
 .btn-square {
   height: 24px;
   width: 24px;
-  background-color: rgb(230, 230, 230);
-  color: white;
   padding: 2px;
 }
-
+/* color */
 .btn-green {
   background-color: rgb(41, 162, 71);
   color: white;
-}
-.btn:hover {
-  opacity: 0.9;
 }
 
 .btn-grey {
   background-color: rgb(235, 235, 235);
 }
 
-/* stlying for buttons in InvoiceDetails component  */
-.invoideDetails-btn div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.invoideDetails-btn div div {
-  flex-grow: 2;
-}
-
-.invoideDetails-btn div > * {
-  margin: 0px 3px;
-}
-
-/* closure button */
-.btn-close {
+.btn-dark-grey {
   color: rgb(99, 99, 99);
+  color: white;
+}
+.btn-red {
+  background-color: rgb(141, 28, 28);
+}
+
+/* speciall styling */
+
+.contractor {
+  position: relative;
+  left: 238px;
+  top: -25px;
 }

@@ -15,7 +15,7 @@ class InvoiceItem extends Component {
     render() {
         const { number, saleDate, creationDate, contractor, price, isPaid } = this.props.invoice
 
-               return (
+        return (
             <tr>
                 <td className='txt-center'>
                     <input type='checkbox'></input>
@@ -34,13 +34,19 @@ class InvoiceItem extends Component {
                     <div className='txt-vsmall'>{isPaid ? "opłacono" : "nieopłacono"}</div>
                 </td>
                 <td className='txt-center'>
-                    <Button class="btn btn-green btn-small" name='+ platność' />
+                    <Button size="small" color="green">płatność</Button>
                 </td>
                 <td>
                     <div className='container__flex-row'>
-                        <Button class='btn btn-square' name={<Clock height={14} width={14} />} />
-                        <Button class='btn btn-square' name={<Arrow height={14} width={14} />} />
-                        <Button class='btn btn-square' name={<Printer height={14} width={14} />} />
+                        <Button size='square' >
+                            <Clock height={14} width={14} />
+                        </Button>
+                        <Button size='square'>
+                            <Arrow height={14} width={14} />
+                        </Button>
+                        <Button size='square'>
+                            <Printer height={14} width={14} />
+                        </Button>
                     </div>
                 </td>
             </tr>

@@ -56,3 +56,22 @@
   text-align: left;
   margin-bottom: 3px;
 }
+
+/* stlying for buttons in InvoiceDetails component  */
+.invoiceDetails-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invoiceDetails-btn div {
+  display: flex;
+  flex-grow: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+.invoiceDetails-btn div > *,
+.invoiceDetails-btn > * {
+  margin: 0px 3px;
+}

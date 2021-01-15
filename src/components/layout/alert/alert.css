@@ -1,0 +1,19 @@
+.alert {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert-msg {
+  padding-right: 30px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.pass {
+  background-color: rgb(206 213 221);
+}
+
+.fail {
+  background-color: rgb(215 105 105);
+}

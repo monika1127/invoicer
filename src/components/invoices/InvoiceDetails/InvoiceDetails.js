@@ -9,6 +9,7 @@ import Table from '../../layout/table/Table'
 import { ReactComponent as Mail } from '../../../assets/images/mail.svg'
 import { ReactComponent as Print } from '../../../assets/images/printer.svg'
 import { ReactComponent as Set } from '../../../assets/images/cog.svg'
+import { ReactComponent as Close } from '../../../assets/images/cross.svg'
 export default class InvoiceDetails extends Component {
 
     static propTypes = {
@@ -47,31 +48,15 @@ export default class InvoiceDetails extends Component {
                 <td className='txt-right'>{showVAT}</td>
             </tr>
 
-        //button layout //
-        const buttonSaveValue =
-            <div>
-                <div>
-                    <Print height={12} width={12} />
-                    <p>Wydrukuj / zapisz</p>
-                </div>
-                <Set height={12} width={12} />
-            </div>
-        const buttonMailValue =
-            <div>
-                <Mail height={12} width={12} />
-                <p> Wyślij wiadomość</p>
-            </div>
-
-        // topbar layout //
-        const topBarValue =
-            <div>
-                <div>Szczegóły</div>
-                <Button class='btn btn-close' name='x' onClick={this.props.closeInvoiceDetails} />
-            </div>
-
         return (
             <Fragment>
-                <TopBar topbarClass='topbar topbar-grey topbar-invoiceDetails' title={topBarValue} />
+                <TopBar color='grey' title="Szczegóły" cl=' topbar-invoiceDetails'>
+                    <div>
+                        <Button color='dark-grey' size='square' onClick={this.props.closeInvoiceDetails}>
+                            <Close height={12} width={12} />
+                        </Button>
+                    </div>
+                </TopBar>
                 <div className='invoice__details-section'>
                     <div className='container-flex-main'>
                         <div className='container-flex'>
@@ -121,8 +106,23 @@ export default class InvoiceDetails extends Component {
                             <h3>Razem Brutto</h3>
                             <div className='txt-highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
                         </div>
-                        <Button class='btn btn-green btn-full invoideDetails-btn ' name={buttonSaveValue} />
-                        <Button class='btn btn-grey btn-full invoideDetails-btn' name={buttonMailValue} />
+                        <Button color="green" size="full"  >
+                            <div className="invoiceDetails-btn">
+                                <div>
+                                    <Print height={12} width={12} />
+                                    <p>Wydrukuj / zapisz</p>
+                                </div>
+                                <Set height={12} width={12} />
+                            </div>
+                        </Button>
+                        <Button color="grey" size='full'>
+                            <div className='invoiceDetails-btn'>
+
+                                <Mail height={12} width={12} />
+                                <p> Wyślij wiadomość</p>
+
+                            </div>
+                        </Button>
                     </div>
                 </div>
             </Fragment>
