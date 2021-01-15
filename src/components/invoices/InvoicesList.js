@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import InvoiceItem from './InvoiceItem'
-import Spinner from '../layout/spinner/Spinner'
+import Spinner from '../layout/Spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
 import InvoiceDetails from './InvoiceDetails/InvoiceDetails'
