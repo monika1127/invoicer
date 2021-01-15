@@ -19,8 +19,8 @@ export default class InvoiceDetails extends Component {
     render() {
 
         //destrukturyzacja propsów //
-        const { companyName, street, post, tel, NIP, city } = this.props.contractorInfo
-        const { number, saleDate, creationDate, contractor, price, isPaid, id } = this.props.invoice
+        const { street, post, NIP, city } = this.props.contractorInfo
+        const { saleDate, creationDate, contractor, price } = this.props.invoice
 
         //dane pomocnicze -które powinny się zaciągać z jakiś baz danych których nie mam //
         const VAT = 0.23
@@ -66,7 +66,7 @@ export default class InvoiceDetails extends Component {
         const topBarValue =
             <div>
                 <div>Szczegóły</div>
-                <Button class='btn btn-close' name='x' onClick={this.props.closeInvoiceDetails}/>
+                <Button class='btn btn-close' name='x' onClick={this.props.closeInvoiceDetails} />
             </div>
 
         return (
@@ -115,7 +115,7 @@ export default class InvoiceDetails extends Component {
                         </div>
                         <div className='container-flex text-separate'>
                             <h3>VAT</h3>
-                            <div>{Number.parseFloat(poRabacie-price).toFixed(2)}</div>
+                            <div>{Number.parseFloat(poRabacie - price).toFixed(2)}</div>
                         </div>
                         <div className='container-flex text-separate'>
                             <h3>Razem Brutto</h3>

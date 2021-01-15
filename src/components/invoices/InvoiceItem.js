@@ -13,7 +13,7 @@ class InvoiceItem extends Component {
         setCurrent: PropTypes.func.isRequired,
     }
     render() {
-        const { number, saleDate, creationDate, contractor, price, isPaid, id } = this.props.invoice
+        const { number, saleDate, creationDate, contractor, price, isPaid } = this.props.invoice
 
                return (
             <tr>
