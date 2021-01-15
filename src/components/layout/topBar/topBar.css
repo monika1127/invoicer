@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.topbar {
+  margin: auto;
+  padding: 5px;
+  background-color: rgb(41, 162, 71);
+  width: 100%;
+  border-bottom: 5px solid rgb(252, 252, 252);
+  font-weight: bold;
+  font-size: 16px;
+}
+.topbar-green {
+  background-color: rgb(41, 162, 71);
+  color: white;
+}
+
+.topbar-grey {
+  background-color: rgb(194, 194, 194);
+  color: rgb(0, 0, 0);
+}
+
+.topbar-invoiceDetails div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
