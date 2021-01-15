@@ -13,7 +13,7 @@ export default class Alert extends Component {
 
     setAlert = (message, type) => {
         this.setState({ message, type, isActive: true })
-        this.state.type === 'true' && setTimeout(() => this.setState({ isActive: false, message: '', type: '' }), 3000)
+        this.state.type === 'pass' && setTimeout(() => this.setState({ isActive: false, message: '', type: '' }), 3000)
     }
 
     closeAlert = () => {

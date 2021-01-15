@@ -89,6 +89,36 @@
       "type": "RR sprzedaż towaru",
       "creationDate": "06/01/2021",
       "id": 17
+    },
+    {
+      "number": "44/2020",
+      "price": 3000,
+      "saleDate": "05/01/2021",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "XX wykonanie usługi",
+      "creationDate": "05/01/2021",
+      "id": 18
+    },
+    {
+      "number": "44/2020",
+      "price": 3000,
+      "saleDate": "05/01/2021",
+      "isPaid": false,
+      "contractor": "Prosiaczek i Przyjaciele",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "05/01/2021",
+      "id": 19
+    },
+    {
+      "number": "44/2020",
+      "price": 3000,
+      "saleDate": "06/01/2021",
+      "isPaid": true,
+      "contractor": "Gumisie i spółka",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "06/01/2021",
+      "id": 20
     }
   ],
   "contractors": [
