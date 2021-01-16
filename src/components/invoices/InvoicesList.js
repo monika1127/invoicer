@@ -32,12 +32,12 @@ export class InvoicesList extends Component {
 
 
         //close invoice details function //
-        const closeInvoiceDetails = ()=>{
+        const closeInvoiceDetails = () => {
             this.setState({ current: null, contractorInfo: null })
         }
 
         //dane do tablicy//
-        const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia','Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']
+        const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia', 'Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']
         const tableData = this.state.invoices.map(invoice => <InvoiceItem
             key={invoice.id}
             invoice={invoice}
@@ -51,16 +51,17 @@ export class InvoicesList extends Component {
                     <TopBar color='green' title='Faktury' />
                     <div className='table__container'>
                         {this.state.loading ? <Spinner /> : <Table
-                        columns={columns}
-                        data={tableData} />}
+                            columns={columns}
+                            data={tableData} />}
                     </div>
                 </div>
-                <div className='section'>
-                    {this.state.current && <InvoiceDetails
-                        invoice={this.state.current}
-                        contractorInfo={this.state.contractorInfo}
-                        closeInvoiceDetails={closeInvoiceDetails}/> }
-                </div>
+                {this.state.current &&
+                    <div className='section'>
+                        <InvoiceDetails
+                            invoice={this.state.current}
+                            contractorInfo={this.state.contractorInfo}
+                            closeInvoiceDetails={closeInvoiceDetails} />
+                    </div>}
             </Fragment>
         )
     }

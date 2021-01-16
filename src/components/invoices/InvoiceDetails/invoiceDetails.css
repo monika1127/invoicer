@@ -12,13 +12,14 @@
 .container-flex {
   display: flex;
   text-align: center;
-  min-height: 30px;
   flex-basis: 30%;
 }
+
 .container-flex h4,
 .container-flex h3 {
+  font-size: 14px;
   margin: 0 8px;
-  min-width: 110px;
+  min-width: 130px;
   text-align: right;
 }
 
@@ -26,13 +27,11 @@
   display: flex;
   flex-direction: column;
 }
-..container-flex h2 {
-  margin: ;
-}
+
 .one-line {
   display: flex;
   flex-direction: row;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .txt-highlited {
