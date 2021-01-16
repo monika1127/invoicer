@@ -119,6 +119,26 @@
       "type": "FV sprzedaż towarów i usług",
       "creationDate": "06/01/2021",
       "id": 20
+    },
+    {
+      "number": "44/2020",
+      "price": 22,
+      "saleDate": "20/01/2021",
+      "isPaid": false,
+      "contractor": "Gumisie i spółka",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "20/01/2021",
+      "id": 21
+    },
+    {
+      "number": "44/2020",
+      "price": 3000,
+      "saleDate": "19/01/2021",
+      "isPaid": true,
+      "contractor": "Gumisie i spółka",
+      "type": "XX wykonanie usługi",
+      "creationDate": "19/01/2021",
+      "id": 22
     }
   ],
   "contractors": [

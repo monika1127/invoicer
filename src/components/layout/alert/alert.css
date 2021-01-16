@@ -11,9 +11,9 @@
 }
 
 .pass {
-  background-color: rgb(206 213 221);
+  background-color: var(--success-light);
 }
 
 .fail {
-  background-color: rgb(215 105 105);
+  background-color: var(--danger-light);
 }

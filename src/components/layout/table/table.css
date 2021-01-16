@@ -4,13 +4,13 @@
 }
 .table__invoices td,
 .table__invoices th {
-  border: 1px solid rgb(237, 237, 237);
+  border: 1px solid var(--neutral-light);
   margin: 0;
   padding: 6px 4px;
 }
 
 .table__header {
-  color: rgb(54, 58, 54);
+  color: var(--neutral-very-dark);
   font-size: 10px;
 }
 

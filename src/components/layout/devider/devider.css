@@ -4,13 +4,12 @@
   margin: 20px 0px;
   border-radius: 2px;
 }
-.blue {
-  background-color: rgb(23, 51, 102);
-}
-
-.green {
-  background-color: rgb(41, 162, 71);
-}
 .grey {
-  background-color: rgb(235, 235, 235);
+  background-color: var(--neutral-light);
+}
+.blue {
+  background-color: var(--primary);
+}
+.green {
+  background-color: var(--secondary);
 }

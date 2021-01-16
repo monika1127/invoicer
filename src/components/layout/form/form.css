@@ -21,7 +21,7 @@
 .container select,
 .container-date > div {
   height: 25px;
-  border: 1px solid rgb(179, 179, 179);
+  border: 1px solid var(--neutral-dark);
   border-radius: 2px;
   text-align: right;
   padding-right: 10px;
@@ -40,14 +40,14 @@
 /* errors styling */
 
 .error {
-  color: rgb(216, 0, 0);
+  color: var(--danger);
   font-size: 10px;
   padding-left: 120px;
   height: 16px;
 }
 
 .error-radio {
-  color: rgb(216, 0, 0);
+  color: var(--danger);
   font-size: 10px;
   height: 16px;
 }
@@ -65,7 +65,7 @@
 
 /* radio - list */
 .radio__label-list {
-  border-right: 1px solid rgb(179, 179, 179);
+  border-right: 1px solid var(--neutral-dark);
 }
 .radio-list {
   display: flex;

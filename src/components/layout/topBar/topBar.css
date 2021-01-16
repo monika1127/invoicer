@@ -6,7 +6,7 @@
   margin: auto;
   padding: 5px 10px;
   width: 100%;
-  border-bottom: 5px solid rgb(252, 252, 252);
+  border-bottom: 5px solid var(--neutral-very-light);
   font-weight: bold;
   font-size: 16px;
   display: flex;
@@ -14,11 +14,10 @@
   align-items: center;
 }
 .topbar-green {
-  background-color: rgb(41, 162, 71);
-  color: white;
+  background-color: var(--secondary);
+  color: var(--neutral-very-light);
 }
 
 .topbar-grey {
-  background-color: rgb(194, 194, 194);
-  color: rgb(0, 0, 0);
+  background-color: var(--neutral-dark);
 }

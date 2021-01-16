@@ -32,20 +32,20 @@
 }
 /* color */
 .btn-green {
-  background-color: rgb(41, 162, 71);
-  color: white;
+  background-color: var(--secondary);
+  color: var(--neutral-very-light);
 }
 
 .btn-grey {
-  background-color: rgb(235, 235, 235);
+  background-color: var(--neutral-light);
 }
 
 .btn-dark-grey {
-  color: rgb(99, 99, 99);
-  color: white;
+  color: var(--neutral-dark);
+  color: var(--neutral-very-light);
 }
 .btn-red {
-  background-color: rgb(141, 28, 28);
+  background-color: var(--danger);
 }
 
 /* speciall styling */

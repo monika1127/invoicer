@@ -2,9 +2,35 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-dark: rgb(0, 16, 46);
+  --primary: rgb(23, 42, 79);
+  --primary-light: rgb(24, 128, 177);
+  --primary-very-light: rgb(211, 221, 245);
+
+  --secondary: rgb(41, 162, 71);
+  --secondary-light: rgb(158, 209, 158);
+
+  --neutral-very-dark: rgb(38, 38, 38);
+  --neutral-dark: rgb(177, 177, 177);
+  --neutral: rgb(206, 206, 206);
+  --neutral-light: rgb(238, 238, 238);
+  --neutral-very-light: rgb(255, 255, 255);
+
+  --danger-light: rgb(215, 105, 105);
+  --danger: rgb(141, 28, 28);
+
+  --success-light: rgb(173, 232, 219);
+  --success: rgb(80, 182, 160);
+
+  --warning-light: rgb(235, 237, 150);
+  --warning: rgb(165, 167, 35);
+}
+
 body {
   font-size: 12px;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--neutral-light);
+  color: var(--neutral-very-dark);
 }
 .App {
   text-align: center;
