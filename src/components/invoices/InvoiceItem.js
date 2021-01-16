@@ -22,7 +22,7 @@ class InvoiceItem extends Component {
                 </td>
                 <td className='txt-center'>
                     <div onClick={() => this.props.setCurrent(this.props.invoice)} class='show-details' >
-                        <Search height={14} width={14} />
+                        <Search width={16} height={16}/>
                     </div>
                 </td>
                 <td className='txt-blue txt-bold'>{number}</td>
@@ -39,13 +39,13 @@ class InvoiceItem extends Component {
                 <td>
                     <div className='container__flex-row'>
                         <Button size='square' >
-                            <Clock height={14} width={14} />
+                            <Clock width={16} height={16} />
                         </Button>
                         <Button size='square'>
-                            <Arrow height={14} width={14} />
+                            <Arrow width={16} height={16} />
                         </Button>
                         <Button size='square'>
-                            <Printer height={14} width={14} />
+                            <Printer width={16} height={16} />
                         </Button>
                     </div>
                 </td>

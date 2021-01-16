@@ -122,8 +122,6 @@ const NewInvoiceForm = () => {
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
-                    <Button type='button' size='small' color="grey" specialClass="contractor" >Dodaj</Button>
-
                     <Radio
                         radioLabel='Typ faktury'
                         options={[

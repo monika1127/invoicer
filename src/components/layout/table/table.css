@@ -6,12 +6,12 @@
 .table__invoices th {
   border: 1px solid var(--neutral-light);
   margin: 0;
-  padding: 6px 4px;
+  padding: 8px 4px;
 }
 
 .table__header {
   color: var(--neutral-very-dark);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .txt-left {

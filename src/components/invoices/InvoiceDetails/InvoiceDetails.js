@@ -109,16 +109,16 @@ export default class InvoiceDetails extends Component {
                         <Button color="green" size="full"  >
                             <div className="invoiceDetails-btn">
                                 <div>
-                                    <Print height={12} width={12} />
+                                    <Print width={16} height={16} />
                                     <p>Wydrukuj / zapisz</p>
                                 </div>
-                                <Set height={12} width={12} />
+                                <Set width={16} height={16}/>
                             </div>
                         </Button>
                         <Button color="grey" size='full'>
                             <div className='invoiceDetails-btn'>
 
-                                <Mail height={12} width={12} />
+                                <Mail width={16} height={16}/>
                                 <p> Wyślij wiadomość</p>
 
                             </div>

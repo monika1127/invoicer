@@ -25,12 +25,15 @@
 
   --warning-light: rgb(235, 237, 150);
   --warning: rgb(165, 167, 35);
+
+  --font: "Arial";
 }
 
 body {
-  font-size: 12px;
+  font-size: 16px;
   background-color: var(--neutral-light);
   color: var(--neutral-very-dark);
+  font-family: var(--font);
 }
 .App {
   text-align: center;

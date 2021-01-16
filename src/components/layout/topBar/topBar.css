@@ -4,11 +4,11 @@
 
 .topbar {
   margin: auto;
-  padding: 5px 10px;
+  padding: 8px 16px;
   width: 100%;
   border-bottom: 5px solid var(--neutral-very-light);
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

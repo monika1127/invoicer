@@ -1,55 +1,78 @@
 /* general */
-.container-body {
+.form-body {
   padding: 8px 0px;
 }
 
-.container,
-.container-list,
-.container-date {
+.form-container,
+.container-list {
   display: flex;
   align-items: stretch;
 }
 
-.container label,
-.radio__label-list,
-.container-date label {
-  width: 120px;
-  text-align: right;
-  padding-right: 10px;
+.form-container label {
+  margin-top: 4px;
 }
-.container input,
-.container select,
-.container-date > div {
-  height: 25px;
+
+.form-container label,
+.radio__label-list {
+  flex: 0 0 120px;
+  text-align: right;
+  padding-right: 8px;
+}
+.input-field {
+  flex: 1 1 auto;
+}
+.input-field > :first-child {
+  height: 28px;
   border: 1px solid var(--neutral-dark);
   border-radius: 2px;
   text-align: right;
-  padding-right: 10px;
-  width: 50%;
+  width: 90%;
+  font-family: var(--font);
+  font-size: 16px;
+}
+
+.add-btn-container {
+  display: flex;
+  width: 100%;
+  padding: 0;
+}
+.add-btn-container select {
+  border: none;
+  flex-grow: 1;
+  font-family: var(--font);
+  font-size: 16px;
+}
+
+/* data type input */
+
+.input-field-date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .react-date-picker__wrapper {
   border: none;
+  font-size: 16px;
+}
+.react-date-picker__wrapper svg {
+  width: 12px;
+  padding: 0px;
 }
 
 ::-webkit-input-placeholder {
-  font-size: 10px;
+  font-size: 14px;
 }
 
 /* select */
 
 /* errors styling */
 
-.error {
-  color: var(--danger);
-  font-size: 10px;
-  padding-left: 120px;
-  height: 16px;
-}
-
+.error,
 .error-radio {
-  color: var(--danger);
-  font-size: 10px;
-  height: 16px;
+  color: var(--danger-light);
+  font-size: 12px;
+  height: 14px;
 }
 
 /* radio */
@@ -57,10 +80,10 @@
   width: auto;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 .radio input {
-  margin: 0px 3px;
+  margin: 0px 8px;
 }
 
 /* radio - list */
@@ -79,7 +102,6 @@
 /* radio - inline */
 .radio__label-inline {
   font-weight: bold;
-  padding-right: 20px;
 }
 .radio-inline {
   display: flex;

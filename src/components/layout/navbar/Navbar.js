@@ -7,7 +7,7 @@ export default class Navbar extends PureComponent {
         return (
             <div className='navbar'>
                 <div className='navbar__name'>
-                    <Logo />
+                    <Logo width={42} height={42}/>
                     <h1>Invoicer</h1>
                 </div>
                 <ul className='navbar__items'>

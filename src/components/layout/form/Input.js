@@ -11,11 +11,11 @@ export class Input extends Component {
         inputPattern: PropTypes.string,
         inputPlaceholder: PropTypes.string,
         inputFormik: PropTypes.object,
-        errorMsg:PropTypes.string,
+        errorMsg: PropTypes.string,
     }
 
     render() {
-        const {inputConnection,
+        const { inputConnection,
             inputLabel,
             inputId,
             inputType,
@@ -25,20 +25,21 @@ export class Input extends Component {
             errorMsg } = this.props
 
         return (
-            <div className='container-body'>
-            <div className='container'>
-                <label htmlFor={inputConnection}>{inputLabel}</label>
-                <input
-                    id={inputId}
-                    type={inputType}
-                    pattern={inputPattern}
-                    placeholder={inputPlaceholder}
-                    {...inputFormik}>
-                </input>
+            <div className='form-body'>
+                <div className='form-container'>
+                    <label htmlFor={inputConnection}>{inputLabel}</label>
+                    <div className='input-field'>
+                        <input
+                            id={inputId}
+                            type={inputType}
+                            pattern={inputPattern}
+                            placeholder={inputPlaceholder}
+                            {...inputFormik} />
+                        <div className='error'>{errorMsg}</div>
+                    </div>
 
+                </div>
             </div>
-            <div className='error'>{errorMsg}</div>
-        </div>
         )
     }
 }

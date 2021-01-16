@@ -21,7 +21,7 @@ export class Radio extends Component {
             errorMsg } = this.props
 
         return (
-            <div className='container-body'>
+            <div className='form-body'>
                 <div className={`container-${orientation}`} role="group" aria-labelledby="my-radio-group">
                     <div className={`radio__label-${orientation}`}>{radioLabel}
                         <div className='error-radio'>{errorMsg}</div>
