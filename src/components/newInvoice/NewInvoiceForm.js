@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, Fragment } from 'react'
 import { useFormik } from 'formik'
 import AlertContext from '../../context/alert/alertContext'
 import * as Yup from 'yup'
 import './newInvoiceForm.css'
+
+import NewContractorForm from '../newContractor/NewContractorForm'
 
 import TopBar from '../layout/topBar/TopBar'
 import Button from '../layout/button/Button'
@@ -67,6 +69,7 @@ const NewInvoiceForm = () => {
     });
 
     return (
+        <Fragment>
         <div className='form__container'>
             <TopBar title='Zarejestruj nową fakturę:' color='green' />
             <div className='form__container-body'>
@@ -167,6 +170,8 @@ const NewInvoiceForm = () => {
                 <Button size='full' color='grey' >Anuluj</Button>
             </div>
         </div>
+        <NewContractorForm />
+        </Fragment>
     )
 }
 

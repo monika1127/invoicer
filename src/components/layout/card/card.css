@@ -1,0 +1,13 @@
+.form__container {
+  background-color: var(--neutral-very-light);
+  margin: auto;
+  margin: 24px auto;
+  box-shadow: 0px 2px 5px 1px var(--neutral-dark);
+}
+
+.small {
+  width: 420px;
+}
+.form__container-body {
+  padding: 24px 16px;
+}
