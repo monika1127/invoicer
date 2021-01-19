@@ -10,7 +10,8 @@ export class Select extends Component {
         defaultOption: PropTypes.string,
         selectFormik: PropTypes.object,
         options: PropTypes.arrayOf(PropTypes.shape({ value: PropTypes.string, label: PropTypes.string })),
-        errorMsg: PropTypes.string
+        errorMsg: PropTypes.string,
+        onClick: PropTypes.func,
     }
 
     render() {
@@ -20,7 +21,8 @@ export class Select extends Component {
             defaultOption,
             selectFormik,
             options,
-            errorMsg
+            errorMsg,
+            onClick
         } = this.props
 
         return (
@@ -32,12 +34,13 @@ export class Select extends Component {
                             <option value='' disabled >{defaultOption}</option>
                             {options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)}
                         </select>
-                        <Button type='button' size='small' color="grey" >Dodaj</Button>
+                        <Button type='button' size='small' color="grey" onClick={onClick}>Dodaj</Button>
+                        </div>
+                        <div className='error'>{errorMsg}</div>
                     </div>
                     <div className='error'>{errorMsg}</div>
                 </div>
-            </div>
-        )
+            </        )
     }
 }
 

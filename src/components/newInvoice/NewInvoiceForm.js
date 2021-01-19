@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import './newInvoiceForm.css'
 
 import NewContractorForm from '../newContractor/NewContractorForm'
-
+import Card from '../layout/card/Card'
 import TopBar from '../layout/topBar/TopBar'
 import Button from '../layout/button/Button'
 import Input from '../layout/form/Input'
@@ -22,6 +22,10 @@ const NewInvoiceForm = () => {
 
     // list of possibles contractors, data get from db.json file
     const [contractors, setContractors] = useState([])
+
+    // contractors list updated
+    const [updateContr, setUpdateContr] = useState(false)
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/contractors/`)
@@ -69,10 +73,8 @@ const NewInvoiceForm = () => {
     });
 
     return (
-        <Fragment>
-        <div className='form__container'>
-            <TopBar title='Zarejestruj nową fakturę:' color='green' />
-            <div className='form__container-body'>
+        <div className='forms-container'>
+            <Card size='small' cardName='Zarejestruj nową fakturę:' cardType='green'>
                 <form onSubmit={formik.handleSubmit}>
 
                     <Input
@@ -122,6 +124,7 @@ const NewInvoiceForm = () => {
                         selectLabel='Kontrahent'
                         defaultOption='Wybierz firmę'
                         selectFormik={formik.getFieldProps('contractor')}
+                        onClick={()=>setUpdateContr(true)}
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
@@ -168,10 +171,10 @@ const NewInvoiceForm = () => {
                     <Button type="submit" size='full' color='green' >Dodaj fakturę</Button>
                 </form>
                 <Button size='full' color='grey' >Anuluj</Button>
-            </div>
+            </Card>
+            {updateContr &&  <NewContractorForm closeForm={()=>setUpdateContr(false)}/> }
+
         </div>
-        <NewContractorForm />
-        </Fragment>
     )
 }
 

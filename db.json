@@ -88,6 +88,15 @@
       "post": "55-888",
       "city": "Stumilowy Las",
       "tel": "999-93-29"
+    },
+    {
+      "companyName": "odbiór osobisty",
+      "NIP": "999-999-999-999",
+      "street": "morskie oko 7/18",
+      "post": "46-316",
+      "city": "BB",
+      "tel": "798481619",
+      "id": 4
     }
   ]
 }

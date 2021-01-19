@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
+import React, { useContext, useState } from 'react';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Card from '../layout/card/Card'
 import './newContractorForm.css'
 import Input from '../layout/form/Input'
 import Button from '../layout/button/Button'
+import AlertContext from '../../context/alert/alertContext'
 
-const NewContractorForm = () => {
+const NewContractorForm = (props) => {
 
-    const formik = useFormik({
+    // variables for Alert display - AlertContext
+    const alertCtx = useContext(AlertContext)
+    const { setAlertMessage } = alertCtx
+
+        const formik = useFormik({
         initialValues: {
             companyName: '',
             NIP: '',
@@ -39,7 +44,16 @@ const NewContractorForm = () => {
         }),
 
         onSubmit: values => {
-            console.log('nowy kontraktor')
+            console.log(values)
+            fetch(`http://localhost:5000/contractors/`,
+            {method: 'POST',
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({...values})
+            })
+            .then(res=> res.json())
+            .then(res => {setAlertMessage('Kontrahent został dodany', 'pass')  })
+            .catch(err => setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail'))
+            formik.resetForm()
         }
     })
 
@@ -98,7 +112,7 @@ const NewContractorForm = () => {
                 />
                 <Button type="submit" size='full' color='green' >Dodaj kontrahenta</Button>
             </form>
-            <Button type="button" size='full' color='grey' >Anuluj</Button>
+            <Button type="button" size='full' color='grey' onClick={props.closeForm}>Anuluj</Button>
         </Card>
     )
 }
