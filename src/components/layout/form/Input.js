@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import DatePicker from 'react-date-picker'
 import './form.css'
 export class Input extends Component {
     static propTypes = {

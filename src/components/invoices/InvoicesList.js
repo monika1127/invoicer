@@ -5,7 +5,6 @@ import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
 import InvoiceDetails from './InvoiceDetails/InvoiceDetails'
 import './invoices.css'
-
 export class InvoicesList extends Component {
     state = {
         invoices: [],
@@ -30,7 +29,6 @@ export class InvoicesList extends Component {
                 })
         }
 
-
         //close invoice details function //
         const closeInvoiceDetails = () => {
             this.setState({ current: null, contractorInfo: null })
@@ -42,8 +40,6 @@ export class InvoicesList extends Component {
             key={invoice.id}
             invoice={invoice}
             setCurrent={setCurrent} />)
-
-        console.log(tableData)
 
         return (
             <Fragment>

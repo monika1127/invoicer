@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, Fragment } from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import { useFormik } from 'formik'
 import AlertContext from '../../context/alert/alertContext'
 import * as Yup from 'yup'
@@ -6,7 +6,6 @@ import './newInvoiceForm.css'
 
 import NewContractorForm from '../newContractor/NewContractorForm'
 import Card from '../layout/card/Card'
-import TopBar from '../layout/topBar/TopBar'
 import Button from '../layout/button/Button'
 import Input from '../layout/form/Input'
 import Select from '../layout/form/Select'
@@ -26,6 +25,11 @@ const NewInvoiceForm = () => {
     // contractors list updated
     const [updateContr, setUpdateContr] = useState(false)
 
+    const updateContractorList = () => {
+        fetch(`http://localhost:5000/contractors/`)
+            .then(res => res.json())
+            .then(json => { setContractors(json) })
+    }
 
     useEffect(() => {
         fetch(`http://localhost:5000/contractors/`)
@@ -172,7 +176,9 @@ const NewInvoiceForm = () => {
                 </form>
                 <Button size='full' color='grey' >Anuluj</Button>
             </Card>
-            {updateContr &&  <NewContractorForm closeForm={()=>setUpdateContr(false)}/> }
+            {updateContr &&  <NewContractorForm
+                closeForm={()=>setUpdateContr(false)}
+                setUpdateedContractorList={updateContractorList}/> }
 
         </div>
     )

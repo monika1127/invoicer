@@ -1,11 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
+import PropTypes from 'prop-types'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+
 import Card from '../layout/card/Card'
-import './newContractorForm.css'
 import Input from '../layout/form/Input'
 import Button from '../layout/button/Button'
 import AlertContext from '../../context/alert/alertContext'
+
+import './newContractorForm.css'
 
 const NewContractorForm = (props) => {
 
@@ -54,6 +57,8 @@ const NewContractorForm = (props) => {
             .then(res => {setAlertMessage('Kontrahent został dodany', 'pass')  })
             .catch(err => setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail'))
             formik.resetForm()
+            props.setUpdateedContractorList()
+            props.closeForm()
         }
     })
 
@@ -115,6 +120,10 @@ const NewContractorForm = (props) => {
             <Button type="button" size='full' color='grey' onClick={props.closeForm}>Anuluj</Button>
         </Card>
     )
+}
+NewContractorForm.propTypes = {
+    closeForm: PropTypes.func.isRequired,
+    setUpdateedContractorList: PropTypes.func.isRequired,
 }
 
 export default NewContractorForm

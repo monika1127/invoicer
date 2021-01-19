@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { render } from '@testing-library/react';
 import TopBar from '../topBar/TopBar'
 import './card.css'
 

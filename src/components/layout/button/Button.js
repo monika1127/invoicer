@@ -4,9 +4,9 @@ import './button.css'
 
 export default class Button extends Component {
     static propTypes = {
-        size: PropTypes.oneOf(["small", "large", "full"]),
+        size: PropTypes.oneOf(["small", "large", "full", "square"]),
         color: PropTypes.oneOf(["green", "grey", "dark-grey", "red"]),
-        label: PropTypes,
+        label: PropTypes.string,
         onClick: PropTypes.func,
         type: PropTypes.string
     }

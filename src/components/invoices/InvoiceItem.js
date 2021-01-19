@@ -21,7 +21,7 @@ class InvoiceItem extends Component {
                     <input type='checkbox'></input>
                 </td>
                 <td className='txt-center'>
-                    <div onClick={() => this.props.setCurrent(this.props.invoice)} class='show-details' >
+                    <div onClick={() => this.props.setCurrent(this.props.invoice)} className='show-details' >
                         <Search width={16} height={16}/>
                     </div>
                 </td>
