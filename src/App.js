@@ -11,7 +11,7 @@ import './App.css';
 class App extends Component {
   state = {
     isLogged: false,
-    user: ''
+    user: null
   }
 
   render() {

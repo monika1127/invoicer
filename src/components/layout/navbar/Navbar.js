@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component} from 'react'
+import PropTypes from 'prop-types'
 
 import Button from '../button/Button'
 import Avatar from '../../User/Avatar'
@@ -10,7 +11,10 @@ import { ReactComponent as LogOut } from '../../../assets/images/exit.svg'
 
 import './navbar.css'
 class Navbar extends Component {
-
+static propTypes = {
+    user:PropTypes.object,
+    isLogged: PropTypes.bool.isRequired,
+}
     render() {
         return (
             <div className='navbar'>
@@ -18,9 +22,8 @@ class Navbar extends Component {
                     <Logo width={42} height={42} />
                     <h1>Invoicer</h1>
                 </div>
-                { this.props.isLogged
+                {this.props.isLogged
                     ?
-
                     <ul className='navbar__items'>
                         <li className='navbar__item'>Home</li>
                         <li className='navbar__item'>My Company</li>
@@ -38,7 +41,6 @@ class Navbar extends Component {
                         </li>
                     </ul>
                     :
-
                     <Button color='green' size='large' onClick={this.props.logIn}>
                         <div className='login'>
                             <div>Zaloguj</div>
