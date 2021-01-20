@@ -1,26 +1,53 @@
-import React, { PureComponent } from 'react'
-import './navbar.css'
+import React, { Component, Fragment } from 'react'
+
+import Button from '../button/Button'
+import Avatar from '../../User/Avatar'
+
 import { ReactComponent as Logo } from '../../../assets/logo/stack.svg'
 import { ReactComponent as Plus } from '../../../assets/images/plus.svg'
-export default class Navbar extends PureComponent {
+import { ReactComponent as LogIn } from '../../../assets/images/enter.svg'
+import { ReactComponent as LogOut } from '../../../assets/images/exit.svg'
+
+import './navbar.css'
+class Navbar extends Component {
+
     render() {
         return (
             <div className='navbar'>
                 <div className='navbar__name'>
-                    <Logo width={42} height={42}/>
+                    <Logo width={42} height={42} />
                     <h1>Invoicer</h1>
                 </div>
-                <ul className='navbar__items'>
-                    <li className='navbar__item'>Home</li>
-                    <li className='navbar__item'>Home</li>
-                    <li className='navbar__item'>Lista faktur</li>
-                    <li className='navbar__item -add'>
-                        <div className='add_btn'>
-                            <Plus width={12} height={12}/></div>
-                        <div>Dodaj fakturę</div>
-                    </li>
-                </ul>
+                { this.props.isLogged
+                    ?
+
+                    <ul className='navbar__items'>
+                        <li className='navbar__item'>Home</li>
+                        <li className='navbar__item'>My Company</li>
+                        <li className='navbar__item'>Lista faktur</li>
+                        <li className='navbar__item -main'>
+                            <div className='add_btn'>
+                                <Plus width={12} height={12} /></div>
+                            <div>Dodaj fakturę</div>
+                        </li>
+                        <li className='navbar__item -main user'>
+                            <Avatar firstName={this.props.user.firstName} lastName={this.props.user.lastName} />
+                        </li>
+                        <li className='logout' onClick={this.props.logOut}>
+                            <LogOut width={24} height={24} />
+                        </li>
+                    </ul>
+                    :
+
+                    <Button color='green' size='large' onClick={this.props.logIn}>
+                        <div className='login'>
+                            <div>Zaloguj</div>
+                            <LogIn width={24} height={24} />
+                        </div>
+                    </Button>
+                }
             </div>
         )
     }
 }
+export default Navbar

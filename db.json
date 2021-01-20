@@ -132,5 +132,16 @@
       "tel": "798481619",
       "id": 10
     }
-  ]
+  ],
+"users": {
+  "id":1,
+  "companyName": "MoniSia",
+  "NIP":"123-123-123-123",
+  "adress": "Bielsko",
+  "email": "monisia@dk.com",
+  "firstName": "Monika",
+  "lastName": "Dziub",
+  "password": "nieInterejsujSię"
+}
+
 }
