@@ -5,7 +5,7 @@ import Button from '../layout/button/Button'
 
 import { ReactComponent as Search } from '../../assets/images/search.svg'
 import { ReactComponent as Clock } from '../../assets/images/clock2.svg'
-import { ReactComponent as Printer } from '../../assets/images/printer-black.svg'
+import { ReactComponent as Printer } from '../../assets/images/printer.svg'
 import { ReactComponent as Arrow } from '../../assets/images/redo2.svg'
 class InvoiceItem extends Component {
     static propTypes = {
