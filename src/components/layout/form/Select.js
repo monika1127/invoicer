@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Button from '../button/Button'
 import './form.css'
 
 export class Select extends Component {
@@ -18,19 +19,23 @@ export class Select extends Component {
             selectLabel,
             defaultOption,
             selectFormik,
-            options
+            options,
+            errorMsg
         } = this.props
 
         return (
-            <div className='container-body'>
-                <div className='container'>
-                    <label htmlFor={connectiedWith}>{selectLabel}</label>
-                    <select {...selectFormik} >
-                        <option value='' disabled >{defaultOption}</option>
-                        {options.map((option, index)=> <option key={index} value={option.value}>{option.label}</option>)}
-                    </select>
+            <div className='form-body'>
+                <label htmlFor={connectiedWith}>{selectLabel}</label>
+                <div className='input-field input-field-select'>
+                    <div className='add-btn-container'>
+                        <select {...selectFormik} >
+                            <option value='' disabled >{defaultOption}</option>
+                            {options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)}
+                        </select>
+                        <Button type='button' size='small' color="grey" >Dodaj</Button>
+                    </div>
+                    <div className='error'>{errorMsg}</div>
                 </div>
-                <div className='error'></div>
             </div>
         )
     }

@@ -1,19 +1,18 @@
 .alert {
-  padding: 10px;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .alert-msg {
-  padding-right: 30px;
-  font-size: 16px;
+  padding-right: 36px;
   margin: 0;
 }
 
 .pass {
-  background-color: rgb(206 213 221);
+  background-color: var(--success-light);
 }
 
 .fail {
-  background-color: rgb(215 105 105);
+  background-color: var(--danger-light);
 }

@@ -13,7 +13,7 @@ export default class Alert extends Component {
 
     setAlert = (message, type) => {
         this.setState({ message, type, isActive: true })
-        this.state.type === 'true' && setTimeout(() => this.setState({ isActive: false, message: '', type: '' }), 3000)
+        this.state.type === 'pass' && setTimeout(() => this.setState({ isActive: false, message: '', type: '' }), 3000)
     }
 
     closeAlert = () => {
@@ -28,7 +28,7 @@ export default class Alert extends Component {
                         <p className='alert-msg'>{this.state.message}</p>
                         {this.state.type === 'fail' &&
                             <Button color='red' size='square' onClick={this.closeAlert}>
-                                <Close height={12} width={12} />
+                                <Close width={16} height={16} />
                             </Button>
                         }
                     </div>}

@@ -58,7 +58,7 @@ const NewInvoiceForm = () => {
             const isPaid = values.isPaid === "true"
             const saleDate = values.saleDate.toLocaleDateString('en-GB')
             const invoice = { ...values, creationDate: saleDate, isPaid, saleDate }
-            fetch(`http://localhost:50d00/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
+            fetch(`http://localhost:5000/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
                 .then(res => res.json())
                 .then(res => { setAlertMessage('Faktura została dodana', 'pass') })
                 .catch(err => setAlertMessage('Wystąpił błąd! Faktura nie została dodana', 'fail'))
@@ -122,8 +122,6 @@ const NewInvoiceForm = () => {
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
-                    <Button type='button' size='small' color="grey" specialClass="contractor" >Dodaj</Button>
-
                     <Radio
                         radioLabel='Typ faktury'
                         options={[

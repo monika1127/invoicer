@@ -5,7 +5,7 @@ import Button from '../layout/button/Button'
 
 import { ReactComponent as Search } from '../../assets/images/search.svg'
 import { ReactComponent as Clock } from '../../assets/images/clock2.svg'
-import { ReactComponent as Printer } from '../../assets/images/printer-black.svg'
+import { ReactComponent as Printer } from '../../assets/images/printer.svg'
 import { ReactComponent as Arrow } from '../../assets/images/redo2.svg'
 class InvoiceItem extends Component {
     static propTypes = {
@@ -22,7 +22,7 @@ class InvoiceItem extends Component {
                 </td>
                 <td className='txt-center'>
                     <div onClick={() => this.props.setCurrent(this.props.invoice)} class='show-details' >
-                        <Search height={14} width={14} />
+                        <Search width={16} height={16}/>
                     </div>
                 </td>
                 <td className='txt-blue txt-bold'>{number}</td>
@@ -39,13 +39,13 @@ class InvoiceItem extends Component {
                 <td>
                     <div className='container__flex-row'>
                         <Button size='square' >
-                            <Clock height={14} width={14} />
+                            <Clock width={16} height={16} />
                         </Button>
                         <Button size='square'>
-                            <Arrow height={14} width={14} />
+                            <Arrow width={16} height={16} />
                         </Button>
                         <Button size='square'>
-                            <Printer height={14} width={14} />
+                            <Printer width={16} height={16} />
                         </Button>
                     </div>
                 </td>
