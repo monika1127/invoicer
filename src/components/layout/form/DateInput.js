@@ -20,8 +20,7 @@ export class DateInput extends Component {
             errorMsg } = this.props
 
         return (
-            <div className='form-body'>
-                <div className='form-container'>
+                <div className='form-body'>
                     <label htmlFor={connectiedWith}>{inputLabel}</label>
                     <div className='input-field'>
                         <div className='input-field-date'>
@@ -32,7 +31,6 @@ export class DateInput extends Component {
                         <div className='error'>{errorMsg}</div>
                     </div>
                 </div>
-            </div>
         )
     }
 

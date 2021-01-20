@@ -25,18 +25,16 @@ export class Select extends Component {
 
         return (
             <div className='form-body'>
-                <div className='form-container'>
-                    <label htmlFor={connectiedWith}>{selectLabel}</label>
-                    <div className='input-field input-field-select'>
-                        <div className='add-btn-container'>
+                <label htmlFor={connectiedWith}>{selectLabel}</label>
+                <div className='input-field input-field-select'>
+                    <div className='add-btn-container'>
                         <select {...selectFormik} >
                             <option value='' disabled >{defaultOption}</option>
                             {options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)}
                         </select>
                         <Button type='button' size='small' color="grey" >Dodaj</Button>
-                        </div>
-                        <div className='error'>{errorMsg}</div>
                     </div>
+                    <div className='error'>{errorMsg}</div>
                 </div>
             </div>
         )
