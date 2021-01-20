@@ -29,68 +29,9 @@
       "contractor": "Prosiaczek i Przyjaciele",
       "isPaid": true,
       "type": "FV sprzedaż towarów i usług"
-    },
-    {
-      "number": "56/5677",
-      "price": 56,
-      "saleDate": "07/01/2021",
-      "isPaid": true,
-      "contractor": "Prosiaczek i Przyjaciele",
-      "type": "XX wykonanie usługi",
-      "creationDate": "07/01/2021",
-      "id": 10
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "10/01/2021",
-      "isPaid": false,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "10/01/2021",
-      "id": 11
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "05/01/2021",
-      "isPaid": true,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "05/01/2021",
-      "id": 12
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "02/01/2021",
-      "isPaid": false,
-      "contractor": "odbiór osobisty",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "02/01/2021",
-      "id": 13
-    },
-    {
-      "number": "22/2222",
-      "price": 3000,
-      "saleDate": "12/01/2021",
-      "isPaid": false,
-      "contractor": "Monika Dziub",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "12/01/2021",
-      "id": 14
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "12/01/2021",
-      "isPaid": true,
-      "contractor": "Gumisie i spółka",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "12/01/2021",
-      "id": 15
     }
   ],
+
   "contractors": [
     {
       "id": 1,
@@ -129,13 +70,49 @@
       "id": 4
     },
     {
-      "companyName": "kgadgvy",
+      "companyName": "Żwirek i Muchomorek",
+      "NIP": "111-222-333-444",
+      "street": "Stary Dąb 9",
+      "post": "46-316",
+      "city": "Praga",
+      "tel": "1231231",
+      "id": 5
+    },
+    {
+      "companyName": "odbiór osobisty",
+      "NIP": "111-222-333-444",
+      "street": "morskie oko 7/18",
+      "post": "46-316",
+      "city": "BB",
+      "tel": "798481619",
+      "id": 6
+    },
+    {
+      "companyName": "Reksio",
       "NIP": "999-999-999-999",
+      "street": "Buda 3",
+      "post": "46-316",
+      "city": "Bytom",
+      "tel": "509206084",
+      "id": 7
+    },
+    {
+      "companyName": "sierotka Marysia",
+      "NIP": "111-222-333-444",
       "street": "Wróblewskiego 8",
       "post": "46-316",
       "city": "Bytom",
       "tel": "509206084",
-      "id": 5
+      "id": 8
+    },
+    {
+      "companyName": "swinka Pepa",
+      "NIP": "999-999-999-999",
+      "street": "chlew",
+      "post": "66-666",
+      "city": "Wiocha",
+      "tel": "78979-67",
+      "id": 9
     }
   ]
 }

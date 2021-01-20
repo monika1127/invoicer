@@ -28,7 +28,8 @@ const NewInvoiceForm = () => {
     const updateContractorList = () => {
         fetch(`http://localhost:5000/contractors/`)
             .then(res => res.json())
-            .then(json => { setContractors(json) })
+            .then(json => {setContractors(json)
+                console.log(json)})
     }
 
     useEffect(() => {

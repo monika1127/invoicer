@@ -54,11 +54,16 @@ const NewContractorForm = (props) => {
             body: JSON.stringify({...values})
             })
             .then(res=> res.json())
-            .then(res => {setAlertMessage('Kontrahent został dodany', 'pass')  })
-            .catch(err => setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail'))
+            .then(res => {
+                setAlertMessage('Kontrahent został dodany', 'pass')
+                props.setUpdateedContractorList()
+                props.closeForm()
+                formik.resetForm()
+            })
+            .catch(err => {
+                setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail')
             formik.resetForm()
-            props.setUpdateedContractorList()
-            props.closeForm()
+            })
         }
     })
 
