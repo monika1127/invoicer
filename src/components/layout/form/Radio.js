@@ -4,7 +4,6 @@ import './form.css'
 
 export class Radio extends Component {
     static propTypes = {
-
         radioLabel: PropTypes.string,
         options: PropTypes.array.isRequired,
         radioFormik: PropTypes.object,
@@ -26,7 +25,7 @@ export class Radio extends Component {
                         <div className='error-radio'>{errorMsg}</div>
                     </div>
                     <div className={`radio radio-${orientation}`}>
-                        {options.map((option, index) => <label>
+                        {options.map((option, index) => <label key={index}>
                             <input type="radio" {...radioFormik} value={option.value} />{option.text}</label>
                         )}
                     </div>

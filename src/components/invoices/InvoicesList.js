@@ -5,7 +5,6 @@ import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
 import InvoiceDetails from './InvoiceDetails/InvoiceDetails'
 import './invoices.css'
-
 export class InvoicesList extends Component {
     state = {
         invoices: [],
@@ -30,7 +29,6 @@ export class InvoicesList extends Component {
                 })
         }
 
-
         //close invoice details function //
         const closeInvoiceDetails = () => {
             this.setState({ current: null, contractorInfo: null })
@@ -43,12 +41,10 @@ export class InvoicesList extends Component {
             invoice={invoice}
             setCurrent={setCurrent} />)
 
-        console.log(tableData)
-
         return (
             <Fragment>
                 <div className='section'>
-                    <TopBar color='green' title='Faktury' />
+                    <TopBar color='secondary' title='Faktury' />
                     <div className='table__container'>
                         {this.state.loading ? <Spinner /> : <Table
                             columns={columns}

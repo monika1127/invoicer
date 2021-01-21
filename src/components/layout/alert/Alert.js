@@ -27,7 +27,7 @@ export default class Alert extends Component {
                     <div className={`alert ${this.state.type}`}>
                         <p className='alert-msg'>{this.state.message}</p>
                         {this.state.type === 'fail' &&
-                            <Button color='red' size='square' onClick={this.closeAlert}>
+                            <Button color='danger' size='square' onClick={this.closeAlert}>
                                 <Close width={16} height={16} />
                             </Button>
                         }

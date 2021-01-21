@@ -1,10 +1,5 @@
-.form__container {
-  width: 420px;
-  background-color: var(--neutral-very-light);
-  margin: auto;
-  margin: 24px auto;
-  box-shadow: 0px 2px 5px 1px var(--neutral-dark);
-}
-.form__container-body {
-  padding: 24px 16px;
+.forms-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

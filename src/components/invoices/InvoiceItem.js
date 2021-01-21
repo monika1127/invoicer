@@ -21,7 +21,7 @@ class InvoiceItem extends Component {
                     <input type='checkbox'></input>
                 </td>
                 <td className='txt-center'>
-                    <div onClick={() => this.props.setCurrent(this.props.invoice)} class='show-details' >
+                    <div onClick={() => this.props.setCurrent(this.props.invoice)} className='show-details' >
                         <Search width={16} height={16}/>
                     </div>
                 </td>
@@ -34,7 +34,7 @@ class InvoiceItem extends Component {
                     <div className='txt-vsmall'>{isPaid ? "opłacono" : "nieopłacono"}</div>
                 </td>
                 <td className='txt-center'>
-                    <Button size="small" color="green">płatność</Button>
+                    <Button size="small" color="secondary">płatność</Button>
                 </td>
                 <td>
                     <div className='container__flex-row'>

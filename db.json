@@ -31,34 +31,14 @@
       "type": "FV sprzedaż towarów i usług"
     },
     {
-      "number": "56/5677",
-      "price": 56,
-      "saleDate": "07/01/2021",
-      "isPaid": true,
-      "contractor": "Prosiaczek i Przyjaciele",
-      "type": "XX wykonanie usługi",
-      "creationDate": "07/01/2021",
-      "id": 10
-    },
-    {
       "number": "44/2020",
       "price": 3000,
-      "saleDate": "10/01/2021",
+      "saleDate": "19/01/2021",
       "isPaid": false,
       "contractor": "Smerf Ważniak",
       "type": "FV sprzedaż towarów i usług",
-      "creationDate": "10/01/2021",
-      "id": 11
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "05/01/2021",
-      "isPaid": true,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "05/01/2021",
-      "id": 12
+      "creationDate": "19/01/2021",
+      "id": 4
     }
   ],
   "contractors": [
@@ -88,6 +68,69 @@
       "post": "55-888",
       "city": "Stumilowy Las",
       "tel": "999-93-29"
+    },
+    {
+      "companyName": "Monika Dziub",
+      "NIP": "111-222-333-444",
+      "street": "Matusiaka",
+      "post": "46-316",
+      "city": "Bielsko-biała",
+      "tel": "798481619",
+      "id": 4
+    },
+    {
+      "companyName": "Żwirek i Muchomorek",
+      "NIP": "111-222-333-444",
+      "street": "Stary Dąb 9",
+      "post": "46-316",
+      "city": "Praga",
+      "tel": "1231231",
+      "id": 5
+    },
+    {
+      "companyName": "odbiór osobisty",
+      "NIP": "111-222-333-444",
+      "street": "morskie oko 7/18",
+      "post": "46-316",
+      "city": "BB",
+      "tel": "798481619",
+      "id": 6
+    },
+    {
+      "companyName": "Reksio",
+      "NIP": "999-999-999-999",
+      "street": "Buda 3",
+      "post": "46-316",
+      "city": "Bytom",
+      "tel": "509206084",
+      "id": 7
+    },
+    {
+      "companyName": "sierotka Marysia",
+      "NIP": "111-222-333-444",
+      "street": "Wróblewskiego 8",
+      "post": "46-316",
+      "city": "Bytom",
+      "tel": "509206084",
+      "id": 8
+    },
+    {
+      "companyName": "swinka Pepa",
+      "NIP": "999-999-999-999",
+      "street": "chlew",
+      "post": "66-666",
+      "city": "Wiocha",
+      "tel": "78979-67",
+      "id": 9
+    },
+    {
+      "companyName": "odbiór osobisty",
+      "NIP": "111-222-333-444",
+      "street": "morskie oko 7/18",
+      "post": "46-316",
+      "city": "BB",
+      "tel": "798481619",
+      "id": 10
     }
   ]
 }

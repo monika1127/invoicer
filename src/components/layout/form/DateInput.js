@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import DatePicker from 'react-date-picker'
+import './form.css'
 export class DateInput extends Component {
     static propTypes = {
-        connectiedWith: PropTypes.string,
         inputLabel: PropTypes.string,
         errorMsg: PropTypes.string,
         onChange: PropTypes.func.isRequired,
@@ -12,7 +12,7 @@ export class DateInput extends Component {
     }
 
     render() {
-        const { connectiedWith,
+        const {
             inputLabel,
             name,
             onChange,
@@ -21,7 +21,7 @@ export class DateInput extends Component {
 
         return (
                 <div className='form-body'>
-                    <label htmlFor={connectiedWith}>{inputLabel}</label>
+                    <label>{inputLabel}</label>
                     <div className='input-field'>
                         <div className='input-field-date'>
                             <DatePicker

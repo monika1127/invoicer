@@ -31,19 +31,19 @@
   align-items: center;
 }
 /* color */
-.btn-green {
+.btn-secondary {
   background-color: var(--secondary);
   color: var(--neutral-very-light);
 }
 
-.btn-grey {
+.btn-neutral {
   background-color: var(--neutral-light);
 }
 
-.btn-dark-grey {
+.btn-dark-neutral {
   color: var(--neutral-dark);
   color: var(--neutral-very-light);
 }
-.btn-red {
+.btn-danger {
   background-color: var(--danger);
 }
