@@ -11,7 +11,7 @@ import './App.css';
 class App extends Component {
   state = {
     isLogged: false,
-    user: null
+    user: {}
   }
 
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
       .then(json => this.setState({user: json, isLogged: true}))
     }
     const logOut = () => {
-      this.setState({user: '', isLogged: false})
+      this.setState({user: {}, isLogged: false})
     }
 
     return (

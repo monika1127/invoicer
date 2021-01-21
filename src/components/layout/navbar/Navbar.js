@@ -41,7 +41,7 @@ static propTypes = {
                         </li>
                     </ul>
                     :
-                    <Button color='green' size='large' onClick={this.props.logIn}>
+                    <Button color='secondary' size='large' onClick={this.props.logIn}>
                         <div className='login'>
                             <div>Zaloguj</div>
                             <LogIn width={24} height={24} />
