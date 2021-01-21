@@ -52,7 +52,7 @@ export default class InvoiceDetails extends Component {
             <Fragment>
                 <TopBar color='grey' title="Szczegóły" cl=' topbar-invoiceDetails'>
                     <div>
-                        <Button color='dark-grey' size='square' onClick={this.props.closeInvoiceDetails}>
+                        <Button color='dark-neutral' size='square' onClick={this.props.closeInvoiceDetails}>
                             <Close height={12} width={12} />
                         </Button>
                     </div>

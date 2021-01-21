@@ -32,7 +32,7 @@ export class Select extends Component {
                             <option value='' disabled >{defaultOption}</option>
                             {options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)}
                         </select>
-                        <Button type='button' size='small' color="grey" onClick={onClick}>Dodaj</Button>
+                        <Button type='button' size='small' color="neutral" onClick={onClick}>Dodaj</Button>
                     </div>
                     <div className='error'>{errorMsg}</div>
                 </div>
