@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -8,15 +8,13 @@ import Input from '../layout/form/Input'
 import Button from '../layout/button/Button'
 import AlertContext from '../../context/alert/alertContext'
 
-import './newContractorForm.css'
-
 const NewContractorForm = (props) => {
 
     // variables for Alert display - AlertContext
     const alertCtx = useContext(AlertContext)
     const { setAlertMessage } = alertCtx
 
-        const formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             companyName: '',
             NIP: '',
@@ -49,29 +47,27 @@ const NewContractorForm = (props) => {
         onSubmit: values => {
             console.log(values)
             fetch(`http://localhost:5000/contractors/`,
-            {method: 'POST',
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify({...values})
-            })
-            .then(res=> res.json())
-            .then(res => {
-                setAlertMessage('Kontrahent został dodany', 'pass')
-                props.setUpdateedContractorList()
-                props.closeForm()
-                formik.resetForm()
-            })
-            .catch(err => {
-                setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail')
-            formik.resetForm()
-            })
+                {
+                    method: 'POST',
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify({ ...values })
+                })
+                .then(res => res.json())
+                .then(res => {
+                    setAlertMessage('Kontrahent został dodany', 'pass')
+                    props.updateContractorList()
+                    props.closeForm()
+                })
+                .catch(err => {
+                    setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail')
+                })
         }
     })
 
     return (
-        <Card size='small' cardName='Dodaj nowego kontrahenta:' cardType='grey'>
+        <Card size='small' cardName='Dodaj nowego kontrahenta:' variant='neutral'>
             <form onSubmit={formik.handleSubmit}>
                 <Input
-                    connectiedWith='companyName'
                     inputLabel='Nazwa Firmy'
                     inputId='companyName'
                     inputType='text'
@@ -79,7 +75,6 @@ const NewContractorForm = (props) => {
                     errorMsg={formik.touched.companyName && formik.errors.companyName ? formik.errors.companyName : null}
                 />
                 <Input
-                    connectiedWith='NIP'
                     inputLabel='NIP'
                     inputId='NIP'
                     inputType='text'
@@ -89,7 +84,6 @@ const NewContractorForm = (props) => {
                     errorMsg={formik.touched.NIP && formik.errors.NIP ? formik.errors.NIP : null}
                 />
                 <Input
-                    connectiedWith='street'
                     inputLabel='Adres'
                     inputId='street'
                     inputType='text'
@@ -97,7 +91,6 @@ const NewContractorForm = (props) => {
                     errorMsg={formik.touched.street && formik.errors.street ? formik.errors.street : null}
                 />
                 <Input
-                    connectiedWith='post'
                     inputLabel='Kod Pocztowy'
                     inputId='post'
                     inputType='text'
@@ -105,7 +98,6 @@ const NewContractorForm = (props) => {
                     errorMsg={formik.touched.post && formik.errors.post ? formik.errors.post : null}
                 />
                 <Input
-                    connectiedWith='city'
                     inputLabel='Miasto'
                     inputId='city'
                     inputType='text'
@@ -113,22 +105,21 @@ const NewContractorForm = (props) => {
                     errorMsg={formik.touched.city && formik.errors.city ? formik.errors.city : null}
                 />
                 <Input
-                    connectiedWith='tel'
                     inputLabel='Telefon'
                     inputId='tel'
                     inputType='text'
                     inputFormik={formik.getFieldProps('tel')}
                     errorMsg={formik.touched.tel && formik.errors.tel ? formik.errors.tel : null}
                 />
-                <Button type="submit" size='full' color='green' >Dodaj kontrahenta</Button>
+                <Button type="submit" size='full' color='secondary' >Dodaj kontrahenta</Button>
             </form>
-            <Button type="button" size='full' color='grey' onClick={props.closeForm}>Anuluj</Button>
+            <Button type="button" size='full' color='neutral' onClick={props.closeForm}>Anuluj</Button>
         </Card>
     )
 }
 NewContractorForm.propTypes = {
     closeForm: PropTypes.func.isRequired,
-    setUpdateedContractorList: PropTypes.func.isRequired,
+    updateContractorList: PropTypes.func.isRequired,
 }
 
 export default NewContractorForm

@@ -106,7 +106,7 @@ export default class InvoiceDetails extends Component {
                             <h3>Razem Brutto</h3>
                             <div className='txt-highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
                         </div>
-                        <Button color="green" size="full"  >
+                        <Button color="secondary" size="full"  >
                             <div className="invoiceDetails-btn">
                                 <div>
                                     <Print width={16} height={16} />
@@ -115,7 +115,7 @@ export default class InvoiceDetails extends Component {
                                 <Set width={16} height={16}/>
                             </div>
                         </Button>
-                        <Button color="grey" size='full'>
+                        <Button color="neutral" size='full'>
                             <div className='invoiceDetails-btn'>
 
                                 <Mail width={16} height={16}/>

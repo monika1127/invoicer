@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useContext} from 'react'
 import { useFormik } from 'formik'
-import AlertContext from '../../context/alert/alertContext'
 import * as Yup from 'yup'
-import './newInvoiceForm.css'
 
-import NewContractorForm from '../newContractor/NewContractorForm'
-import Card from '../layout/card/Card'
+import AlertContext from '../../context/alert/alertContext'
 import Button from '../layout/button/Button'
-import Input from '../layout/form/Input'
-import Select from '../layout/form/Select'
-import Radio from '../layout/form/Radio'
-import Devider from '../layout/devider/Devider'
-
+import Card from '../layout/card/Card'
 import DateInput from '../layout/form/DateInput'
+import Devider from '../layout/devider/Devider'
+import Input from '../layout/form/Input'
+import NewContractorForm from '../newContractor/NewContractorForm'
+import Radio from '../layout/form/Radio'
+import Select from '../layout/form/Select'
+
+import './newInvoiceForm.css'
 const NewInvoiceForm = () => {
 
     // variables for Alert display - AlertContext
@@ -23,7 +23,7 @@ const NewInvoiceForm = () => {
     const [contractors, setContractors] = useState([])
 
     // contractors list updated
-    const [updateContr, setUpdateContr] = useState(false)
+    const [isContractorFormOpen, toggleContractorFormOpen] = useState(false)
 
     const updateContractorList = () => {
         fetch(`http://localhost:5000/contractors/`)
@@ -79,11 +79,10 @@ const NewInvoiceForm = () => {
 
     return (
         <div className='forms-container'>
-            <Card size='small' cardName='Zarejestruj nową fakturę:' cardType='green'>
+            <Card size='small' cardName='Zarejestruj nową fakturę:' variant='secondary'>
                 <form onSubmit={formik.handleSubmit}>
 
                     <Input
-                        connectiedWith='number'
                         inputLabel='Numer faktury'
                         inputId='number'
                         inputType='text'
@@ -94,7 +93,6 @@ const NewInvoiceForm = () => {
                     />
 
                     <Input
-                        connectiedWith='price'
                         inputLabel='Kwota'
                         inputId='price'
                         inputType='number'
@@ -106,7 +104,6 @@ const NewInvoiceForm = () => {
 
 
                     <DateInput
-                        connectiedWith='saleDate'
                         inputLabel='Data'
                         errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
                         onChange={formik.setFieldValue}
@@ -125,11 +122,10 @@ const NewInvoiceForm = () => {
                     /> */}
 
                     <Select
-                        connectiedWith='contractor'
                         selectLabel='Kontrahent'
                         defaultOption='Wybierz firmę'
                         selectFormik={formik.getFieldProps('contractor')}
-                        onClick={()=>setUpdateContr(true)}
+                        onClick={()=>toggleContractorFormOpen(true)}
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
@@ -173,13 +169,13 @@ const NewInvoiceForm = () => {
 
                     <Devider color='grey' />
 
-                    <Button type="submit" size='full' color='green' >Dodaj fakturę</Button>
+                    <Button type="submit" size='full' color='secondary' >Dodaj fakturę</Button>
                 </form>
-                <Button size='full' color='grey' >Anuluj</Button>
+                <Button size='full' color='neutral' >Anuluj</Button>
             </Card>
-            {updateContr &&  <NewContractorForm
-                closeForm={()=>setUpdateContr(false)}
-                setUpdateedContractorList={updateContractorList}/> }
+            {isContractorFormOpen &&  <NewContractorForm
+                closeForm={()=>toggleContractorFormOpen(false)}
+                updateContractorList={updateContractorList}/> }
 
         </div>
     )

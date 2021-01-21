@@ -5,7 +5,6 @@ import './form.css'
 
 export class Select extends Component {
     static propTypes = {
-        connectiedWith: PropTypes.string,
         selectLabel: PropTypes.string,
         defaultOption: PropTypes.string,
         selectFormik: PropTypes.object,
@@ -16,7 +15,6 @@ export class Select extends Component {
 
     render() {
         const {
-            connectiedWith,
             selectLabel,
             defaultOption,
             selectFormik,
@@ -27,7 +25,7 @@ export class Select extends Component {
 
         return (
             <div className='form-body'>
-                <label htmlFor={connectiedWith}>{selectLabel}</label>
+                <label >{selectLabel}</label>
                 <div className='input-field input-field-select'>
                     <div className='add-btn-container'>
                         <select {...selectFormik} >

@@ -4,7 +4,6 @@ import './form.css'
 
 export class Radio extends Component {
     static propTypes = {
-
         radioLabel: PropTypes.string,
         options: PropTypes.array.isRequired,
         radioFormik: PropTypes.object,

@@ -34,7 +34,7 @@ class InvoiceItem extends Component {
                     <div className='txt-vsmall'>{isPaid ? "opłacono" : "nieopłacono"}</div>
                 </td>
                 <td className='txt-center'>
-                    <Button size="small" color="green">płatność</Button>
+                    <Button size="small" color="secondary">płatność</Button>
                 </td>
                 <td>
                     <div className='container__flex-row'>

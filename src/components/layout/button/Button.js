@@ -5,7 +5,7 @@ import './button.css'
 export default class Button extends Component {
     static propTypes = {
         size: PropTypes.oneOf(["small", "large", "full", "square"]),
-        color: PropTypes.oneOf(["green", "grey", "dark-grey", "red"]),
+        color: PropTypes.oneOf(["secondary", "neutral", "dark-neutral", "danger"]),
         label: PropTypes.string,
         onClick: PropTypes.func,
         type: PropTypes.string
@@ -15,7 +15,7 @@ export default class Button extends Component {
         const {type, onClick, size, color}=this.props
         return (
             <button
-                type={type}
+                type={type ? type : 'button'}
                 onClick={onClick}
                 className={`btn btn-${size} btn-${color}`}
             >

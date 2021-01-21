@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import './form.css'
 export class Input extends Component {
     static propTypes = {
-        connectiedWith: PropTypes.string,
         inputLabel: PropTypes.string,
         inputId: PropTypes.string.isRequired,
         inputType: PropTypes.string.isRequired,
@@ -14,7 +13,7 @@ export class Input extends Component {
     }
 
     render() {
-        const { inputConnection,
+        const {
             inputLabel,
             inputId,
             inputType,
@@ -25,7 +24,7 @@ export class Input extends Component {
 
         return (
                 <div className='form-body'>
-                    <label htmlFor={inputConnection}>{inputLabel}</label>
+                    <label htmlFor={inputId}>{inputLabel}</label>
                     <div className='input-field'>
                         <input
                             id={inputId}

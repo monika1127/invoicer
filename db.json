@@ -29,9 +29,18 @@
       "contractor": "Prosiaczek i Przyjaciele",
       "isPaid": true,
       "type": "FV sprzedaż towarów i usług"
+    },
+    {
+      "number": "44/2020",
+      "price": 3000,
+      "saleDate": "19/01/2021",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "19/01/2021",
+      "id": 4
     }
   ],
-
   "contractors": [
     {
       "id": 1,
@@ -113,6 +122,15 @@
       "city": "Wiocha",
       "tel": "78979-67",
       "id": 9
+    },
+    {
+      "companyName": "odbiór osobisty",
+      "NIP": "111-222-333-444",
+      "street": "morskie oko 7/18",
+      "post": "46-316",
+      "city": "BB",
+      "tel": "798481619",
+      "id": 10
     }
   ]
 }
