@@ -131,16 +131,25 @@
       "city": "BB",
       "tel": "798481619",
       "id": 10
+    },
+    {
+      "companyName": "asdfasdf",
+      "NIP": "111-111-111-111",
+      "street": "asdfsadf",
+      "post": "43333",
+      "city": "1dfassf",
+      "tel": "sdfgsdfg",
+      "id": 11
     }
   ],
-"users": {
-  "id":1,
-  "companyName": "MoniSia",
-  "NIP":"123-123-123-123",
-  "adress": "Bielsko",
-  "email": "monisia@dk.com",
-  "firstName": "Monika",
-  "lastName": "Dziub",
-  "password": "nieInterejsujSię"
-}
+  "users": {
+    "id": 1,
+    "companyName": "MoniSia",
+    "NIP": "123-123-123-123",
+    "adress": "Bielsko",
+    "email": "monisia@dk.com",
+    "firstName": "Monika",
+    "lastName": "Dziub",
+    "password": "nieInterejsujSię"
+  }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link,  } from 'react-router-dom'
 
 import Button from '../layout/button/Button'
 
@@ -13,7 +14,7 @@ class InvoiceItem extends Component {
         setCurrent: PropTypes.func.isRequired,
     }
     render() {
-        const { number, saleDate, creationDate, contractor, price, isPaid } = this.props.invoice
+        const { number, saleDate, creationDate, contractor, price, isPaid, id } = this.props.invoice
 
         return (
             <tr>
@@ -21,9 +22,13 @@ class InvoiceItem extends Component {
                     <input type='checkbox'></input>
                 </td>
                 <td className='txt-center'>
-                    <div onClick={() => this.props.setCurrent(this.props.invoice)} className='show-details' >
-                        <Search width={16} height={16}/>
-                    </div>
+                    <Link to={`invoices/${id}`}>
+                        <div
+                        // onClick={() => this.props.setCurrent(this.props.invoice)}
+                        className='show-details' >
+                            <Search width={16} height={16} />
+                        </div>
+                    </Link>
                 </td>
                 <td className='txt-blue txt-bold'>{number}</td>
                 <td className='txt-center'>{saleDate}</td>

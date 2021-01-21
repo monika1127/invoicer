@@ -1,5 +1,6 @@
-import React, { Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import Button from '../button/Button'
 import Avatar from '../../User/Avatar'
@@ -11,10 +12,10 @@ import { ReactComponent as LogOut } from '../../../assets/images/exit.svg'
 
 import './navbar.css'
 class Navbar extends Component {
-static propTypes = {
-    user:PropTypes.object,
-    isLogged: PropTypes.bool.isRequired,
-}
+    static propTypes = {
+        user: PropTypes.object,
+        isLogged: PropTypes.bool.isRequired,
+    }
     render() {
         return (
             <div className='navbar'>
@@ -24,14 +25,18 @@ static propTypes = {
                 </div>
                 {this.props.isLogged
                     ?
-                    <ul className='navbar__items'>
+                    <div className='navbar__items'>
                         <li className='navbar__item'>Home</li>
-                        <li className='navbar__item'>My Company</li>
-                        <li className='navbar__item'>Lista faktur</li>
+                        <Link  className='navbar__item' to='/user'>User</Link>
+                        <li className='navbar__item'>
+                            <Link to='/invoices'> Lista faktur</Link>
+                        </li>
                         <li className='navbar__item -main'>
+                            <Link to='/invoices/new'>
                             <div className='add_btn'>
                                 <Plus width={12} height={12} /></div>
                             <div>Dodaj fakturę</div>
+                            </Link>
                         </li>
                         <li className='navbar__item -main user'>
                             <Avatar firstName={this.props.user.firstName} lastName={this.props.user.lastName} />
@@ -39,14 +44,16 @@ static propTypes = {
                         <li className='logout' onClick={this.props.logOut}>
                             <LogOut width={24} height={24} />
                         </li>
-                    </ul>
+                    </div>
                     :
-                    <Button color='secondary' size='large' onClick={this.props.logIn}>
-                        <div className='login'>
-                            <div>Zaloguj</div>
-                            <LogIn width={24} height={24} />
-                        </div>
-                    </Button>
+                    <Link to="/user">
+                        <Button color='secondary' size='large' onClick={this.props.logIn}>
+                            <div className='login'>
+                                <div>Zaloguj</div>
+                                <LogIn width={24} height={24} />
+                            </div>
+                        </Button>
+                    </Link>
                 }
             </div>
         )

@@ -8,6 +8,9 @@
 .form__container.-small {
   width: 420px;
 }
+.form__container.-large {
+  width: 1200px;
+}
 
 .form__container-body {
   padding: 24px 16px;
