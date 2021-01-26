@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Alert from './components/layout/alert/Alert'
@@ -9,6 +9,7 @@ import NewInvoiceForm from './components/newInvoice/NewInvoiceForm'
 import User from './components/User/User'
 
 import './App.css';
+import NewContractorForm from './components/newContractor/NewContractorForm';
 class App extends Component {
   state = {
     isLogged: false,
@@ -27,26 +28,21 @@ class App extends Component {
 
     return (
       <Router>
-        <Navbar
-          logIn={logIn}
-          logOut={logOut}
-          isLogged={this.state.isLogged}
-          user={this.state.user} />
+      <Navbar
+      logIn={logIn}
+      logOut={logOut}
+      isLogged={this.state.isLogged}
+      user={this.state.user} />
         {this.state.isLogged &&
           <Alert>
             <Switch>
-
-            <Route exact path='/user'>
-              <User
-                user={this.state.user} />
-            </Route>
-            <Route exact path='/invoices'>
-              <InvoicesList />
-            </Route>
-            <Route exact path='/invoices/new'>
-              <NewInvoiceForm />
-            </Route>
-            <Route exact path='/invoices/:id' component={InvoiceDetails}/>
+              <Route exact path='/user' render={(props) => <User user={this.state.user} />} />
+              <Route exact path='/invoices'>
+                <InvoicesList />
+              </Route>
+              <Route exact path='/invoices/new' component={NewInvoiceForm} />
+              <Route exact path='/invoices/:id' component={InvoiceDetails} />
+              <Route exact path='/contractor/new' component={NewContractorForm} />
             </Switch>
           </Alert>}
       </Router>

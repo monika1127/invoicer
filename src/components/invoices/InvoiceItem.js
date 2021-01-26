@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link,  } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 
 import Button from '../layout/button/Button'
 
@@ -9,10 +8,6 @@ import { ReactComponent as Clock } from '../../assets/images/clock2.svg'
 import { ReactComponent as Printer } from '../../assets/images/printer.svg'
 import { ReactComponent as Arrow } from '../../assets/images/redo2.svg'
 class InvoiceItem extends Component {
-    static propTypes = {
-        invoice: PropTypes.object.isRequired,
-        setCurrent: PropTypes.func.isRequired,
-    }
     render() {
         const { number, saleDate, creationDate, contractor, price, isPaid, id } = this.props.invoice
 
@@ -22,12 +17,8 @@ class InvoiceItem extends Component {
                     <input type='checkbox'></input>
                 </td>
                 <td className='txt-center'>
-                    <Link to={`invoices/${id}`}>
-                        <div
-                        // onClick={() => this.props.setCurrent(this.props.invoice)}
-                        className='show-details' >
-                            <Search width={16} height={16} />
-                        </div>
+                    <Link to={`invoices/${id}`} className='show-details'>
+                        <Search width={16} height={16} />
                     </Link>
                 </td>
                 <td className='txt-blue txt-bold'>{number}</td>

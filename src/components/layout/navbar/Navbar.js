@@ -26,27 +26,24 @@ class Navbar extends Component {
                 {this.props.isLogged
                     ?
                     <div className='navbar__items'>
-                        <li className='navbar__item'>Home</li>
-                        <Link  className='navbar__item' to='/user'>User</Link>
-                        <li className='navbar__item'>
-                            <Link to='/invoices'> Lista faktur</Link>
-                        </li>
-                        <li className='navbar__item -main'>
-                            <Link to='/invoices/new'>
+                        <div className='navbar__item'>Home</div>
+                        <Link className='navbar__item' to='/user'>User</Link>
+                        <Link className='navbar__item' to='/invoices'> Lista faktur</Link>
+                        <Link className='navbar__item -main' to='/invoices/new'>
                             <div className='add_btn'>
                                 <Plus width={12} height={12} /></div>
                             <div>Dodaj fakturę</div>
-                            </Link>
-                        </li>
-                        <li className='navbar__item -main user'>
+                        </Link>
+
+                        <div className='navbar__item -main user'>
                             <Avatar firstName={this.props.user.firstName} lastName={this.props.user.lastName} />
-                        </li>
-                        <li className='logout' onClick={this.props.logOut}>
+                        </div>
+                        <div className='logout' onClick={this.props.logOut}>
                             <LogOut width={24} height={24} />
-                        </li>
+                        </div>
                     </div>
                     :
-                    <Link to="/user">
+                    <Link to="/user" className='navbar__items'>
                         <Button color='secondary' size='large' onClick={this.props.logIn}>
                             <div className='login'>
                                 <div>Zaloguj</div>

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -8,12 +9,11 @@ import Card from '../layout/card/Card'
 import DateInput from '../layout/form/DateInput'
 import Devider from '../layout/devider/Devider'
 import Input from '../layout/form/Input'
-import NewContractorForm from '../newContractor/NewContractorForm'
 import Radio from '../layout/form/Radio'
 import Select from '../layout/form/Select'
 
 import './newInvoiceForm.css'
-const NewInvoiceForm = () => {
+const NewInvoiceForm = (props) => {
 
     // variables for Alert display - AlertContext
     const alertCtx = useContext(AlertContext)
@@ -22,30 +22,25 @@ const NewInvoiceForm = () => {
     // list of possibles contractors, data get from db.json file
     const [contractors, setContractors] = useState([])
 
-    // contractors list updated
-    const [isContractorFormOpen, toggleContractorFormOpen] = useState(false)
-
-    const updateContractorList = () => {
-        fetch(`http://localhost:5000/contractors/`)
-            .then(res => res.json())
-            .then(json => {setContractors(json)
-                console.log(json)})
-    }
-
     useEffect(() => {
         fetch(`http://localhost:5000/contractors/`)
             .then(res => res.json())
             .then(json => { setContractors(json) })
     }, [])
 
+    const formValues = localStorage.getItem('formValues')
+    const initialValues = formValues ? JSON.parse(formValues) : {
+        number: '',
+        price: '',
+        saleDate: '',
+        isPaid: '',
+        contractor: '',
+        type: ''
+    }
+
     const formik = useFormik({
         initialValues: {
-            number: '',
-            price: '',
-            saleDate: '',
-            isPaid: '',
-            contractor: '',
-            type: ''
+            ...initialValues
         },
         validationSchema: Yup.object({
             number: Yup.string()
@@ -71,7 +66,11 @@ const NewInvoiceForm = () => {
             const invoice = { ...values, creationDate: saleDate, isPaid, saleDate }
             fetch(`http://localhost:5000/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
                 .then(res => res.json())
-                .then(res => { setAlertMessage('Faktura została dodana', 'pass') })
+                .then(res => {
+                    setAlertMessage('Faktura została dodana', 'pass')
+                    localStorage.clear()
+                    props.history.push('/invoices')
+                })
                 .catch(err => setAlertMessage('Wystąpił błąd! Faktura nie została dodana', 'fail'))
             formik.resetForm();
         }
@@ -125,7 +124,10 @@ const NewInvoiceForm = () => {
                         selectLabel='Kontrahent'
                         defaultOption='Wybierz firmę'
                         selectFormik={formik.getFieldProps('contractor')}
-                        onClick={()=>toggleContractorFormOpen(true)}
+                        onClick={() => {
+                            props.history.push('/contractor/new')
+                            localStorage.setItem("formValues", JSON.stringify(formik.values))
+                        }}
                         options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
@@ -134,11 +136,11 @@ const NewInvoiceForm = () => {
                         options={[
                             {
                                 value: "FV sprzedaż towarów i usług",
-                                text: "FV sprzedaż towarów i usług"
+                                text: "FV sprzedaż towarów i usług",
                             },
                             {
                                 value: "XX wykonanie usługi",
-                                text: "XX wykonanie usługi"
+                                text: "XX wykonanie usługi",
                             },
                             {
                                 value: "RR sprzedaż towaru",
@@ -171,12 +173,10 @@ const NewInvoiceForm = () => {
 
                     <Button type="submit" size='full' color='secondary' >Dodaj fakturę</Button>
                 </form>
-                <Button size='full' color='neutral' >Anuluj</Button>
+                <Link to='/user'>
+                    <Button size='full' color='neutral' onClick={() => localStorage.clear()}>Anuluj</Button>
+                </Link>
             </Card>
-            {isContractorFormOpen &&  <NewContractorForm
-                closeForm={()=>toggleContractorFormOpen(false)}
-                updateContractorList={updateContractorList}/> }
-
         </div>
     )
 }
