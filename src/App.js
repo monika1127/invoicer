@@ -13,7 +13,7 @@ import NewContractorForm from './components/newContractor/NewContractorForm';
 class App extends Component {
   state = {
     isLogged: false,
-    user: {}
+    user: null
   }
 
   render() {
