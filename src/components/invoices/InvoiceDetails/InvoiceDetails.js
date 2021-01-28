@@ -35,9 +35,9 @@ class InvoiceDetails extends Component {
 
     render() {
 
+        if(this.state.isLoading) { return <Spinner />}
         const { street, post, NIP, city } = this.state.contractorInfo
         const { saleDate, creationDate, contractor, price } = this.state.invoice
-
 
         const VAT = 0.23
         const showVAT = (VAT * 100) + '%'
@@ -46,7 +46,7 @@ class InvoiceDetails extends Component {
         const rabat = 0
         const poRabacie = Number.parseFloat(netto - rabat).toFixed(2)
 
-        // //table layout//
+        // table layout//
         const tableColumns = ['', "Nazwa towaru lub usługi", "CN/PKW", 'CTU', "Ilość", 'Jednostka', "Cena Jednostkowa netto", "Rabat", 'Po rabacie', "Wartość Netto", 'VAT']
         const tableData =
             <tr>
@@ -63,7 +63,6 @@ class InvoiceDetails extends Component {
                 <td className='txt-right'>{showVAT}</td>
             </tr>
 
-
         return (
             <div className='section'>
                 <TopBar color='neutral' title="Szczegóły" cl=' topbar-invoiceDetails'>
@@ -74,81 +73,77 @@ class InvoiceDetails extends Component {
                     </Link>
                 </TopBar>
 
-                {this.state.isLoading
-                    ? <Spinner />
-                    : <Fragment>
-                        <div className='invoice__details-section'>
-                            <div className='container-flex-main'>
-                                <div className='container-flex'>
-                                    <h4 >Nabywca</h4>
-                                    <div className='address'>
-                                        <p className='txt-blue'>{contractor}</p>
-                                        <p>{street}</p>
-                                        <p>{post} {city}</p>
-                                        <p>NIP: {NIP}</p>
-                                    </div>
-                                </div>
-                                <div className='container-flex container-flex-date'>
-                                    <div className='one-line'>
-                                        <h4>Data wystawienia</h4>
-                                        <div>{creationDate}</div>
-                                    </div>
-                                    <div className='one-line'>
-                                        <h4>Data sprzedaży</h4>
-                                        <div>{saleDate}</div>
-                                    </div>
-                                    <div className='one-line'>
-                                        <h4>Termin płatności</h4>
-                                        <div>{saleDate}</div>
-                                    </div>
-                                </div>
-                                <div className='container-flex'>
-                                    <h4>Format daty</h4>
-                                    <div>dzienny</div>
+
+                <Fragment>
+                    <div className='invoice__details-section'>
+                        <div className='container-flex-main'>
+                            <div className='container-flex'>
+                                <h4 >Nabywca</h4>
+                                <div className='address'>
+                                    <p className='txt-blue'>{contractor}</p>
+                                    <p>{street}</p>
+                                    <p>{post} {city}</p>
+                                    <p>NIP: {NIP}</p>
                                 </div>
                             </div>
-                        </div>
-                        <div className='invoice__details-section'>
-                            <Table columns={tableColumns} data={tableData} />
-                        </div>
-                        <div className='invoice__details-section'>
-                            <div className='summary'>
-                                <h2>Podsumowanie faktury</h2>
-                                <div className='container-flex text-separate'>
-                                    <h3>Razem Netto</h3>
-                                    <div>{poRabacie}</div>
+                            <div className='container-flex container-flex-date'>
+                                <div className='one-line'>
+                                    <h4>Data wystawienia</h4>
+                                    <div>{creationDate}</div>
                                 </div>
-                                <div className='container-flex text-separate'>
-                                    <h3>VAT</h3>
-                                    <div>{Number.parseFloat(poRabacie - price).toFixed(2)}</div>
+                                <div className='one-line'>
+                                    <h4>Data sprzedaży</h4>
+                                    <div>{saleDate}</div>
                                 </div>
-                                <div className='container-flex text-separate'>
-                                    <h3>Razem Brutto</h3>
-                                    <div className='txt-highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
+                                <div className='one-line'>
+                                    <h4>Termin płatności</h4>
+                                    <div>{saleDate}</div>
                                 </div>
-                                <Button color="secondary" size="full"  >
-                                    <div className="invoiceDetails-btn">
-                                        <div>
-                                            <Print width={16} height={16} />
-                                            <p>Wydrukuj / zapisz</p>
-                                        </div>
-                                        <Set width={16} height={16} />
-                                    </div>
-                                </Button>
-                                <Button color="neutral" size='full'>
-                                    <div className='invoiceDetails-btn'>
-                                        <Mail width={16} height={16} />
-                                        <p> Wyślij wiadomość</p>
-                                    </div>
-                                </Button>
+                            </div>
+                            <div className='container-flex'>
+                                <h4>Format daty</h4>
+                                <div>dzienny</div>
                             </div>
                         </div>
-                    </Fragment>
-                }
+                    </div>
+                    <div className='invoice__details-section'>
+                        <Table columns={tableColumns} data={tableData} />
+                    </div>
+                    <div className='invoice__details-section'>
+                        <div className='summary'>
+                            <h2>Podsumowanie faktury</h2>
+                            <div className='container-flex text-separate'>
+                                <h3>Razem Netto</h3>
+                                <div>{poRabacie}</div>
+                            </div>
+                            <div className='container-flex text-separate'>
+                                <h3>VAT</h3>
+                                <div>{Number.parseFloat(poRabacie - price).toFixed(2)}</div>
+                            </div>
+                            <div className='container-flex text-separate'>
+                                <h3>Razem Brutto</h3>
+                                <div className='txt-highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
+                            </div>
+                            <Button color="secondary" size="full"  >
+                                <div className="invoiceDetails-btn">
+                                    <div>
+                                        <Print width={16} height={16} />
+                                        <p>Wydrukuj / zapisz</p>
+                                    </div>
+                                    <Set width={16} height={16} />
+                                </div>
+                            </Button>
+                            <Button color="neutral" size='full'>
+                                <div className='invoiceDetails-btn'>
+                                    <Mail width={16} height={16} />
+                                    <p> Wyślij wiadomość</p>
+                                </div>
+                            </Button>
+                        </div>
+                    </div>
+                </Fragment>
             </div>
         )
     }
 }
-
-
 export default InvoiceDetails

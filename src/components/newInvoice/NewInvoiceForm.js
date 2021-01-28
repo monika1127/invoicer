@@ -39,9 +39,8 @@ const NewInvoiceForm = (props) => {
     }
 
     const formik = useFormik({
-        initialValues: {
-            ...initialValues
-        },
+        initialValues: initialValues,
+
         validationSchema: Yup.object({
             number: Yup.string()
                 .max(10, '! Improper form number')
@@ -68,7 +67,7 @@ const NewInvoiceForm = (props) => {
                 .then(res => res.json())
                 .then(res => {
                     setAlertMessage('Faktura została dodana', 'pass')
-                    localStorage.clear()
+                    localStorage.removeItem('formValues')
                     props.history.push('/invoices')
                 })
                 .catch(err => setAlertMessage('Wystąpił błąd! Faktura nie została dodana', 'fail'))
@@ -174,7 +173,7 @@ const NewInvoiceForm = (props) => {
                     <Button type="submit" size='full' color='secondary' >Dodaj fakturę</Button>
                 </form>
                 <Link to='/user'>
-                    <Button size='full' color='neutral' onClick={() => localStorage.clear()}>Anuluj</Button>
+                    <Button size='full' color='neutral' onClick={() =>  localStorage.removeItem('formValues')}>Anuluj</Button>
                 </Link>
             </Card>
         </div>
