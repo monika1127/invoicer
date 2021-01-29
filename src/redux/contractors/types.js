@@ -1,0 +1,4 @@
+export const GET_CONTRACTORS = 'GET_CONTRACTORS'
+export const SET_ERRORS = 'SET_ERRORS'
+export const SET_LOADING='SET_LOADING'
+export const ADD_CONTRACTOR = 'ADD_CONTRACTOR'

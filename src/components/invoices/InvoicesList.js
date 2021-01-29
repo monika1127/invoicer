@@ -1,21 +1,29 @@
 import React, { useEffect } from 'react'
+
+import { getInvoices } from '../../redux/invoices/invoicesActions'
+import { getContractors } from '../../redux/contractors/contractorsActions'
+import { connect } from 'react-redux'
+
 import InvoiceItem from './InvoiceItem'
 import Spinner from '../layout/Spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
-import { getInvoices } from '../../redux/invoices/invoicesActions'
-import { connect } from 'react-redux'
-
 
 import './invoices.css'
-const InvoicesList = ({ invoices: { invoicesList, loading }, getInvoices }) => {
 
-    useEffect(() => {getInvoices()}, [])
+const InvoicesList = ({
+    invoices: { invoicesList, loading },
+    contractors:{contractorsList},
+    getInvoices,
+    getContractors
+}) => {
 
+    useEffect(() => { getInvoices() }, [])
+    useEffect(() => { getContractors() }, [])
 
     //dane do tablicy//
     const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia', 'Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']
-    if(!invoicesList)return null
+    if (!invoicesList || !contractorsList) return null
 
     return (
         <div className='section'>
@@ -27,14 +35,16 @@ const InvoicesList = ({ invoices: { invoicesList, loading }, getInvoices }) => {
                         columns={columns}
                         data={invoicesList.map(invoice => <InvoiceItem
                             key={invoice.id}
-                            invoice={invoice} />)}
+                            invoice={invoice}
+                         />)}
                     />}
             </div>
         </div>
     )
 }
-const mapStateToProps = state =>({
-    invoices: state.invoices
+const mapStateToProps = state => ({
+    invoices: state.invoices,
+    contractors: state.contractors
 })
 
-export default  connect(mapStateToProps, {getInvoices})(InvoicesList)
+export default connect(mapStateToProps, { getInvoices, getContractors })(InvoicesList)
