@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
+
 
 import Alert from './components/layout/alert/Alert'
 import InvoicesList from './components/invoices/InvoicesList'
@@ -27,23 +30,25 @@ class App extends Component {
     }
 
     return (
-      <Router>
-        <Navbar
-          logIn={logIn}
-          logOut={logOut}
-          isLogged={this.state.isLogged}
-          user={this.state.user} />
-        {this.state.isLogged &&
-          <Alert>
-            <Switch>
-              <Route exact path='/user' render={(props) => <User user={this.state.user} />} />
-              <Route exact path='/invoices' component={InvoicesList}/>
-              <Route exact path='/invoices/new' component={NewInvoiceForm} />
-              <Route exact path='/invoices/:id' component={InvoiceDetails} />
-              <Route exact path='/contractor/new' component={NewContractorForm} />
-            </Switch>
-          </Alert>}
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Navbar
+            logIn={logIn}
+            logOut={logOut}
+            isLogged={this.state.isLogged}
+            user={this.state.user} />
+          {this.state.isLogged &&
+            <Alert>
+              <Switch>
+                <Route exact path='/user' render={(props) => <User user={this.state.user} />} />
+                <Route exact path='/invoices' component={InvoicesList} />
+                <Route exact path='/invoices/new' component={NewInvoiceForm} />
+                <Route exact path='/invoices/:id' component={InvoiceDetails} />
+                <Route exact path='/contractor/new' component={NewContractorForm} />
+              </Switch>
+            </Alert>}
+        </Router>
+      </Provider>
     );
   }
 }

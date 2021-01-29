@@ -1,43 +1,40 @@
-import React, { Component} from 'react'
+import React, { useEffect } from 'react'
 import InvoiceItem from './InvoiceItem'
 import Spinner from '../layout/Spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
+import { getInvoices } from '../../redux/invoices/invoicesActions'
+import { connect } from 'react-redux'
+
 
 import './invoices.css'
-export class InvoicesList extends Component {
-    state = {
-        invoices: [],
-        loading: true,
-    }
+const InvoicesList = ({ invoices: { invoicesList, loading }, getInvoices }) => {
 
-    componentDidMount() {
-        fetch('http://localhost:5000/invoices')
-            .then(res => res.json())
-            .then(json => this.setState({ invoices: json, loading: false }))
-    }
+    useEffect(() => {getInvoices()}, [])
 
-    render() {
 
-        //dane do tablicy//
-        const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia', 'Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']
+    //dane do tablicy//
+    const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia', 'Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']
+    if(!invoicesList)return null
 
-        return (
-            <div className='section'>
-                <TopBar color='secondary' title='Faktury' />
-                <div className='table__container'>
-                    {this.state.loading
+    return (
+        <div className='section'>
+            <TopBar color='secondary' title='Faktury' />
+            <div className='table__container'>
+                {loading
                     ? <Spinner />
                     : <Table
                         columns={columns}
-                        data= {this.state.invoices.map(invoice => <InvoiceItem
+                        data={invoicesList.map(invoice => <InvoiceItem
                             key={invoice.id}
                             invoice={invoice} />)}
                     />}
-                </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
+const mapStateToProps = state =>({
+    invoices: state.invoices
+})
 
-export default InvoicesList
+export default  connect(mapStateToProps, {getInvoices})(InvoicesList)
