@@ -1,6 +1,6 @@
 .navbar {
   width: 100%;
-  padding: 4px;
+  padding: 4px 24px;
   background-color: var(--primary);
   color: var(--neutral-very-light);
   display: flex;
@@ -22,6 +22,7 @@
   padding-right: 24px;
   font-size: 20px;
   margin: 0;
+  text-decoration: none;
 }
 
 .navbar__item {
@@ -29,9 +30,11 @@
   list-style-type: none;
   padding: 8px 16px;
   border-radius: 4px;
+  text-decoration: none;
+  color: var(--neutral-very-light);
 }
 
-.navbar__item:hover {
+.navbar__item:hover:not(.user) {
   cursor: pointer;
   background-color: var(--neutral-dark);
 }
@@ -40,7 +43,7 @@
   background-color: var(--secondary);
 }
 
-.-add {
+.-main {
   margin-left: 60px;
   display: flex;
   align-items: center;
@@ -55,4 +58,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.user {
+  padding: 0px 4px;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  width: 48px;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.logout:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
