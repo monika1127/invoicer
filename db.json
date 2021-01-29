@@ -39,6 +39,36 @@
       "type": "FV sprzedaż towarów i usług",
       "creationDate": "19/01/2021",
       "id": 4
+    },
+    {
+      "number": "99/9999",
+      "price": 99999,
+      "saleDate": "07/01/2021",
+      "isPaid": true,
+      "contractor": "Gumisie i spółka",
+      "type": "XX wykonanie usługi",
+      "creationDate": "07/01/2021",
+      "id": 5
+    },
+    {
+      "number": "45/3564",
+      "price": 5000,
+      "saleDate": "21/01/2021",
+      "isPaid": true,
+      "contractor": "Prosiaczek i Przyjaciele",
+      "type": "XX wykonanie usługi",
+      "creationDate": "21/01/2021",
+      "id": 6
+    },
+    {
+      "number": "90/9000",
+      "price": 900,
+      "saleDate": "29/12/2020",
+      "isPaid": true,
+      "contractor": "ttt",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "29/12/2020",
+      "id": 7
     }
   ],
   "contractors": [
@@ -79,24 +109,6 @@
       "id": 4
     },
     {
-      "companyName": "Żwirek i Muchomorek",
-      "NIP": "111-222-333-444",
-      "street": "Stary Dąb 9",
-      "post": "46-316",
-      "city": "Praga",
-      "tel": "1231231",
-      "id": 5
-    },
-    {
-      "companyName": "odbiór osobisty",
-      "NIP": "111-222-333-444",
-      "street": "morskie oko 7/18",
-      "post": "46-316",
-      "city": "BB",
-      "tel": "798481619",
-      "id": 6
-    },
-    {
       "companyName": "Reksio",
       "NIP": "999-999-999-999",
       "street": "Buda 3",
@@ -106,41 +118,23 @@
       "id": 7
     },
     {
-      "companyName": "sierotka Marysia",
-      "NIP": "111-222-333-444",
-      "street": "Wróblewskiego 8",
-      "post": "46-316",
-      "city": "Bytom",
-      "tel": "509206084",
+      "companyName": "ttt",
+      "NIP": "666-666-666-666",
+      "street": "666",
+      "post": "666",
+      "city": "666",
+      "tel": "666",
       "id": 8
-    },
-    {
-      "companyName": "swinka Pepa",
-      "NIP": "999-999-999-999",
-      "street": "chlew",
-      "post": "66-666",
-      "city": "Wiocha",
-      "tel": "78979-67",
-      "id": 9
-    },
-    {
-      "companyName": "odbiór osobisty",
-      "NIP": "111-222-333-444",
-      "street": "morskie oko 7/18",
-      "post": "46-316",
-      "city": "BB",
-      "tel": "798481619",
-      "id": 10
     }
   ],
-"users": {
-  "id":1,
-  "companyName": "MoniSia",
-  "NIP":"123-123-123-123",
-  "adress": "Bielsko",
-  "email": "monisia@dk.com",
-  "firstName": "Monika",
-  "lastName": "Dziub",
-  "password": "nieInterejsujSię"
-}
+  "users": {
+    "id": 1,
+    "companyName": "MoniSia",
+    "NIP": "123-123-123-123",
+    "adress": "Bielsko",
+    "email": "monisia@dk.com",
+    "firstName": "Monika",
+    "lastName": "Dziub",
+    "password": "nieInterejsujSię"
+  }
 }

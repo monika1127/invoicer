@@ -22,6 +22,7 @@
   padding-right: 24px;
   font-size: 20px;
   margin: 0;
+  text-decoration: none;
 }
 
 .navbar__item {
@@ -29,6 +30,8 @@
   list-style-type: none;
   padding: 8px 16px;
   border-radius: 4px;
+  text-decoration: none;
+  color: var(--neutral-very-light);
 }
 
 .navbar__item:hover:not(.user) {

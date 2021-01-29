@@ -31,4 +31,5 @@
 }
 .show-details {
   cursor: pointer;
+  color: var(--primary-dark);
 }

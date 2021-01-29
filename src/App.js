@@ -1,31 +1,33 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import InvoicesList from './components/invoices/InvoicesList'
-import Navbar from './components/layout/navbar/Navbar'
-import NewInvoiceForm from './components/newInvoice/NewInvoiceForm'
 import Alert from './components/layout/alert/Alert'
+import InvoicesList from './components/invoices/InvoicesList'
+import InvoiceDetails from './components/invoices/InvoiceDetails/InvoiceDetails';
+import Navbar from './components/layout/navbar/Navbar'
+import NewContractorForm from './components/newContractor/NewContractorForm';
+import NewInvoiceForm from './components/newInvoice/NewInvoiceForm'
 import User from './components/User/User'
 
 import './App.css';
-
 class App extends Component {
   state = {
     isLogged: false,
-    user: {}
+    user: null
   }
 
   render() {
     const logIn = () => {
       fetch(`http://localhost:5000/users/`)
-      .then(res => res.json())
-      .then(json => this.setState({user: json, isLogged: true}))
+        .then(res => res.json())
+        .then(json => this.setState({ user: json, isLogged: true }))
     }
     const logOut = () => {
-      this.setState({user: {}, isLogged: false})
+      this.setState({ user: {}, isLogged: false })
     }
 
     return (
-      <Fragment>
+      <Router>
         <Navbar
           logIn={logIn}
           logOut={logOut}
@@ -33,13 +35,15 @@ class App extends Component {
           user={this.state.user} />
         {this.state.isLogged &&
           <Alert>
-            <User
-              user={this.state.user} />
-            <InvoicesList />
-            <NewInvoiceForm />
+            <Switch>
+              <Route exact path='/user' render={(props) => <User user={this.state.user} />} />
+              <Route exact path='/invoices' component={InvoicesList}/>
+              <Route exact path='/invoices/new' component={NewInvoiceForm} />
+              <Route exact path='/invoices/:id' component={InvoiceDetails} />
+              <Route exact path='/contractor/new' component={NewContractorForm} />
+            </Switch>
           </Alert>}
-
-      </Fragment>
+      </Router>
     );
   }
 }
