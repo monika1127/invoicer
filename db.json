@@ -61,54 +61,34 @@
       "id": 6
     },
     {
-      "number": "90/9000",
-      "price": 900,
-      "saleDate": "29/12/2020",
-      "isPaid": true,
-      "contractor": "ttt",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "29/12/2020",
+      "number": "44/2020",
+      "price": 3000,
+      "saleDate": "07/01/2021",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "XX wykonanie usługi",
+      "creationDate": "07/01/2021",
       "id": 7
     },
     {
-      "number": "55/5555",
-      "price": 55000,
-      "saleDate": "05/01/2021",
-      "isPaid": true,
-      "contractor": "Smerf Ważniak",
+      "number": "44/2020",
+      "price": 12,
+      "saleDate": "06/01/2021",
+      "isPaid": false,
+      "contractor": "Gumisie i spółka",
       "type": "FV sprzedaż towarów i usług",
-      "creationDate": "05/01/2021",
+      "creationDate": "06/01/2021",
       "id": 8
     },
     {
       "number": "22/2222",
-      "price": 3000,
-      "saleDate": "16/01/2019",
+      "price": 2342,
+      "saleDate": "14/01/2021",
       "isPaid": false,
-      "contractor": "Reksio",
+      "contractor": "Smerf Ważniak",
       "type": "FV sprzedaż towarów i usług",
-      "creationDate": "16/01/2019",
+      "creationDate": "14/01/2021",
       "id": 9
-    },
-    {
-      "number": "88/2020",
-      "price": 8000,
-      "saleDate": "12/01/2021",
-      "isPaid": true,
-      "contractor": "Reksio",
-      "type": "XX wykonanie usługi",
-      "creationDate": "12/01/2021",
-      "id": 10
-    },
-    {
-      "number": "22/2222",
-      "price": 3000,
-      "saleDate": "07/01/2021",
-      "isPaid": false,
-      "contractor": "Prosiaczek i Przyjaciele",
-      "type": "XX wykonanie usługi",
-      "creationDate": "07/01/2021",
-      "id": 11
     }
   ],
   "contractors": [
@@ -138,78 +118,6 @@
       "post": "55-888",
       "city": "Stumilowy Las",
       "tel": "999-93-29"
-    },
-    {
-      "companyName": "Monika Dziub",
-      "NIP": "111-222-333-444",
-      "street": "Matusiaka",
-      "post": "46-316",
-      "city": "Bielsko-biała",
-      "tel": "798481619",
-      "id": 4
-    },
-    {
-      "companyName": "Reksio",
-      "NIP": "999-999-999-999",
-      "street": "Buda 3",
-      "post": "46-316",
-      "city": "Bytom",
-      "tel": "509206084",
-      "id": 7
-    },
-    {
-      "companyName": "ttt",
-      "NIP": "666-666-666-666",
-      "street": "666",
-      "post": "666",
-      "city": "666",
-      "tel": "666",
-      "id": 8
-    },
-    {
-      "companyName": "gjhvhv",
-      "NIP": "111-222-333-444",
-      "street": "morskie oko 7/18",
-      "post": "66-666",
-      "city": "BB",
-      "tel": "798481619",
-      "id": 9
-    },
-    {
-      "companyName": "uuuu",
-      "NIP": "111-222-333-444",
-      "street": "uuuu",
-      "post": "46-316",
-      "city": "uuuu",
-      "tel": "uuuu",
-      "id": 10
-    },
-    {
-      "companyName": "ffff",
-      "NIP": "111-222-333-444",
-      "street": "fff",
-      "post": "fff",
-      "city": "fff",
-      "tel": "ffff",
-      "id": 11
-    },
-    {
-      "companyName": "uuu",
-      "NIP": "999-999-999-999",
-      "street": "Matusiaka, 9, 97",
-      "post": "uuu",
-      "city": "Bielsko-biała",
-      "tel": "798481619",
-      "id": 12
-    },
-    {
-      "companyName": "Monikagtfh Dziub",
-      "NIP": "999-999-999-999",
-      "street": "Matusiaka, 9, 97",
-      "post": "46-316",
-      "city": "Bielsko-biała",
-      "tel": "798481619",
-      "id": 13
     }
   ],
   "users": {

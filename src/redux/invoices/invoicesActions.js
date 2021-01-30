@@ -54,11 +54,3 @@ export const addInvoice = (newInvoiceData, callback) => async dispatch => {
         callback('Wystąpił błąd! Faktura nie została dodana', 'fail'))
     }
 }
-
-// export const addInvoice = (values, callback) => async dispatch => {
-//     // twoj callback to setAlert
-//     // try / catch
-//     wysylamy dane:
-//         - jesli OK, wtedy w naszej odpowiedzi mamy nowa fakture -> oglaszamy ADD_INVOICE i callback('udalo sie dodac', 'success')
-//         - jesli NOK, wtedy oglaszmay SET_ERRORS i error callback('nok', 'fail')
-// }

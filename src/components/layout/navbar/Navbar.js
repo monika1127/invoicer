@@ -16,6 +16,11 @@ import './navbar.css'
 
 const Navbar = ({ user: { isLogged }, logIn, logOut }) => {
 
+
+    const onExit = ()=>{
+        logOut()
+        localStorage.removeItem('formValues')
+    }
     return (
         <div className='navbar'>
             <div className='navbar__name'>
@@ -37,7 +42,7 @@ const Navbar = ({ user: { isLogged }, logIn, logOut }) => {
                     <div className='navbar__item -main user'>
                         <Avatar />
                     </div>
-                    <div className='logout' onClick={logOut}>
+                    <div className='logout' onClick={onExit}>
                         <LogOutIcon width={24} height={24} />
                     </div>
                 </div>

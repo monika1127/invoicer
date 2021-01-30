@@ -20,7 +20,8 @@ import './newInvoiceForm.css'
 
 const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addInvoice }) => {
 
-    useEffect(() => {!contractorsList && getContractors()})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => { !contractorsList && getContractors() }, [])
 
     // variables for Alert display - AlertContext
     const alertCtx = useContext(AlertContext)
@@ -33,7 +34,8 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
 
     //local storage - form fields values
     const formValues = localStorage.getItem('formValues')
-    const initialValues = formValues ? JSON.parse(formValues) : {
+    const parsedFormValues = formValues && JSON.parse(formValues)
+    const initialValues = parsedFormValues ? { ...parsedFormValues, saleDate: parsedFormValues.saleDate ? new Date(parsedFormValues.saleDate) : '' } : {
         number: '',
         price: '',
         saleDate: '',
@@ -41,6 +43,7 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
         contractor: '',
         type: ''
     }
+    // console.log(parsedFormValues.saleDate)
 
     const formik = useFormik({
         initialValues: initialValues,
@@ -63,12 +66,13 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
         }),
 
         onSubmit: values => {
+            console.log(values)
             const isPaid = values.isPaid === "true"
             const saleDate = values.saleDate.toLocaleDateString('en-GB')
             const newInvoiceData = { ...values, creationDate: saleDate, isPaid, saleDate }
             const callback = (alertTxt, alertType) => {
                 setAlertMessage(alertTxt, alertType)
-                if(alertType==='fail') return
+                if (alertType === 'fail') return
                 localStorage.removeItem('formValues')
                 goToInvoicesList()
                 formik.resetForm();
@@ -119,6 +123,7 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
                         selectFormik={formik.getFieldProps('contractor')}
                         onClick={() => {
                             goToNewContractorForm()
+
                             localStorage.setItem("formValues", JSON.stringify(formik.values))
                         }}
                         options={contractorsList.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}

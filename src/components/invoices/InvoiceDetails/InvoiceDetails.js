@@ -21,7 +21,7 @@ const InvoiceDetails = ({
 
     const { id } = useParams()
     const currentInvoice = invoicesList.find((inv) => inv.id.toString() === id)
-    const currentContractor = contractorsList.filter((c) => c.companyName === currentInvoice.contractor)
+    const currentContractor = contractorsList.find((c) => c.companyName === currentInvoice.contractor)
 
     const { street, post, NIP, city } = currentContractor
     const { saleDate, creationDate, contractor, price } = currentInvoice
