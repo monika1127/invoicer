@@ -19,8 +19,8 @@ const InvoicesList = ({
     getContractors
 }) => {
 
-    useEffect(() => { getInvoices() }, [])
-    useEffect(() => { getContractors() }, [])
+    useEffect(() => { getInvoices() })
+    useEffect(() => { getContractors() })
 
     //dane do tablicy//
     const columns = ['', '', 'Numer', "Data Sprzedaży", 'Data Wystawienia', 'Kontrahent', 'Brutto', 'Pozostałe', 'Operacje']

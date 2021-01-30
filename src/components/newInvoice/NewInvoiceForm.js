@@ -20,10 +20,7 @@ import './newInvoiceForm.css'
 
 const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addInvoice }) => {
 
-    useEffect(() => {
-        !contractorsList && getContractors()
-    }, [])
-
+    useEffect(() => {!contractorsList && getContractors()})
 
     // variables for Alert display - AlertContext
     const alertCtx = useContext(AlertContext)
@@ -79,6 +76,7 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
             addInvoice(newInvoiceData, callback)
         }
     });
+
     //dont display form until contractors list uploaded
     if (!contractorsList) return null
 

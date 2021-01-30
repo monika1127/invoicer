@@ -1,7 +1,6 @@
 import {
     SET_ERRORS,
     GET_CONTRACTORS,
-    SET_LOADING,
     ADD_CONTRACTOR
 } from './types'
 

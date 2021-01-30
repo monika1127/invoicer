@@ -99,6 +99,16 @@
       "type": "XX wykonanie usługi",
       "creationDate": "12/01/2021",
       "id": 10
+    },
+    {
+      "number": "22/2222",
+      "price": 3000,
+      "saleDate": "07/01/2021",
+      "isPaid": false,
+      "contractor": "Prosiaczek i Przyjaciele",
+      "type": "XX wykonanie usługi",
+      "creationDate": "07/01/2021",
+      "id": 11
     }
   ],
   "contractors": [
@@ -191,6 +201,15 @@
       "city": "Bielsko-biała",
       "tel": "798481619",
       "id": 12
+    },
+    {
+      "companyName": "Monikagtfh Dziub",
+      "NIP": "999-999-999-999",
+      "street": "Matusiaka, 9, 97",
+      "post": "46-316",
+      "city": "Bielsko-biała",
+      "tel": "798481619",
+      "id": 13
     }
   ],
   "users": {

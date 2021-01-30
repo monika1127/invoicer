@@ -1,16 +1,8 @@
 import {
     GET_CONTRACTORS,
     SET_ERRORS,
-    SET_LOADING,
     ADD_CONTRACTOR}
     from './types';
-
-
-export const setLoading = ()=>{
-    return {
-        type: SET_LOADING
-    }
-}
 
 export const getContractors = ()=> async dispatch => {
     try {
