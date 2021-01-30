@@ -17,14 +17,14 @@ const InvoiceDetails = ({
     contractors: { contractorsList } }) => {
 
     let history = useHistory()
-    const closeInvoiceDetails = ()=> history.push('/invoices')
+    const closeInvoiceDetails = () => history.push('/invoices')
 
-    const {id}=useParams()
-    const currentInvoice = invoicesList.filter((inv) => inv.id == id)
-    const currentContractor = contractorsList.filter((c) => c.companyName === currentInvoice[0].contractor)
+    const { id } = useParams()
+    const currentInvoice = invoicesList.find((inv) => inv.id.toString() === id)
+    const currentContractor = contractorsList.filter((c) => c.companyName === currentInvoice.contractor)
 
-    const { street, post, NIP, city } = currentContractor[0]
-    const { saleDate, creationDate, contractor, price } = currentInvoice[0]
+    const { street, post, NIP, city } = currentContractor
+    const { saleDate, creationDate, contractor, price } = currentInvoice
 
     const VAT = 0.23
     const showVAT = (VAT * 100) + '%'

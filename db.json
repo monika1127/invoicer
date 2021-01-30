@@ -69,6 +69,36 @@
       "type": "FV sprzedaż towarów i usług",
       "creationDate": "29/12/2020",
       "id": 7
+    },
+    {
+      "number": "55/5555",
+      "price": 55000,
+      "saleDate": "05/01/2021",
+      "isPaid": true,
+      "contractor": "Smerf Ważniak",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "05/01/2021",
+      "id": 8
+    },
+    {
+      "number": "22/2222",
+      "price": 3000,
+      "saleDate": "16/01/2019",
+      "isPaid": false,
+      "contractor": "Reksio",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "16/01/2019",
+      "id": 9
+    },
+    {
+      "number": "88/2020",
+      "price": 8000,
+      "saleDate": "12/01/2021",
+      "isPaid": true,
+      "contractor": "Reksio",
+      "type": "XX wykonanie usługi",
+      "creationDate": "12/01/2021",
+      "id": 10
     }
   ],
   "contractors": [
@@ -125,6 +155,42 @@
       "city": "666",
       "tel": "666",
       "id": 8
+    },
+    {
+      "companyName": "gjhvhv",
+      "NIP": "111-222-333-444",
+      "street": "morskie oko 7/18",
+      "post": "66-666",
+      "city": "BB",
+      "tel": "798481619",
+      "id": 9
+    },
+    {
+      "companyName": "uuuu",
+      "NIP": "111-222-333-444",
+      "street": "uuuu",
+      "post": "46-316",
+      "city": "uuuu",
+      "tel": "uuuu",
+      "id": 10
+    },
+    {
+      "companyName": "ffff",
+      "NIP": "111-222-333-444",
+      "street": "fff",
+      "post": "fff",
+      "city": "fff",
+      "tel": "ffff",
+      "id": 11
+    },
+    {
+      "companyName": "uuu",
+      "NIP": "999-999-999-999",
+      "street": "Matusiaka, 9, 97",
+      "post": "uuu",
+      "city": "Bielsko-biała",
+      "tel": "798481619",
+      "id": 12
     }
   ],
   "users": {

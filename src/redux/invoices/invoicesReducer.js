@@ -21,15 +21,22 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: null
             }
+        case ADD_INVOICE:
+            return {
+                ...state,
+                invoicesList: [...state.invoicesList, action.payload],
+                loading: false,
+                error: null
+            }
         case SET_ERRORS:
             return {
                 ...state,
-                error: 'blad'
+                error: action.payload
             }
-            case SET_LOADING:
+        case SET_LOADING:
             return {
                 ...state,
-                loading: true
+                loading: action.payload
             }
         default:
             return state;

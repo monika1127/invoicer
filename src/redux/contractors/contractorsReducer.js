@@ -21,6 +21,13 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: null
             }
+        case ADD_CONTRACTOR:
+            return {
+                ...state,
+                contractorsList: [action.payload, ...state.contractorsList],
+                loading: false,
+                error: null
+            }
         case SET_ERRORS:
             return {
                 ...state,

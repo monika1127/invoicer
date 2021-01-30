@@ -27,6 +27,7 @@ class App extends Component {
     }
     const logOut = () => {
       this.setState({ user: {}, isLogged: false })
+      localStorage.removeItem('formValues')
     }
 
     return (

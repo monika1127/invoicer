@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
 import { getInvoices } from '../../redux/invoices/invoicesActions'
 import { getContractors } from '../../redux/contractors/contractorsActions'
-import { connect } from 'react-redux'
+import { invoicesSelector } from '../../redux/invoices/selectors'
 
 import InvoiceItem from './InvoiceItem'
 import Spinner from '../layout/Spinner/Spinner'
@@ -43,7 +44,7 @@ const InvoicesList = ({
     )
 }
 const mapStateToProps = state => ({
-    invoices: state.invoices,
+    invoices: invoicesSelector(state),
     contractors: state.contractors
 })
 

@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { connect } from 'react-redux'
+import { addContractor } from '../../redux/contractors/contractorsActions'
 
 import Card from '../layout/card/Card'
 import Input from '../layout/form/Input'
@@ -8,6 +11,10 @@ import Button from '../layout/button/Button'
 import AlertContext from '../../context/alert/alertContext'
 
 const NewContractorForm = (props) => {
+
+    //routing
+    const history = useHistory()
+    const goToNewInvoiceForm = () => history.push('/invoices/new')
 
     // variables for Alert display - AlertContext
     const alertCtx = useContext(AlertContext)
@@ -45,21 +52,12 @@ const NewContractorForm = (props) => {
 
         onSubmit: values => {
             console.log(values)
-            fetch(`http://localhost:5000/contractors/`,
-                {
-                    method: 'POST',
-                    headers: { "Content-type": "application/json" },
-                    body: JSON.stringify({ ...values })
-                })
-                .then(res => res.json())
-                .then(res => {
-                    setAlertMessage('Kontrahent został dodany', 'pass')
-                    props.history.push('/invoices/new')
-                })
-                .catch(err => {
-                    setAlertMessage('Wystąpił błąd! Kontrahent nie została dodany', 'fail')
-                    console.log(err)
-                })
+            const callback = (alertTxt, alertType) => {
+                setAlertMessage(alertTxt, alertType)
+                if (alertType === 'fail') return
+                goToNewInvoiceForm()
+            }
+            props.addContractor(values, callback)
         }
     })
 
@@ -112,9 +110,9 @@ const NewContractorForm = (props) => {
                 />
                 <Button type="submit" size='full' color='secondary' >Dodaj kontrahenta</Button>
             </form>
-            <Button type="button" size='full' color='neutral' onClick={()=>props.history.push('/invoices/new')}>Anuluj</Button>
+            <Button type="button" size='full' color='neutral' onClick={goToNewInvoiceForm}>Anuluj</Button>
         </Card>
     )
 }
 
-export default NewContractorForm
+export default connect(null, { addContractor })(NewContractorForm)
