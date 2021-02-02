@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './form.css'
-
 export class Radio extends Component {
     static propTypes = {
         radioLabel: PropTypes.string,
@@ -20,9 +18,9 @@ export class Radio extends Component {
             errorMsg } = this.props
 
         return (
-            <div className={`form-body container-${orientation}`} role="group" aria-labelledby="my-radio-group">
-                <div className={`radio__label-${orientation}`}>{radioLabel}
-                    <div className='error-radio'>{errorMsg}</div>
+            <div className={`form-body form_container--${orientation}`} role="group" aria-labelledby="my-radio-group">
+                <div className={`radio-label-${orientation}`}>{radioLabel}
+                    <div className='form__error-radio'>{errorMsg}</div>
                 </div>
                 <div className={`radio radio-${orientation}`}>
                     {options.map((option, index) => <label key={index}>

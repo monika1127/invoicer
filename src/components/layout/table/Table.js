@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './table.css'
 class Table extends Component {
 
     static propTypes = {
@@ -8,7 +7,7 @@ class Table extends Component {
     }
     render() {
         return (
-            <table className='table__invoices'>
+            <table className='table'>
                 <thead>
                     <tr className='table__header' >
                         {this.props.columns.map((column, index) => <th key={index}>{column}</th>)}

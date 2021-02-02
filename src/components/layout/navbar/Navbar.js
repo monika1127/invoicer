@@ -33,23 +33,23 @@ const Navbar = ({ user: { isLogged }, logIn, logOut }) => {
                     <div className='navbar__item'>Home</div>
                     <Link className='navbar__item' to='/user'>User</Link>
                     <Link className='navbar__item' to='/invoices'> Lista faktur</Link>
-                    <Link className='navbar__item -main' to='/invoices/new'>
-                        <div className='add_btn'>
+                    <Link className='navbar__item navbar__item--main' to='/invoices/new'>
+                        <div className='navbar__add-btn'>
                             <Plus width={12} height={12} /></div>
                         <div>Dodaj fakturę</div>
                     </Link>
 
-                    <div className='navbar__item -main user'>
+                    <div className='navbar__item navbar__item--main navbar__item--user'>
                         <Avatar />
                     </div>
-                    <div className='logout' onClick={onExit}>
+                    <div className='navbar__logout-icon' onClick={onExit}>
                         <LogOutIcon width={24} height={24} />
                     </div>
                 </div>
                 :
                 <Link to="/user" className='navbar__items'>
                     <Button color='secondary' size='large' onClick={logIn}>
-                        <div className='login'>
+                        <div className='navbar__login-icon'>
                             <div>Zaloguj</div>
                             <LogInIcon width={24} height={24} />
                         </div>

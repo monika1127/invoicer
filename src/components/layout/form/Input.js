@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './form.css'
 export class Input extends Component {
     static propTypes = {
         inputLabel: PropTypes.string,
@@ -24,15 +23,16 @@ export class Input extends Component {
 
         return (
                 <div className='form-body'>
-                    <label htmlFor={inputId}>{inputLabel}</label>
-                    <div className='input-field'>
+                    <label className='input-label' htmlFor={inputId}>{inputLabel}</label>
+                    <div >
                         <input
+                            className='input-field'
                             id={inputId}
                             type={inputType}
                             pattern={inputPattern}
                             placeholder={inputPlaceholder}
                             {...inputFormik} />
-                        <div className='error'>{errorMsg}</div>
+                        <div className='form__error'>{errorMsg}</div>
                     </div>
                 </div>
         )

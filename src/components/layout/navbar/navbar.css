@@ -43,13 +43,16 @@
   background-color: var(--secondary);
 }
 
-.-main {
+.navbar__item--main {
   margin-left: 60px;
   display: flex;
   align-items: center;
   font-weight: bold;
 }
-.add_btn {
+.navbar__item--user {
+  padding: 0px 4px;
+}
+.navbar__add-btn {
   margin-right: 8px;
   width: 24px;
   height: 24px;
@@ -60,11 +63,7 @@
   justify-content: center;
 }
 
-.user {
-  padding: 0px 4px;
-}
-
-.logout {
+.navbar__logout-icon {
   display: flex;
   align-items: center;
   width: 48px;
@@ -72,12 +71,12 @@
   transition: 0.5s;
 }
 
-.logout:hover {
+.navbar__logout-icon:hover {
   transform: scale(1.4);
   cursor: pointer;
 }
 
-.login {
+.navbar__login-icon {
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -10,7 +10,8 @@ import NewContractorForm from './components/newContractor/NewContractorForm';
 import NewInvoiceForm from './components/newInvoice/NewInvoiceForm'
 import User from './components/User/User'
 
-import './App.css';
+import './stylesheet/application.css';
+
 const App =({user: {isLogged}})=> {
     return (
         <Router>

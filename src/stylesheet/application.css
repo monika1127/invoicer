@@ -1,0 +1,659 @@
+.avatar {
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: #1880b1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  margin: 0;
+}
+
+.invoice-details__section {
+  padding: 24px 16px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.invoice-details__section .invoice-details__main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.invoice-details__section .invoice-details__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+}
+
+.invoice-details__section .contractor__title,
+.invoice-details__section .date__title {
+  font-size: 14px;
+  margin: 0 8px;
+  min-width: 130px;
+  text-align: right;
+}
+
+.invoice-details__section .invoice-details__container--dates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.invoice-details__section .date__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.invoice-details__section .summary__item--highlited {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.invoice-details__section .invoice-details__summary {
+  margin-left: auto;
+  right: 0;
+  padding: 24px;
+  border: 1px solid #eeeeee;
+  width: 400px;
+}
+
+.invoice-details__section .summary__item {
+  margin: 8px 0px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.invoice-details__section .summary__item--height {
+  margin: 4px 0px;
+}
+
+.invoice-details__section .contractor__title p {
+  margin-top: 0;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+/* stlying for buttons in InvoiceDetails component  */
+.invoiceDetails__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.invoiceDetails__btn div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.invoices__table-container {
+  margin: auto;
+  background-color: white;
+}
+
+.invoice__action-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.invoice__icon-show-details {
+  cursor: pointer;
+  color: #00102e;
+}
+
+.navbar {
+  width: 100%;
+  padding: 4px 24px;
+  background-color: #172a4f;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 24px;
+}
+
+.navbar__name h1 {
+  margin: 8px;
+}
+
+.navbar__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 24px;
+  font-size: 20px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.navbar__item {
+  margin-left: 24px;
+  list-style-type: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar__item:hover:not(.navbar__item--user) {
+  cursor: pointer;
+  background-color: #b1b1b1;
+}
+
+.navbar__item:hover .add_btn {
+  background-color: #29a247;
+}
+
+.navbar__item--main {
+  margin-left: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+
+.navbar__item--user {
+  padding: 0px 4px;
+}
+
+.navbar__add-btn {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: #9ed19e;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar__logout-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 48px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.navbar__logout-icon:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  cursor: pointer;
+}
+
+.navbar__login-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.new-invoice__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topbar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: auto;
+  padding: 8px 16px;
+  width: 100%;
+  border-bottom: 5px solid white;
+  font-weight: bold;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topbar-secondary {
+  background-color: #29a247;
+  color: white;
+}
+
+.topbar-neutral {
+  background-color: #b1b1b1;
+}
+
+.user-info {
+  display: block;
+  margin: auto;
+  width: 1400px;
+  padding: 20px;
+  background-color: white;
+  max-width: 400px;
+  margin: 32px auto;
+  -webkit-box-shadow: 0px 2px 5px 1px #b1b1b1;
+          box-shadow: 0px 2px 5px 1px #b1b1b1;
+}
+
+.user__company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user__company-title {
+  font-size: 14px;
+  width: 120px;
+  margin: 4px 0px;
+}
+
+.user__company-data {
+  margin: 4px 0px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background-color: #eeeeee;
+  color: #262626;
+  font-family: "Arial";
+  text-align: center;
+}
+
+.btn {
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* size */
+.btn-full {
+  width: 100%;
+  padding: 8px;
+  margin: 4px 0px;
+}
+
+.btn-small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.btn-large {
+  padding: 8px 16px;
+  font-size: 20px;
+}
+
+.btn-square {
+  margin: 0 4px;
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* color */
+.btn-secondary {
+  background-color: #29a247;
+  color: white;
+}
+
+.btn-neutral {
+  background-color: #eeeeee;
+}
+
+.btn-dark-neutral {
+  color: #b1b1b1;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #8d1c1c;
+}
+
+.card {
+  background-color: white;
+  margin: auto;
+  margin: 24px auto;
+  -webkit-box-shadow: 0px 2px 5px 1px #b1b1b1;
+          box-shadow: 0px 2px 5px 1px #b1b1b1;
+}
+
+.card--small {
+  width: 420px;
+}
+
+.card--large {
+  width: 1200px;
+}
+
+.card__body {
+  padding: 24px 16px;
+}
+
+.devider {
+  width: 100%;
+  height: 2px;
+  margin: 24px 0px;
+  border-radius: 2px;
+}
+
+.devider--neutral {
+  background-color: #eeeeee;
+}
+
+.divaider--primary {
+  background-color: #172a4f;
+}
+
+.divaider--secondary {
+  background-color: #29a247;
+}
+
+/* general */
+.form-body {
+  padding: 8px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.input-label,
+.select-label,
+.radio-label-list {
+  text-align: right;
+  padding-right: 8px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px;
+}
+
+.select-label {
+  margin-top: 4px;
+}
+
+.radio-label-list {
+  border-right: 1px solid #eeeeee;
+}
+
+.input-field {
+  height: 28px;
+  border: 1px solid #b1b1b1;
+  border-radius: 2px;
+  text-align: right;
+  width: 260px;
+  font-family: "Arial";
+  font-size: 16px;
+}
+
+.input-field__select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+
+.input-field__select select {
+  border: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-family: "Arial";
+  font-size: 16px;
+}
+
+/* data type input */
+.input-field__date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.react-date-picker__wrapper {
+  border: none !important;
+  font-size: 16px;
+}
+
+.react-date-picker__wrapper svg {
+  width: 12px;
+  padding: 0px;
+}
+
+::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+/* select */
+/* errors styling */
+.form__error,
+.form__error-radio {
+  color: #d76969;
+  font-size: 12px;
+  height: 14px;
+}
+
+.form__error {
+  text-align: left;
+}
+
+.form__error-radio {
+  text-align: right;
+  /* radio */
+}
+
+.radio label {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 16px;
+}
+
+.radio input {
+  margin: 0px 8px;
+}
+
+/* radio - list */
+.radio-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form_container--inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* radio - inline */
+.radio__label-inline {
+  font-weight: bold;
+}
+
+.radio-inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.radio-inline input {
+  margin-left: 16px;
+}
+
+.form_container--inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  border: 1px solid #eeeeee;
+  margin: 0;
+  padding: 8px 4px;
+}
+
+.table__header {
+  color: #262626;
+  font-size: 14px;
+}
+
+.table__txt--left {
+  text-align: left;
+}
+
+.table__txt--right {
+  text-align: right;
+}
+
+.table__txt--center {
+  text-align: center;
+}
+
+.table__txt-primary {
+  color: #1880b1;
+}
+
+.table__txt--vsmall {
+  font-size: 12px;
+  color: #b1b1b1;
+}
+
+.table__txt--bold {
+  font-weight: bold;
+}
+/*# sourceMappingURL=application.css.map */

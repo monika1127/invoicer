@@ -1,0 +1,72 @@
+.navbar
+    width: 100%
+    padding: 4px 24px
+    background-color: $primary
+    color: $neutral-very-light
+    display: flex
+    justify-content: space-between
+
+.navbar__name
+    display: flex
+    align-items: center
+    padding-left: 24px
+    h1
+        margin: 8px
+
+.navbar__items
+    display: flex
+    align-items: center
+    padding-right: 24px
+    font-size: 20px
+    margin: 0
+    text-decoration: none
+
+.navbar__item
+    margin-left: 24px
+    list-style-type: none
+    padding: 8px 16px
+    border-radius: 4px
+    text-decoration: none
+    color: $neutral-very-light
+    &:hover:not(.navbar__item--user )
+        cursor: pointer
+        background-color: $neutral-dark
+
+.navbar__item
+    &:hover
+        .add_btn
+            background-color: $secondary
+
+.navbar__item--main
+    margin-left: 60px
+    display: flex
+    align-items: center
+    font-weight: bold
+
+.navbar__item--user
+    padding: 0px 4px
+
+.navbar__add-btn
+    margin-right: 8px
+    width: 24px
+    height: 24px
+    background-color: $secondary-light
+    border-radius: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+
+.navbar__logout-icon
+    display: flex
+    align-items: center
+    width: 48px
+    justify-content: center
+    transition: 0.5s
+    &:hover
+        transform: scale(1.4)
+        cursor: pointer
+
+.navbar__login-icon
+    display: flex
+    align-items: center
+    justify-content: space-between

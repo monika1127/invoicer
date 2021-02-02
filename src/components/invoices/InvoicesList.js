@@ -10,8 +10,6 @@ import Spinner from '../layout/Spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
 
-import './invoices.css'
-
 const InvoicesList = ({
     invoices: { invoicesList, loading },
     contractors:{contractorsList},
@@ -27,9 +25,9 @@ const InvoicesList = ({
     if (!invoicesList || !contractorsList) return null
 
     return (
-        <div className='section'>
+        <div className='card card--large'>
             <TopBar color='secondary' title='Faktury' />
-            <div className='table__container'>
+            <div className='invoices__table-container'>
                 {loading
                     ? <Spinner />
                     : <Table

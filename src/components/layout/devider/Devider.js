@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './devider.css'
-
 export class Devider extends Component {
     static propTypes = {
         color: PropTypes.string
@@ -9,7 +7,7 @@ export class Devider extends Component {
 
     render() {
         return (
-            <div className={`devider ${this.props.color}`}> </div>
+            <div className={`devider devider--${this.props.color}`}> </div>
         )
     }
 }

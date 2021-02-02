@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import TopBar from '../topBar/TopBar'
-import './card.css'
 class Card extends Component {
 
     static propTypes = {
@@ -15,9 +14,9 @@ class Card extends Component {
         const { size, cardName, variant } = this.props
 
         return (
-            <div className={`form__container -${size}`}>
+            <div className={`card card--${size}`}>
                 <TopBar title={cardName} color={variant} />
-                <div className='form__container-body'>
+                <div className='card__body'>
                     {this.props.children}
                 </div>
             </div>
