@@ -111,18 +111,18 @@ const InvoiceDetails = ({
                             <div className='summary__item--highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
                         </div>
                         <Button color="secondary" size="full"  >
-                            <div className="invoiceDetails__btn">
+                            <div className="invoice-details__btn">
                                 <div>
                                     <Print width={16} height={16} />
-                                    <p>Wydrukuj / zapisz</p>
+                                    <p className='invoice-details__btn-text'>Wydrukuj / zapisz</p>
                                 </div>
                                 <Set width={16} height={16} />
                             </div>
                         </Button>
                         <Button color="neutral" size='full'>
-                            <div className='invoiceDetails__btn'>
+                            <div className='invoice-details__btn'>
                                 <Mail width={16} height={16} />
-                                <p> Wyślij wiadomość</p>
+                                <p className='invoice-details__btn-text'> Wyślij wiadomość</p>
                             </div>
                         </Button>
                     </div>

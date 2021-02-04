@@ -105,7 +105,7 @@
 }
 
 /* stlying for buttons in InvoiceDetails component  */
-.invoiceDetails__btn {
+.invoice-details__btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -117,7 +117,7 @@
           justify-content: center;
 }
 
-.invoiceDetails__btn div {
+.invoice-details__btn div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,6 +130,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.invoice-details__btn .invoice-details__btn-text {
+  margin: 0px 4px;
 }
 
 .invoices__table-container {
