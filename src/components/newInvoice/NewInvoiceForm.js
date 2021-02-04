@@ -41,7 +41,6 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
         contractor: '',
         type: ''
     }
-    // console.log(parsedFormValues.saleDate)
 
     const formik = useFormik({
         initialValues: initialValues,
@@ -64,7 +63,6 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
         }),
 
         onSubmit: values => {
-            console.log(values)
             const isPaid = values.isPaid === "true"
             const saleDate = values.saleDate.toLocaleDateString('en-GB')
             const newInvoiceData = { ...values, creationDate: saleDate, isPaid, saleDate }
@@ -73,7 +71,6 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
                 if (alertType === 'fail') return
                 localStorage.removeItem('formValues')
                 goToInvoicesList()
-                formik.resetForm();
             }
             addInvoice(newInvoiceData, callback)
         }

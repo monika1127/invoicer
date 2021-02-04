@@ -8,7 +8,7 @@ import {
 const initialState = {
     loading: false,
     error: null,
-    invoicesList: null
+    invoicesList: []
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export

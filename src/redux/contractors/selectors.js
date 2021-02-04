@@ -1,0 +1,1 @@
+export const contractorsSelector = state => state.contractors

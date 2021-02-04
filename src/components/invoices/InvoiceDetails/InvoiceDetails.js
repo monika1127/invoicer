@@ -11,11 +11,14 @@ import { ReactComponent as Print } from '../../../assets/images/printer.svg'
 import { ReactComponent as Set } from '../../../assets/images/cog.svg'
 import { ReactComponent as Close } from '../../../assets/images/cross.svg'
 
+import { contractorsSelector } from '../../../redux/contractors/selectors'
+import { invoicesSelector } from '../../../redux/invoices/selectors'
+
 const InvoiceDetails = ({
     invoices: { invoicesList },
     contractors: { contractorsList } }) => {
 
-    let history = useHistory()
+    const history = useHistory()
     const closeInvoiceDetails = () => history.push('/invoices')
 
     const { id } = useParams()
@@ -133,8 +136,8 @@ const InvoiceDetails = ({
 }
 
 const mapStateToProps = state => ({
-    invoices: state.invoices,
-    contractors: state.contractors
+    invoices: invoicesSelector(state),
+    contractors: contractorsSelector(state)
 })
 
-export default connect(mapStateToProps, {})(InvoiceDetails)
+export default connect(mapStateToProps)(InvoiceDetails)

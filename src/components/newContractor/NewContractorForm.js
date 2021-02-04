@@ -51,7 +51,6 @@ const NewContractorForm = (props) => {
         }),
 
         onSubmit: values => {
-            console.log(values)
             const callback = (alertTxt, alertType) => {
                 setAlertMessage(alertTxt, alertType)
                 if (alertType === 'fail') return

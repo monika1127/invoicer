@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { logIn, logOut } from '../../../redux/user/actions'
+import { userSelector } from '../../../redux/user/selectors'
 
 import Button from '../button/Button'
 import Avatar from '../../User/Avatar'
@@ -12,7 +13,6 @@ import { ReactComponent as Plus } from '../../../assets/images/plus.svg'
 import { ReactComponent as LogInIcon } from '../../../assets/images/enter.svg'
 import { ReactComponent as LogOutIcon } from '../../../assets/images/exit.svg'
 
-import './navbar.css'
 
 const Navbar = ({ user: { isLogged }, logIn, logOut }) => {
 
@@ -60,6 +60,6 @@ const Navbar = ({ user: { isLogged }, logIn, logOut }) => {
     )
 }
 const mapStateToProps = state => ({
-    user: state.user
+    user: userSelector(state)
 })
 export default connect(mapStateToProps, { logIn, logOut })(Navbar)
