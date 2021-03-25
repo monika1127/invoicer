@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import {connect} from 'react-redux'
 import './user.css'
-export class User extends Component {
-    static propTypes = {
-        user: PropTypes.object.isRequired,
-    }
-    render() {
-        const {firstName, companyName, NIP, adress} = this.props.user
+
+const User =({user:{user}})=> {
+        const {firstName, companyName, NIP, adress} = user
         return (
             <div className='user-info'>
                 <h1>Witaj {firstName}!</h1>
@@ -26,6 +23,8 @@ export class User extends Component {
             </div>
         )
     }
-}
+const mapStateToProps = (state)=>({
+    user: state.user
+})
 
-export default User
+export default connect(mapStateToProps, null )(User)

@@ -7,7 +7,6 @@ export class DateInput extends Component {
         inputLabel: PropTypes.string,
         errorMsg: PropTypes.string,
         onChange: PropTypes.func.isRequired,
-        value: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     }
 

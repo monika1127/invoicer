@@ -1,7 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useContext } from 'react'
+import { connect } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+
+import { addInvoice } from '../../redux/invoices/invoicesActions'
+import { getContractors } from '../../redux/contractors/contractorsActions'
 
 import AlertContext from '../../context/alert/alertContext'
 import Button from '../layout/button/Button'
@@ -13,23 +17,25 @@ import Radio from '../layout/form/Radio'
 import Select from '../layout/form/Select'
 
 import './newInvoiceForm.css'
-const NewInvoiceForm = (props) => {
+
+const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addInvoice }) => {
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => { !contractorsList && getContractors() }, [])
 
     // variables for Alert display - AlertContext
     const alertCtx = useContext(AlertContext)
     const { setAlertMessage } = alertCtx
 
-    // list of possibles contractors, data get from db.json file
-    const [contractors, setContractors] = useState([])
+    //routing
+    const history = useHistory()
+    const goToInvoicesList = () => history.push('/invoices')
+    const goToNewContractorForm = () => history.push('/contractor/new')
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/contractors/`)
-            .then(res => res.json())
-            .then(json => { setContractors(json) })
-    }, [])
-
+    //local storage - form fields values
     const formValues = localStorage.getItem('formValues')
-    const initialValues = formValues ? JSON.parse(formValues) : {
+    const parsedFormValues = formValues && JSON.parse(formValues)
+    const initialValues = parsedFormValues ? { ...parsedFormValues, saleDate: parsedFormValues.saleDate ? new Date(parsedFormValues.saleDate) : '' } : {
         number: '',
         price: '',
         saleDate: '',
@@ -37,10 +43,10 @@ const NewInvoiceForm = (props) => {
         contractor: '',
         type: ''
     }
+    // console.log(parsedFormValues.saleDate)
 
     const formik = useFormik({
         initialValues: initialValues,
-
         validationSchema: Yup.object({
             number: Yup.string()
                 .max(10, '! Improper form number')
@@ -60,20 +66,23 @@ const NewInvoiceForm = (props) => {
         }),
 
         onSubmit: values => {
+            console.log(values)
             const isPaid = values.isPaid === "true"
             const saleDate = values.saleDate.toLocaleDateString('en-GB')
-            const invoice = { ...values, creationDate: saleDate, isPaid, saleDate }
-            fetch(`http://localhost:5000/invoices/`, { method: 'POST', headers: { "Content-type": "application/json" }, body: JSON.stringify(invoice) })
-                .then(res => res.json())
-                .then(res => {
-                    setAlertMessage('Faktura została dodana', 'pass')
-                    localStorage.removeItem('formValues')
-                    props.history.push('/invoices')
-                })
-                .catch(err => setAlertMessage('Wystąpił błąd! Faktura nie została dodana', 'fail'))
-            formik.resetForm();
+            const newInvoiceData = { ...values, creationDate: saleDate, isPaid, saleDate }
+            const callback = (alertTxt, alertType) => {
+                setAlertMessage(alertTxt, alertType)
+                if (alertType === 'fail') return
+                localStorage.removeItem('formValues')
+                goToInvoicesList()
+                formik.resetForm();
+            }
+            addInvoice(newInvoiceData, callback)
         }
     });
+
+    //dont display form until contractors list uploaded
+    if (!contractorsList) return null
 
     return (
         <div className='forms-container'>
@@ -100,7 +109,6 @@ const NewInvoiceForm = (props) => {
                         errorMsg={formik.touched.price && formik.errors.price ? formik.errors.price : null}
                     />
 
-
                     <DateInput
                         inputLabel='Data'
                         errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
@@ -108,26 +116,17 @@ const NewInvoiceForm = (props) => {
                         name='saleDate'
                         value={formik.values.saleDate}
                     />
-                    {/* saleDate input - option without using additionall library */}
-                    {/* <Input
-                        connectiedWith='saleDate'
-                        inputLabel='Data'
-                        inputId='saleDate'
-                        inputType='date'
-                        inputPlaceholder='dd/mm/yyyy'
-                        inputFormik={formik.getFieldProps('saleDate')}
-                        errorMsg={formik.touched.saleDate && formik.errors.saleDate ? formik.errors.saleDate : null}
-                    /> */}
 
                     <Select
                         selectLabel='Kontrahent'
                         defaultOption='Wybierz firmę'
                         selectFormik={formik.getFieldProps('contractor')}
                         onClick={() => {
-                            props.history.push('/contractor/new')
+                            goToNewContractorForm()
+
                             localStorage.setItem("formValues", JSON.stringify(formik.values))
                         }}
-                        options={contractors.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
+                        options={contractorsList.map(contractor => ({ value: contractor.companyName, label: contractor.companyName }))}
                         errorMsg={formik.touched.contractor && formik.errors.contractor ? formik.errors.contractor : null}
                     />
                     <Radio
@@ -167,17 +166,20 @@ const NewInvoiceForm = (props) => {
                         orientation='inline'
                         errorMsg={formik.touched.isPaid && formik.errors.isPaid ? formik.errors.isPaid : null}
                     />
-
                     <Devider color='grey' />
 
                     <Button type="submit" size='full' color='secondary' >Dodaj fakturę</Button>
                 </form>
                 <Link to='/user'>
-                    <Button size='full' color='neutral' onClick={() =>  localStorage.removeItem('formValues')}>Anuluj</Button>
+                    <Button size='full' color='neutral' onClick={() => localStorage.removeItem('formValues')}>Anuluj</Button>
                 </Link>
             </Card>
         </div>
     )
 }
 
-export default NewInvoiceForm
+const mapStateToProps = state => ({
+    contractors: state.contractors
+})
+
+export default connect(mapStateToProps, { getContractors, addInvoice })(NewInvoiceForm)

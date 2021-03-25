@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import Alert from './components/layout/alert/Alert'
 import InvoicesList from './components/invoices/InvoicesList'
@@ -10,42 +11,25 @@ import NewInvoiceForm from './components/newInvoice/NewInvoiceForm'
 import User from './components/User/User'
 
 import './App.css';
-class App extends Component {
-  state = {
-    isLogged: false,
-    user: null
-  }
-
-  render() {
-    const logIn = () => {
-      fetch(`http://localhost:5000/users/`)
-        .then(res => res.json())
-        .then(json => this.setState({ user: json, isLogged: true }))
-    }
-    const logOut = () => {
-      this.setState({ user: {}, isLogged: false })
-    }
-
+const App =({user: {isLogged}})=> {
     return (
-      <Router>
-        <Navbar
-          logIn={logIn}
-          logOut={logOut}
-          isLogged={this.state.isLogged}
-          user={this.state.user} />
-        {this.state.isLogged &&
-          <Alert>
-            <Switch>
-              <Route exact path='/user' render={(props) => <User user={this.state.user} />} />
-              <Route exact path='/invoices' component={InvoicesList}/>
-              <Route exact path='/invoices/new' component={NewInvoiceForm} />
-              <Route exact path='/invoices/:id' component={InvoiceDetails} />
-              <Route exact path='/contractor/new' component={NewContractorForm} />
-            </Switch>
-          </Alert>}
-      </Router>
+        <Router>
+          <Navbar />
+          {isLogged &&
+            <Alert>
+              <Switch>
+                <Route exact path='/user' component={User} />
+                <Route exact path='/invoices' component={InvoicesList} />
+                <Route exact path='/invoices/new' component={NewInvoiceForm} />
+                <Route exact path='/invoices/:id' component={InvoiceDetails} />
+                <Route exact path='/contractor/new' component={NewContractorForm} />
+              </Switch>
+            </Alert>}
+        </Router>
     );
   }
-}
 
-export default App;
+const mapStateToProps = state =>({
+  user: state.user
+})
+export default connect(mapStateToProps,{})(App);

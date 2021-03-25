@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import React from 'react';
+import { connect } from 'react-redux'
 import './avatar.css'
-class Avatar extends Component {
 
-    static propTypes = {
-        firstName: PropTypes.string.isRequired,
-        lastName: PropTypes.string.isRequired,
-    }
+const Avatar = ({ user: { user } }) => {
 
-    render(){
-        const initials = this.props.firstName.charAt(0) + this.props.lastName.charAt(0)
+    const initials = user.firstName.charAt(0) + user.lastName.charAt(0)
 
-        return (
-            <div className='avatar'>{initials}</div>
-        )
-    }
+    return (
+        <div className='avatar'>{initials}</div>
+    )
 }
-export default Avatar
+const mapStateToProps = state => ({
+    user: state.user
+})
+export default connect(mapStateToProps,{})(Avatar)
