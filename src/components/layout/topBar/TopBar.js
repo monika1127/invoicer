@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './topBar.css'
-
 export class TopBar extends Component {
     static propTypes = {
         color: PropTypes.string.isRequired,

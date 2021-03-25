@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import './avatar.css'
+import { userSelector } from '../../redux/user/selectors';
 
 const Avatar = ({ user: { user } }) => {
 
@@ -11,6 +11,6 @@ const Avatar = ({ user: { user } }) => {
     )
 }
 const mapStateToProps = state => ({
-    user: state.user
+    user: userSelector(state)
 })
-export default connect(mapStateToProps,{})(Avatar)
+export default connect(mapStateToProps)(Avatar)

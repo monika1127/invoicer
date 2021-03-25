@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import {connect} from 'react-redux'
 
+import { userSelector } from './redux/user/selectors';
 import Alert from './components/layout/alert/Alert'
 import InvoicesList from './components/invoices/InvoicesList'
 import InvoiceDetails from './components/invoices/InvoiceDetails/InvoiceDetails';
@@ -10,7 +11,8 @@ import NewContractorForm from './components/newContractor/NewContractorForm';
 import NewInvoiceForm from './components/newInvoice/NewInvoiceForm'
 import User from './components/User/User'
 
-import './App.css';
+import './stylesheet/application.css';
+
 const App =({user: {isLogged}})=> {
     return (
         <Router>
@@ -30,6 +32,6 @@ const App =({user: {isLogged}})=> {
   }
 
 const mapStateToProps = state =>({
-  user: state.user
+  user: userSelector(state)
 })
-export default connect(mapStateToProps,{})(App);
+export default connect(mapStateToProps)(App);

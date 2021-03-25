@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import DatePicker from 'react-date-picker'
-import './form.css'
 export class DateInput extends Component {
     static propTypes = {
         inputLabel: PropTypes.string,
@@ -20,14 +19,14 @@ export class DateInput extends Component {
 
         return (
                 <div className='form-body'>
-                    <label>{inputLabel}</label>
-                    <div className='input-field'>
-                        <div className='input-field-date'>
+                    <label className='input-label'>{inputLabel}</label>
+                    <div>
+                        <div className='input-field input-field__date'>
                             <DatePicker
                             onChange={(nextValue) => onChange(name, nextValue)} value={value} format="dd/MM/yyyy"
                             />
                         </div>
-                        <div className='error'>{errorMsg}</div>
+                        <div className='form__error'>{errorMsg}</div>
                     </div>
                 </div>
         )

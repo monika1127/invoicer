@@ -7,7 +7,7 @@ import {
 const initialState = {
     loading: false,
     error: null,
-    contractorsList: null
+    contractorsList: []
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export

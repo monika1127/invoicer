@@ -16,8 +16,6 @@ import Input from '../layout/form/Input'
 import Radio from '../layout/form/Radio'
 import Select from '../layout/form/Select'
 
-import './newInvoiceForm.css'
-
 const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addInvoice }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +41,6 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
         contractor: '',
         type: ''
     }
-    // console.log(parsedFormValues.saleDate)
 
     const formik = useFormik({
         initialValues: initialValues,
@@ -66,7 +63,6 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
         }),
 
         onSubmit: values => {
-            console.log(values)
             const isPaid = values.isPaid === "true"
             const saleDate = values.saleDate.toLocaleDateString('en-GB')
             const newInvoiceData = { ...values, creationDate: saleDate, isPaid, saleDate }
@@ -75,7 +71,6 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
                 if (alertType === 'fail') return
                 localStorage.removeItem('formValues')
                 goToInvoicesList()
-                formik.resetForm();
             }
             addInvoice(newInvoiceData, callback)
         }
@@ -85,7 +80,7 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
     if (!contractorsList) return null
 
     return (
-        <div className='forms-container'>
+        <div className='new-invoice__container'>
             <Card size='small' cardName='Zarejestruj nową fakturę:' variant='secondary'>
                 <form onSubmit={formik.handleSubmit}>
 
@@ -150,7 +145,7 @@ const NewInvoiceForm = ({ contractors: { contractorsList }, getContractors, addI
                         errorMsg={formik.touched.type && formik.errors.type ? formik.errors.type : null}
                     />
 
-                    <Devider color='grey' />
+                    <Devider color='neutral' />
 
                     <Radio
                         radioLabel='Czy faktura zastła już opłacona?'

@@ -13,27 +13,27 @@ class InvoiceItem extends Component {
 
         return (
             <tr>
-                <td className='txt-center'>
+                <td className='table__txt--center'>
                     <input type='checkbox'></input>
                 </td>
-                <td className='txt-center'>
-                    <Link to={`invoices/${id}`} className='show-details'>
+                <td className='table__txt--center'>
+                    <Link to={`invoices/${id}`} className='invoice__icon-show-details'>
                         <Search width={16} height={16} />
                     </Link>
                 </td>
-                <td className='txt-blue txt-bold'>{number}</td>
-                <td className='txt-center'>{saleDate}</td>
-                <td className='txt-center'>{creationDate}</td>
-                <td className='txt-blue'>{contractor}</td>
-                <td className='txt-right'>
-                    <div className='txt-bold'>{Number.parseFloat(price).toFixed(2) + ' PLN'}</div>
-                    <div className='txt-vsmall'>{isPaid ? "opłacono" : "nieopłacono"}</div>
+                <td className='table__txt--primary-color table__txt--bold'>{number}</td>
+                <td className='table__txt--center'>{saleDate}</td>
+                <td className='table__txt--center'>{creationDate}</td>
+                <td className='table__txt--blue'>{contractor}</td>
+                <td className='table__txt--right'>
+                    <div className='table__txt--bold'>{Number.parseFloat(price).toFixed(2) + ' PLN'}</div>
+                    <div className='table__txt--vsmall'>{isPaid ? "opłacono" : "nieopłacono"}</div>
                 </td>
-                <td className='txt-center'>
+                <td className='table__txt--center'>
                     <Button size="small" color="secondary">płatność</Button>
                 </td>
                 <td>
-                    <div className='container__flex-row'>
+                    <div className='invoice__action-icons'>
                         <Button size='square' >
                             <Clock width={16} height={16} />
                         </Button>

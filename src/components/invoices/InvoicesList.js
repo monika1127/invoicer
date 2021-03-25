@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 
 import { getInvoices } from '../../redux/invoices/invoicesActions'
 import { getContractors } from '../../redux/contractors/contractorsActions'
+import { contractorsSelector } from '../../redux/contractors/selectors'
 import { invoicesSelector } from '../../redux/invoices/selectors'
 
 import InvoiceItem from './InvoiceItem'
 import Spinner from '../layout/Spinner/Spinner'
 import TopBar from '../layout/topBar/TopBar'
 import Table from '../layout/table/Table'
-
-import './invoices.css'
 
 const InvoicesList = ({
     invoices: { invoicesList, loading },
@@ -27,9 +26,9 @@ const InvoicesList = ({
     if (!invoicesList || !contractorsList) return null
 
     return (
-        <div className='section'>
+        <div className='card card--large'>
             <TopBar color='secondary' title='Faktury' />
-            <div className='table__container'>
+            <div className='invoices__table-container'>
                 {loading
                     ? <Spinner />
                     : <Table
@@ -45,7 +44,7 @@ const InvoicesList = ({
 }
 const mapStateToProps = state => ({
     invoices: invoicesSelector(state),
-    contractors: state.contractors
+    contractors: contractorsSelector(state)
 })
 
 export default connect(mapStateToProps, { getInvoices, getContractors })(InvoicesList)

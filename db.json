@@ -89,6 +89,26 @@
       "type": "FV sprzedaż towarów i usług",
       "creationDate": "14/01/2021",
       "id": 9
+    },
+    {
+      "number": "22/2222",
+      "price": 3000,
+      "saleDate": "10/02/2021",
+      "isPaid": false,
+      "contractor": "Prosiaczek i Przyjaciele",
+      "type": "RR sprzedaż towaru",
+      "creationDate": "10/02/2021",
+      "id": 10
+    },
+    {
+      "number": "22/2222",
+      "price": 5000,
+      "saleDate": "18/02/2021",
+      "isPaid": false,
+      "contractor": "Smerf Ważniak",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "18/02/2021",
+      "id": 11
     }
   ],
   "contractors": [

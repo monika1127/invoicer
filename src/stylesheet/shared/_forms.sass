@@ -1,0 +1,106 @@
+/* general */
+.form-body
+    padding: 8px 0px
+    display: flex
+    align-items: stretch
+
+.input-label,
+.select-label,
+.radio-label-list
+    text-align: right
+    padding-right: 8px
+    flex: 0 0 120px
+
+.input-label
+.select-label
+    margin-top: 4px
+
+.radio-label-list
+    border-right: $border-standard
+
+.input-field
+    height: 28px
+    border: 1px solid $neutral-dark
+    border-radius: 2px
+    text-align: right
+    width: 260px
+    font-family: $font
+    font-size: 16px
+
+.input-field__select
+    display: flex
+    padding: 0
+    select
+        border: none
+        flex-grow: 1
+        font-family: $font
+        font-size: 16px
+
+/* data type input */
+
+.input-field__date
+    display: flex
+    align-items: center
+    justify-content: flex-end
+
+.react-date-picker__wrapper
+    border: none !important
+    font-size: 16px
+    svg
+        width: 12px
+        padding: 0px
+
+::-webkit-input-placeholder
+    font-size: 14px
+
+/* select */
+
+/* errors styling */
+
+.form__error,
+.form__error-radio
+    color: $danger-light
+    font-size: 12px
+    height: 14px
+
+.form__error
+    text-align: left
+
+.form__error-radio
+    text-align: right
+
+    /* radio */
+
+.radio
+    label
+        width: auto
+        display: flex
+        align-items: center
+        margin-bottom: 16px
+
+.radio
+    input
+        margin: 0px 8px
+
+/* radio - list */
+
+.radio-list
+    display: flex
+    flex-direction: column
+
+.form_container--inline
+    display: flex
+
+/* radio - inline */
+.radio__label-inline
+    font-weight: bold
+
+.radio-inline
+    display: flex
+
+    input
+        margin-left: 16px
+
+.form_container--inline
+    display: flex
+    align-items: flex-start

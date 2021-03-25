@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link, useParams, useHistory } from 'react-router-dom'
-import './invoiceDetails.css'
 
 import TopBar from '../../layout/topBar/TopBar'
 import Button from '../../layout/button/Button'
@@ -12,11 +11,14 @@ import { ReactComponent as Print } from '../../../assets/images/printer.svg'
 import { ReactComponent as Set } from '../../../assets/images/cog.svg'
 import { ReactComponent as Close } from '../../../assets/images/cross.svg'
 
+import { contractorsSelector } from '../../../redux/contractors/selectors'
+import { invoicesSelector } from '../../../redux/invoices/selectors'
+
 const InvoiceDetails = ({
     invoices: { invoicesList },
     contractors: { contractorsList } }) => {
 
-    let history = useHistory()
+    const history = useHistory()
     const closeInvoiceDetails = () => history.push('/invoices')
 
     const { id } = useParams()
@@ -40,19 +42,19 @@ const InvoiceDetails = ({
             <td>1.</td>
             <td>tekst dodać do bazy danych jakiś...</td>
             <td></td>
-            <td className='txt-center'>-</td>
-            <td className='txt-center'>1</td>
-            <td className='txt-center'>usługa</td>
-            <td className='txt-right'>{netto} PLN</td>
-            <td className='txt-center'>{rabat}</td>
-            <td className='txt-right'>{poRabacie} PLN</td>
-            <td className='txt-right'>{poRabacie} PLN</td>
-            <td className='txt-right'>{showVAT}</td>
+            <td className='table__txt--center'>-</td>
+            <td className='table__txt--center'>1</td>
+            <td className='table__txt--center'>usługa</td>
+            <td className='table__txt--right'>{netto} PLN</td>
+            <td className='table__txt--center'>{rabat}</td>
+            <td className='table__txt--right'>{poRabacie} PLN</td>
+            <td className='table__txt--right'>{poRabacie} PLN</td>
+            <td className='table__txt--right'>{showVAT}</td>
         </tr>
 
     return (
-        <div className='section'>
-            <TopBar color='neutral' title="Szczegóły" cl=' topbar-invoiceDetails'>
+        <div className='card card--large'>
+            <TopBar color='neutral' title="Szczegóły">
                 <Link to='/invoices'>
                     <Button color='dark-neutral' size='square' onClick={closeInvoiceDetails}>
                         <Close height={12} width={12} />
@@ -62,68 +64,68 @@ const InvoiceDetails = ({
 
 
             <Fragment>
-                <div className='invoice__details-section'>
-                    <div className='container-flex-main'>
-                        <div className='container-flex'>
-                            <h4 >Nabywca</h4>
-                            <div className='address'>
-                                <p className='txt-blue'>{contractor}</p>
+                <div className='invoice-details__section'>
+                    <div className='invoice-details__main-container'>
+                        <div className='invoice-details__container'>
+                            <h4 className='contractor__title'>Nabywca</h4>
+                            <div className='contractor__title'>
+                                <p className='contractor__name'>{contractor}</p>
                                 <p>{street}</p>
                                 <p>{post} {city}</p>
                                 <p>NIP: {NIP}</p>
                             </div>
                         </div>
-                        <div className='container-flex container-flex-date'>
-                            <div className='one-line'>
-                                <h4>Data wystawienia</h4>
+                        <div className='invoice-details__container invoice-details__container--dates'>
+                            <div className='date__container'>
+                                <h4 className='date__title'>Data wystawienia</h4>
                                 <div>{creationDate}</div>
                             </div>
-                            <div className='one-line'>
-                                <h4>Data sprzedaży</h4>
+                            <div className='date__container'>
+                                <h4 className='date__title'>Data sprzedaży</h4>
                                 <div>{saleDate}</div>
                             </div>
-                            <div className='one-line'>
-                                <h4>Termin płatności</h4>
+                            <div className='date__container'>
+                                <h4 className='date__title'>Termin płatności</h4>
                                 <div>{saleDate}</div>
                             </div>
                         </div>
-                        <div className='container-flex'>
-                            <h4>Format daty</h4>
+                        <div className='invoice-details__container'>
+                            <h4 className='date__title'>Format daty</h4>
                             <div>dzienny</div>
                         </div>
                     </div>
                 </div>
-                <div className='invoice__details-section'>
+                <div className='invoice-details__section'>
                     <Table columns={tableColumns} data={tableData} />
                 </div>
-                <div className='invoice__details-section'>
-                    <div className='summary'>
+                <div className='invoice-details__section'>
+                    <div className='invoice-details__summary'>
                         <h2>Podsumowanie faktury</h2>
-                        <div className='container-flex text-separate'>
-                            <h3>Razem Netto</h3>
+                        <div className='summary__item'>
+                            <h3 className='summary__item--height'>Razem Netto</h3>
                             <div>{poRabacie}</div>
                         </div>
-                        <div className='container-flex text-separate'>
-                            <h3>VAT</h3>
+                        <div className='summary__item'>
+                            <h3 className='summary__item--height'>VAT</h3>
                             <div>{Number.parseFloat(poRabacie - price).toFixed(2)}</div>
                         </div>
-                        <div className='container-flex text-separate'>
-                            <h3>Razem Brutto</h3>
-                            <div className='txt-highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
+                        <div className='summary__item'>
+                            <h3 className='summary__item--height'>Razem Brutto</h3>
+                            <div className='summary__item--highlited'>{Number.parseFloat(price).toFixed(2)} PLN</div>
                         </div>
                         <Button color="secondary" size="full"  >
-                            <div className="invoiceDetails-btn">
+                            <div className="invoice-details__btn">
                                 <div>
                                     <Print width={16} height={16} />
-                                    <p>Wydrukuj / zapisz</p>
+                                    <p className='invoice-details__btn-text'>Wydrukuj / zapisz</p>
                                 </div>
                                 <Set width={16} height={16} />
                             </div>
                         </Button>
                         <Button color="neutral" size='full'>
-                            <div className='invoiceDetails-btn'>
+                            <div className='invoice-details__btn'>
                                 <Mail width={16} height={16} />
-                                <p> Wyślij wiadomość</p>
+                                <p className='invoice-details__btn-text'> Wyślij wiadomość</p>
                             </div>
                         </Button>
                     </div>
@@ -134,8 +136,8 @@ const InvoiceDetails = ({
 }
 
 const mapStateToProps = state => ({
-    invoices: state.invoices,
-    contractors: state.contractors
+    invoices: invoicesSelector(state),
+    contractors: contractorsSelector(state)
 })
 
-export default connect(mapStateToProps, {})(InvoiceDetails)
+export default connect(mapStateToProps)(InvoiceDetails)
