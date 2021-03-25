@@ -30,7 +30,7 @@ const InvoiceDetails = ({
 
     const VAT = 0.23
     const showVAT = (VAT * 100) + '%'
-    const netto = Number.parseFloat(price * (1 + VAT)).toFixed(2)
+    const netto = Number.parseFloat(price / (1+VAT)).toFixed(2)
 
     const rabat = 0
     const poRabacie = Number.parseFloat(netto - rabat).toFixed(2)
@@ -40,7 +40,7 @@ const InvoiceDetails = ({
     const tableData =
         <tr>
             <td>1.</td>
-            <td>tekst dodać do bazy danych jakiś...</td>
+            <td>Name of product or service</td>
             <td></td>
             <td className='table__txt--center'>-</td>
             <td className='table__txt--center'>1</td>
@@ -107,7 +107,7 @@ const InvoiceDetails = ({
                         </div>
                         <div className='summary__item'>
                             <h3 className='summary__item--height'>VAT</h3>
-                            <div>{Number.parseFloat(poRabacie - price).toFixed(2)}</div>
+                            <div>{Number.parseFloat(price-netto).toFixed(2)}</div>
                         </div>
                         <div className='summary__item'>
                             <h3 className='summary__item--height'>Razem Brutto</h3>

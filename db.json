@@ -6,7 +6,7 @@
       "saleDate": "20/11/2020",
       "creationDate": "20/11/2020",
       "price": 12000,
-      "contractor": "Gumisie i spółka",
+      "contractor": "Company XYZ",
       "isPaid": false,
       "type": "FV sprzedaż towarów i usług"
     },
@@ -16,7 +16,7 @@
       "saleDate": "27/11/2020",
       "creationDate": "27/11/2020",
       "price": 200,
-      "contractor": "Smerf Ważniak",
+      "contractor": "Company ASD",
       "isPaid": true,
       "type": "FV sprzedaż towarów i usług"
     },
@@ -26,7 +26,7 @@
       "saleDate": "11/11/2020",
       "creationDate": "15/11/2020",
       "price": 6000,
-      "contractor": "Prosiaczek i Przyjaciele",
+      "contractor": "Company ABC",
       "isPaid": true,
       "type": "FV sprzedaż towarów i usług"
     },
@@ -35,7 +35,7 @@
       "price": 3000,
       "saleDate": "19/01/2021",
       "isPaid": false,
-      "contractor": "Smerf Ważniak",
+      "contractor": "Company ASD",
       "type": "FV sprzedaż towarów i usług",
       "creationDate": "19/01/2021",
       "id": 4
@@ -45,109 +45,69 @@
       "price": 99999,
       "saleDate": "07/01/2021",
       "isPaid": true,
-      "contractor": "Gumisie i spółka",
+      "contractor": "Company XYZ",
       "type": "XX wykonanie usługi",
       "creationDate": "07/01/2021",
       "id": 5
     },
     {
-      "number": "45/3564",
-      "price": 5000,
-      "saleDate": "21/01/2021",
+      "number": "90/9000",
+      "price": 900,
+      "saleDate": "29/12/2020",
       "isPaid": true,
-      "contractor": "Prosiaczek i Przyjaciele",
-      "type": "XX wykonanie usługi",
-      "creationDate": "21/01/2021",
-      "id": 6
-    },
-    {
-      "number": "44/2020",
-      "price": 3000,
-      "saleDate": "07/01/2021",
-      "isPaid": false,
-      "contractor": "Smerf Ważniak",
-      "type": "XX wykonanie usługi",
-      "creationDate": "07/01/2021",
+      "contractor": "Company ABC",
+      "type": "FV sprzedaż towarów i usług",
+      "creationDate": "29/12/2020",
       "id": 7
     },
     {
-      "number": "44/2020",
-      "price": 12,
-      "saleDate": "06/01/2021",
+      "number": "33/2020",
+      "price": 3,
+      "saleDate": "16/03/2021",
       "isPaid": false,
-      "contractor": "Gumisie i spółka",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "06/01/2021",
+      "contractor": "Company ASD",
+      "type": "XX wykonanie usługi",
+      "creationDate": "16/03/2021",
       "id": 8
-    },
-    {
-      "number": "22/2222",
-      "price": 2342,
-      "saleDate": "14/01/2021",
-      "isPaid": false,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "14/01/2021",
-      "id": 9
-    },
-    {
-      "number": "22/2222",
-      "price": 3000,
-      "saleDate": "10/02/2021",
-      "isPaid": false,
-      "contractor": "Prosiaczek i Przyjaciele",
-      "type": "RR sprzedaż towaru",
-      "creationDate": "10/02/2021",
-      "id": 10
-    },
-    {
-      "number": "22/2222",
-      "price": 5000,
-      "saleDate": "18/02/2021",
-      "isPaid": false,
-      "contractor": "Smerf Ważniak",
-      "type": "FV sprzedaż towarów i usług",
-      "creationDate": "18/02/2021",
-      "id": 11
     }
   ],
   "contractors": [
     {
       "id": 1,
-      "companyName": "Gumisie i spółka",
+      "companyName": "Company XYZ",
       "NIP": "123-123-123-123",
-      "street": "Bratkowa 23",
+      "street": "Street XYZ 78",
       "post": "22-222",
-      "city": "Warszawa",
+      "city": "XYZ",
       "tel": "232-23-23"
     },
     {
       "id": 2,
-      "companyName": "Smerf Ważniak",
+      "companyName": "Company ASD",
       "NIP": "678-678-678-678",
-      "street": "Fiołkowa 7",
+      "street": "ASD Street 13",
       "post": "77-777",
-      "city": "Gargamello",
+      "city": "City ASD",
       "tel": "789-77-23"
     },
     {
       "id": 3,
-      "companyName": "Prosiaczek i Przyjaciele",
+      "companyName": "Company ABC",
       "NIP": "556-786-553-888",
-      "street": "Liliowa 3",
+      "street": "ABC Street A/BC",
       "post": "55-888",
-      "city": "Stumilowy Las",
+      "city": "Town ABC",
       "tel": "999-93-29"
     }
   ],
   "users": {
     "id": 1,
-    "companyName": "MoniSia",
+    "companyName": "TestUser",
     "NIP": "123-123-123-123",
-    "adress": "Bielsko",
-    "email": "monisia@dk.com",
-    "firstName": "Monika",
-    "lastName": "Dziub",
-    "password": "nieInterejsujSię"
+    "adress": "Test 3/33",
+    "email": "testUser@example.com",
+    "firstName": "John",
+    "lastName": "Smith",
+    "password": "asd123"
   }
 }
